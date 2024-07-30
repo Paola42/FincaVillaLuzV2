@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacunaciòn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/style.css">
+
+    
+</head>
+<body>
+    
+    <header>
+        <div class="logo">
+            <img src="/img/logo-sena-verde-png-sin-fondo.webp" alt="logo">
+            <h1 class="nombre">Finca Villa Luz</h1>
+        </div>
+        <nav>
+            <a href="/vacuna/add.html">Vacuna</a>
+            <a href="/inicio/loginVacuna.html">Salir</a>
+        </nav>
+    </header>
+
+    <div>
+        <h1>Aplicacion De Vacuna</h1>
+    </div>
+    
+    <table>
+        <div class="table">
+            <tr>
+                <th>ID</th>
+                <th>Fecha De aplicaciòn</th>
+                <th>Id Animal</th>
+                <th>Id Vacunaciòn</th>
+                
+            </tr>
+        </div>
+        {%for vacuna in data%}
+
+    <div class="contenido">
+        <tr>
+            <td>{{aplicacionVacuna.idAplicacionVacuna}}</td>
+            <td>{{aplicacionVacuna.fechaAplicacion}}</td>
+            <td>{{aplicacionVacuna.idAnimal}}</td>
+            <td>{{aplicacionVacuna.idVacunacion}}</td>
+            
+
+            <a href="{{ url_for('aplicacionVacuna.edit', id=aplicacionVacuna.idAlicacionVacuna) }}"><i class="bi bi-pencil-square"></i></a>
+            <a href="{{ url_for('aplicacionVacuna.delete', id=aplicacionVacuna.idAplicacionVacuna) }}"><i class="bi bi-archive"></i></a>
+            <!-- Agrega aquí el enlace para eliminar -->
+        </td>
+    </tr>
+{% endfor %}
+
+        </tr>
+    </div>   
+    </table>
+
+    <a href="{{ url_for('aplicacionVacuna.add')}}">Ingresar Vacunaciòn</a>
+    <br>
+   <!-- <a href="{{ url_for('vacuna.inicio')}}">Inicio</a>-->
+
+</body>
+</html>

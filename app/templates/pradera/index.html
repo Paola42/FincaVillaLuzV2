@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacunaciòn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/style.css">
+
+    
+</head>
+<body>
+    
+    <header>
+        <div class="logo">
+            <img src="/img/logo-sena-verde-png-sin-fondo.webp" alt="logo">
+            <h1 class="nombre">Finca Villa Luz</h1>
+        </div>
+        <nav>
+            <a href="/aplicacionVacuna/add.html">Aplicar Vacuna</a>
+            <a href="">Volver</a>
+            <a href="/inicio/loginVacuna.html">Salir</a>
+        </nav>
+    </header>
+
+    <div>
+        <h1>Pradera</h1>
+    </div>
+    
+    <table>
+        <div class="table">
+            <tr>
+                <th>ID</th>
+                <th>Nombre de pradera</th>
+                <th>Ubicaciòn</th>
+                <th>Capacidad de carga</th>
+                <th>Estado de pastoreo</th>
+                <th>Manejos</th>
+                <th>Aforos</th>
+                <th>Area</th>
+                <th>Id De forrajes</th>
+            </tr>
+        </div>
+        {%for pradera in data%}
+
+    <div class="contenido">
+        <tr>
+            <td>{{praderas.id}}</td>
+            <td>{{praderas.nombrePradera}}</td>
+            <td>{{praderas.capacidadCarga}}</td>
+            <td>{{praderas.estadoDePastoreo}}</td>
+            <td>{{praderas.manejos}}</td>
+            <td>{{praderas.aforos}}</td>
+            <td>{{praderas.area}}</td>
+            <td>{{praderas.idForrajes}}</td>
+
+            <a href="{{ url_for('pradrera.edit', id=pradera.idPradera) }}"><i class="bi bi-pencil-square"></i></a>
+            <a href="{{ url_for('pradera.delete', id=pradera.idPradera) }}"><i class="bi bi-archive"></i></a>
+            <!-- Agrega aquí el enlace para eliminar -->
+        </td>
+    </tr>
+{% endfor %}
+
+        </tr>
+    </div>   
+    </table>
+
+    <a href="{{ url_for('pradera.add')}}">Pradera</a>
+    <br>
+   <!-- <a href="{{ url_for('pradera.inicio')}}">Inicio</a>-->
+
+</body>
+</html>
