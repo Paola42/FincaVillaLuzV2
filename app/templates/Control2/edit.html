@@ -10,8 +10,8 @@
 </head>
 <body>
     <div class="overlay">
-    <h1>Editar Aprendiz</h1>
-    <form action="{{ url_for('aprendiz.edit', id=aprendiz.idAprendiz) }}" method="post">
+    <h1>Editar Control</h1>
+    <form action="{{ url_for('Animal.edit', id=Animal.idAnimal) }}" method="post">
        
             <div class="form-group">
                 <label for="descripcion">descripcion</label>
@@ -19,7 +19,7 @@
             </div>
             <div class="form-group">
                 <label for="fecha">fecha</label>
-                <input type="text" id="fecha" name=fecha" required />
+                <input type="text" id="fecha" name="fecha" required />
             </div>
             <div class="form-group">
                 <label for="estado">estado</label>
