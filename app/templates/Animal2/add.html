@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Agregar Animal</title>
+    
+</head>
+<body>
+    <div class="overlay">
+        <h1>Agregar Animal</h1>
+        <form action="{{ url_for('instructor.add') }}" method="post">
+            <div class="form-group">
+                <label for="EspecieAnimal">Especie Animal</label>
+                <input type="text" id="EspecieAnimal" name="EspecieAnimal" required>
+            </div>
+            <div class="form-group">
+                <label for="RazaAnimal">Raza Animal</label>
+                <input type="text" id="RazaAnimal" name=RazaAnimal" required>
+            </div>
+            <div class="form-group">
+                <label for="SexoAnimal">Sexo Animal</label>
+                <input type="text" id="SexoAnimal " name="SexoAnimal" required>
+            </div>
+            <div class="form-group">
+                <label for="FechaNacimiento">FechaNacimiento </label>
+                <input type="date" id="FechaNacimiento" name="FechaNacimiento" required>
+            </div>
+            <div class="form-group">
+                <label for="peso">Peso </label>
+                <input type="text" id="peso" name="peso" required>
+            </div>
+             <div class="form-group">
+                <label for="padres">padres </label>
+                <input type="text" id="padres" name="padres" required>
+            </div>
+            <div class="form-group">
+                <label for="padre">padre</label>
+                <input type="text" id="padre" name="padre" required>
+            </div>
+            <div class="form-group">
+                <label for="madre">madre</label>
+                <input type="text" id="madre" name="madre" required>
+            </div>
+            
+        
+            <button type="submit">Agregar  Animal</button>
+        </form>
+    </div>
+</body>
+</html>
+
