@@ -1,0 +1,50 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Editar Operario</title>
+    
+</head>
+
+<body>
+    <div class="overlay">
+    <h1>Editar Operario</h1>
+    <form action="{{ url_for('instructor.edit', id=instructor.idOperario) }}" method="post">
+        <div class="form-group">
+            <label for="nombreOperario">Nombre Operario</label>
+            <input type="text" id="nombreOperario" name="nombreOperario"
+                value="{{instructor.nombreOperario}}" required>
+        </div>
+
+        <div class="form-group">
+        <label for="documentoOperario">Documento  Operario</label>
+        <input type="text" id="documentoOperario" name="documentoOperario"
+            value="{{instructor.documentoOperario}}" required>
+        </div>  
+
+        <div class="form-group"></div>
+        <label for="direccionOperario">Direccion  Operario</label>
+        <input type="text" id="direccionOperario" name="direccionOperario" value="{{operario.direccionOperario}}" required>
+     
+    <div class="form-group">
+        <label for="telefonoInstructor">Telefono Operario</label>
+        <input type="text" id="telefonoOperario" name="telefonoOperario" value="{{operario.telefonoOperario}}" required>
+    </div>  
+    <div class="form-group">
+        <label for="correoOperario">correo</label>
+        <input type="text" id="correoOperario" name="correoOperario" value="{{operario.correoOperario}}" required>
+    </div>  
+    <div class="form-group">
+        <label for="Operario">Contraseña Operario</label>
+        <input type="text" id="passwordOperario" name="passwordOperario" value="{{operario.passwordOperario}}" required>
+    </div>  
+
+        <button type="submit">Actualizar Operario</button>
+    </form>
+</div>
+</body>
+
+</html>

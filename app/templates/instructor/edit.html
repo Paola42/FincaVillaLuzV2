@@ -1,0 +1,50 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Editar Administrador</title>
+    
+</head>
+
+<body>
+    <div class="overlay">
+    <h1>Editar Instructor</h1>
+    <form action="{{ url_for('instructor.edit', id=instructor.idInstructor) }}" method="post">
+        <div class="form-group">
+            <label for="nombreInstructor">Nombre Instructor</label>
+            <input type="text" id="nombreInstructor" name="nombreInstructor"
+                value="{{instructor.nombreInstructor}}" required>
+        </div>
+
+        <div class="form-group">
+        <label for="documentoInstructor">Documento  Instructor</label>
+        <input type="text" id="documentoInstructor" name="documentoInstructor"
+            value="{{instructor.documentoInstructor}}" required>
+        </div>  
+
+        <div class="form-group"></div>
+        <label for="direccionInstructor">Direccion  Instructor</label>
+        <input type="text" id="direccionInstructor" name="direccionInstructor" value="{{instructor.direccionInstructor}}" required>
+     
+    <div class="form-group">
+        <label for="telefonoInstructor">Telefono Instructor</label>
+        <input type="text" id="telefonoInstructor" name="telefonoInstructor" value="{{instructor.telefonoInstructor}}" required>
+    </div>  
+    <div class="form-group">
+        <label for="correoInstructor">correo</label>
+        <input type="text" id="correoInstructor" name="correoInstructor" value="{{instructor.correoInstructor}}" required>
+    </div>  
+    <div class="form-group">
+        <label for="passwordInstructor">Contraseña Instructor</label>
+        <input type="text" id="passwordInstructor" name="passwordInstructor" value="{{instructor.passwordInstructor}}" required>
+    </div>  
+
+        <button type="submit">Actualizar Instructor</button>
+    </form>
+</div>
+</body>
+
+</html>

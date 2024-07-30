@@ -1,0 +1,50 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Editar Administrador</title>
+    
+</head>
+
+<body>
+    <div class="overlay">
+    <h1>Editar Administrador</h1>
+    <form action="{{ url_for('administrador.edit', id=administrador.idAdministrador) }}" method="post">
+        <div class="form-group">
+            <label for="nombreAdministrador">Nombre Administrador</label>
+            <input type="text" id="nombreAdministrador" name="nombreAdministrador"
+                value="{{ administrador.nombreAdministrador }}" required>
+        </div>
+
+        <div class="form-group">
+        <label for="documentoAdministrador">Documento  Administrador</label>
+        <input type="text" id="documentoAdministrador" name="documentoAdministrador"
+            value="{{administrador.documentoAdministrador }}" required>
+        </div>  
+
+        <div class="form-group"></div>
+        <label for="direccionAdministrador">Direccion  Administrador</label>
+        <input type="text" id="direccionAdministrador" name="direccionAdministrador" value="{{ administrador.direccionAdministrador }}" required>
+     
+    <div class="form-group">
+        <label for="telefonoAdministrador">Telefono Administrador</label>
+        <input type="text" id="telefonoAdministrador" name="telefonoAdministrador" value="{{ administrador.telefonoAdministrador}}" required>
+    </div>  
+    <div class="form-group">
+        <label for="correoAdministrador">correo Administrador</label>
+        <input type="text" id="correoAdministrador" name="correoAdministrador" value="{{administrador.correoAdministrador}}" required>
+    </div>  
+    <div class="form-group">
+        <label for="passwordAdministrador">contraseña Administrador</label>
+        <input type="text" id="passwordAdministrador" name="passwordAdministrador" value="{{administrador.contraseñaAdministrador}}" required>
+    </div>  
+
+        <button type="submit">Actualizar Administrador</button>
+    </form>
+</div>
+</body>
+
+</html>

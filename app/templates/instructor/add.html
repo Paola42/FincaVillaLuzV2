@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Agregar Instructor</title>
+    
+</head>
+<body>
+    <div class="overlay">
+        <h1>Agregar Instructor</h1>
+        <form action="{{ url_for('instructor.add') }}" method="post">
+            <div class="form-group">
+                <label for="nombreInstructor">Nombre Instructor</label>
+                <input type="text" id="nombreInstructor" name="nombreInstructor" required>
+            </div>
+            <div class="form-group">
+                <label for="documentoInstructor">Documento Instructor</label>
+                <input type="text" id="documentoInstructor" name="documentoInstructor" required>
+            </div>
+            <div class="form-group">
+                <label for="documentoInstructor ">Dirección Instructor</label>
+                <input type="text" id="documentoInstructor " name="documentoInstructor" required>
+            </div>
+            <div class="form-group">
+                <label for="telefonoInstructor">Teléfono Instructor</label>
+                <input type="text" id="telefonoInstructor" name="telefonoInstructor" required>
+            </div>
+            <div class="form-group">
+                <label for="correoInstructor ">Correo Instructor</label>
+                <input type="text" id="correoInstructor" name="correoInstructor" required>
+            </div>
+            <div class="form-group">
+                <label for="passwordInstructor">Contraseña Instructor</label>
+                <input type="text" id="passwordInstructor" name="passwordInstructor" required>
+            </div>
+            <button type="submit">Agregar Instructor</button>
+        </form>
+    </div>
+</body>
+</html>

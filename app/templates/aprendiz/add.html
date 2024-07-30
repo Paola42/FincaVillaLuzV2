@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Agregar Aprendiz</title>
+    
+</head>
+<body>
+    <div class="overlay">
+        <h1>Agregar </h1>
+        <form action="{{ url_for('aprendiz.add') }}" method="post">
+            <div class="form-group">
+                <label for="nombreAprendiz">Nombre Aprendiz</label>
+                <input type="text" id="nombreAprendiz" name="nombreAprendiz" required>
+            </div>
+            <div class="form-group">
+                <label for="documentoAprendiz">Documento Aprendiz
+
+                </label>
+                <input type="text" id="documentoAprandiz" name="documentoAprediz" required>
+            </div>
+            <div class="form-group">
+                <label for="documentoAprendiz">Dirección Aprendiz</label>
+                <input type="text" id="documentoAprendiz " name="documentoAprendiz" required>
+            </div>
+            <div class="form-group">
+                <label for="telefonoAprendiz">Teléfono Aprendiz</label>
+                <input type="text" id="telefonoAprendiz" name="telefonoAprendiz" required>
+            </div>
+            <div class="form-group">
+                <label for="correoAprendiz">Correo Aprendiz</label>
+                <input type="text" id="correoAprendiz" name="correAprendiz" required>
+            </div>
+            <div class="form-group">
+                <label for="passwordAprendiz">Contraseña Aprendiz</label>
+                <input type="text" id="passwordAprendiz" name="passwordAprendiz" required>
+            </div>
+            <button type="submit">Agregar  Aprendiz</button>
+        </form>
+    </div>
+</body>
+</html>

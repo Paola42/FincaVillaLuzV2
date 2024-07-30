@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/boot/css/bootstrap.css') }}">
+    <script src="{{ url_for('static', filename='/boot/js/bootstrap.js') }}"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+   
+    <title> Operario </title>
+    
+</head>
+
+<body>
+    <div class="overlay">
+        <h1>Lista de Operario</h1>
+        <div style="overflow-x:auto;">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre Operario</th>
+                    <th>Documento Operario</th>
+                    <th>Direccion Operario</th>
+                    <th>Telefono Operario</th>
+                    <th>Correo Operario</th>
+                    <th>Contraseña Operario</th>
+                    <th>Acciones</th>
+                </tr>
+                {% for instructor in data %}
+                    <tr>
+                        <td>{{ operario.idOperario}}</td>
+                        <td>{{ operario.nombreOperario}}</td>
+                        <td>{{ operario.documentoOperario}}</td>
+                        <td>{{ operario.direccionOperario}}</td>
+                        <td>{{ operario.telefonoOperario}}</td>
+                        <td>{{ operario.correoOperario}}</td>
+                        <td>{{ operario.passwordOperario}}</td>
+                        <td>
+                            <a href="{{ url_for('operario.edit', id=operario.idOperario) }}"><i class="bi bi-pencil-square"></i></a>
+                            <a href="{{ url_for('operario.delete', id=operario.idOperario) }}"><i class="bi bi-archive"></i></a>
+                            <!-- Agrega aquí el enlace para eliminar -->
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <a href="{{ url_for('operario.add')}}">Agregar Operario</a>
+        <br>
+       <!-- <a href="{{ url_for('administrador.inicio')}}">Inicio</a>-->
+
+    </div>
+</body>
+</html>

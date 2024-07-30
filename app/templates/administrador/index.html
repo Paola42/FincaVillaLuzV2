@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/boot/css/bootstrap.css') }}">
+    <script src="{{ url_for('static', filename='/boot/js/bootstrap.js') }}"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <title>Administrador</title>
+    
+</head>
+
+<body>
+    <div class="overlay">
+        <h1>Lista de Administrador</h1>
+        <div style="overflow-x:auto;">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre Administrador</th>
+                    <th>Documento Administrador</th>
+                    <th>Direccion Administrador</th>
+                    <th>Telefono Administrador</th>
+                    <th>Correo Administrador</th>
+                    <th>Contraseña Administrador</th>
+                    <th>Acciones</th>
+                </tr>
+                {% for administrador in data %}
+                    <tr>
+                        <td>{{ administrador.idAdministrador }}</td>
+                        <td>{{ administrador.nombreAdministrador }}</td>
+                        <td>{{ administrador.documentoAdministrador }}</td>
+                        <td>{{ administrador.direccionAdministrador }}</td>
+                        <td>{{ administrador.telefonoAdministrador }}</td>
+                        <td>{{ administrador.correoAdministrador }}</td>
+                        <td>{{ administrador.passwordAdministrador}}</td>
+                        <td>
+                            <a href="{{ url_for('administrador.edit', id=administrador.idAdministrador) }}"><i class="bi bi-pencil-square"></i></a>
+                            <a href="{{ url_for('administrador.delete', id=administrador.idAdministrador) }}"><i class="bi bi-archive"></i></a>
+                            <!-- Agrega aquí el enlace para eliminar -->
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <a href="{{ url_for('administrador.add')}}">Agregar Administrador</a>
+        <br>
+       <!-- <a href="{{ url_for('administrador.inicio')}}">Inicio</a>-->
+
+    </div>
+</body>
+</html>
