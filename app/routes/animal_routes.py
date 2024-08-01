@@ -11,7 +11,7 @@ bp = Blueprint('animal', __name__)
 def index():
     dataAnimales = Animales.query.all()
 
-    return render_template('animal/index.html', dataA=dataAnimales)
+    return render_template('animal/index.html', dataAnimales=dataAnimales)
 
 
 #   Add
