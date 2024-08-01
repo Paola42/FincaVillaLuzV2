@@ -74,7 +74,7 @@ def login():
 @auth_bp.route('/dashboard')
 @login_required
 def dashboard():
-    return f'Welcome, {current_user.usuario}! This is your dashboard.'
+    return f'Welcome, {current_user.correoAdministrador}! This is your dashboard.'
 
 @auth_bp.route('/logout')
 @login_required
