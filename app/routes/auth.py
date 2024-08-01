@@ -52,7 +52,7 @@ def login():
             login_user(administrador)
             flash("Login successful!", "success")
 
-            return redirect(url_for('auth.dashboard'))
+            return render_template('bovinos/index.html')
         
         aprendiz = Aprendices.query.filter_by(correoAprendiz=correo, passwordAprendiz=password).first()
         
@@ -71,10 +71,9 @@ def login():
     
 
 
-@auth_bp.route('/dashboard')
-@login_required
-def dashboard():
-    return f'Welcome, {current_user.correoAdministrador}! This is your dashboard.'
+
+
+    
 
 @auth_bp.route('/logout')
 @login_required
