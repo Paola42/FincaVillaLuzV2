@@ -15,19 +15,19 @@
        
             <div class="form-group">
                 <label for="descripcion">descripcion</label>
-                <input type="text" id="descripcion" name="descripcion" required />
+                <input type="text" id="descripcion" name="descripcion"  value="{{animal .descripcion}}" required> 
             </div>
             <div class="form-group">
                 <label for="fecha">fecha</label>
-                <input type="text" id="fecha" name="fecha" required />
+                <input type="text" id="fecha" name="fecha"  value="{{animal .fecha}}" required>
             </div>
             <div class="form-group">
                 <label for="estado">estado</label>
-                <input type="text" id="estado " name="estado" required />
+                <input type="text" id="estado " name="estado" value="{{animal .estado}}" required> 
             </div>
             <div class="form-group">
                 <label for="idAnimalMejorado">idAnimalMejorado</label>
-                <input type="text" id="idAnimalMejorado" name="idAnimalMejorado" required />
+                <input type="text" id="idAnimalMejorado" name="idAnimalMejorado"  value="{{ animal.idAnimalMejorado}}" required>
             </div>
             <button type="submit">Actualizar Control</button>
         </form>

@@ -1,76 +1,41 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-    <title>Agregar mejoramiento </title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>agregar</title>
+    
 </head>
-
 <body>
     <div class="overlay">
-        <h1>Agregar</h1>
-        <form action="{{ url_for('instructor.add') }}" method="post">
-            <div class="form-group">
-                <label for="descripcion">descripcion</label>
-                <input type="text" id="descripcion" name="descripcion" <!DOCTYPE html>
-<html lang="en">
+    <h1>agregar mejoramiento</h1>
+    <form action="{{ url_for('animal.add', id=animal.idAnimal) }}" method="post">
+        <div class="form-group">
+            <label for="tecnicaEventoGenetico">tecnica usada</label>
+            <input type="text" id="tecnicaEventoGenetico" name="tecnicaEventoGenetico"value="{{ animal.tecnicaEventoGenetico}}" required>
+        </div>
+        <div class="form-group">
+            <label for="fechaEvento">fecha del evento </label>
+            <input type="text" id="fechaEvento" name="fechaEvento" value="{{animal .fechaEvento}}" required>
+            </div>  
+    
+            <div class="form-group"></div>
+            <label for="resultado">resultados</label>
+            <input type="text" id="resultado" name="resultado"value="{{ animal.resultado}}" required>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-    <title>Agregar mejoramientoGenerico </title>
-</head>
-
-<body>
-    <div class="overlay">
-        <h1>Agregar</h1>
-        <form action="{{ url_for('instructor.add') }}" method="post">
             <div class="form-group">
-                <label for="descripcion">descripcion</label>
-                <input type="text" id="descripcion" name="descripcion" value="{{ mejoramientoGenerico.detalles}}" required>
-              </div>
+                <label for="detalles">detalles</label>
+                <input type="text" id="detalles" name="detalles"value="{{ animal.detalles}}" required>
+            </div>  
             <div class="form-group">
-                <label for="fecha">fecha</label>
-                <input type="text" id="fecha" name="fecha" value="{{ mejoramientoGenerico.fecha}}" required>
-
-            </div>
-            <div class="form-group">
-                <label for="estado">estado</label>
-                <input type="text" id="estado " name="estado" value="{{ mejoramientoGenerico.estado}}" required>
-
-            </div>
-            <div class="form-group">
-                <label for="idAnimalMejorado">idAnimalMejorado</label>
-                <input type="text" id="idAnimalMejorado" name="idAnimalMejorado"value="{{ mejoramientoGenerico.idAnimlaMejorado}}" required>
-                >
-            </div>
-            <button type="submit">Agregar Control</button>
+                <label for="idAnimalMejorado">N° animal mejorado</label>
+                <input type="text" id="idAnimalMejorado" name="idAnimalMejorado" value="{{animal.idAnimalMejorado}}" required>
+            </div>  
+            
+            <button type="submit">Actualizar Animal</button>
         </form>
     </div>
-</body>
-
-</html>
-            </div>
-            <div class="form-group">
-                <label for="fecha">fecha</label>
-                <input type="text" id="fecha" name="fecha" required />
-            </div>
-            <div class="form-group">
-                <label for="estado">estado</label>
-                <input type="text" id="estado " name="estado" required />
-            </div>
-            <div class="form-group">
-                <label for="idAnimalMejorado">idAnimalMejorado</label>
-                <input type="text" id="idAnimalMejorado" name="idAnimalMejorado" required />
-            </div>
-            <button type="submit">Agregar Control</button>
-        </form>
-    </div>
-</body>
-
-</html>
+    </body>
+    
