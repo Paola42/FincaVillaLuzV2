@@ -43,9 +43,9 @@ def add():
 
 
 #   Edit
-@bp.route('/Pastoreos/edit/<int:idPastoreo>', methods=['GET', 'POST'])
-def edit(idPastoreo):
-    pastoreo = Pastoreos.query.get_or_404(idPastoreo)
+@bp.route('/Pastoreos/edit/<int:id>', methods=['GET', 'POST'])
+def edit(id):
+    pastoreo = Pastoreos.query.get_or_404(id)
 
     if request.method == 'POST':
         pastoreo.fechaInicioPastoreo = request.form['fechaInicioPastoreo']
@@ -67,9 +67,9 @@ def edit(idPastoreo):
 
 
 #   Delete
-@bp.route('/Pastoreos/delete/<int:idPastoreo>')
-def delete(idPastoreo):
-    pastoreo = Pastoreos.query.get_or_404(idPastoreo)
+@bp.route('/Pastoreos/delete/<int:id>')
+def delete(id):
+    pastoreo = Pastoreos.query.get_or_404(id)
 
     db.session.delete(pastoreo)
     db.session.commit()

@@ -43,9 +43,9 @@ def add():
 
 
 #   Edit
-@bp.route('/AplicacionVacunas/edit/<int:idAplicacionVacuna>', methods=['GET', 'POST'])
-def edit(idAplicacionVacuna):
-    aplicacionVacuna = AplicacionVacunas.query.get_or_404(idAplicacionVacuna)
+@bp.route('/AplicacionVacunas/edit/<int:id>', methods=['GET', 'POST'])
+def edit(id):
+    aplicacionVacuna = AplicacionVacunas.query.get_or_404(id)
 
     if request.method == 'POST':
         aplicacionVacuna.fechaAplicacionVacuna = request.form['fechaAplicacionVacuna']
@@ -65,9 +65,9 @@ def edit(idAplicacionVacuna):
 
 
 #   Delete
-@bp.route('/AplicacionVacunas/delete/<int:idAplicacionVacuna>')
-def delete(idAplicacionVacuna):
-    aplicacionVacuna = AplicacionVacunas.query.get_or_404(idAplicacionVacuna)
+@bp.route('/AplicacionVacunas/delete/<int:id>')
+def delete(id):
+    aplicacionVacuna = AplicacionVacunas.query.get_or_404(id)
 
     db.session.delete(aplicacionVacuna)
     db.session.commit()

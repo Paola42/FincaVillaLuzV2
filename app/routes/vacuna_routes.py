@@ -36,9 +36,9 @@ def add():
 
 
 #   Edit
-@bp.route('/Vacunas/edit/<int:idVacuna>', methods=['GET', 'POST'])
-def edit(idVacuna):
-    vacuna = Vacunas.query.get_or_404(idVacuna)
+@bp.route('/Vacunas/edit/<int:id>', methods=['GET', 'POST'])
+def edit(id):
+    vacuna = Vacunas.query.get_or_404(id)
 
     if request.method == 'POST':
         vacuna.nombreVacuna = request.form['nombreVacuna']
@@ -57,9 +57,9 @@ def edit(idVacuna):
 
 
 #   Delete
-@bp.route('/Vacunas/delete/<int:idVacuna>')
-def delete(idVacuna):
-    vacuna = Vacunas.query.get_or_404(idVacuna)
+@bp.route('/Vacunas/delete/<int:id>')
+def delete(id):
+    vacuna = Vacunas.query.get_or_404(id)
 
     db.session.delete(vacuna)
     db.session.commit()

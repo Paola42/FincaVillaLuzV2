@@ -41,9 +41,9 @@ def add():
     return render_template('eventos/index.html', dataAnimales=dataAnimales, dataEnfermedades=dataEnfermedades, dataInstructores=dataInstructores)
 
 #   Edit
-@bp.route('/Eventos/edit/<int:idEvento>', methods=['GET', 'POST'])
-def edit(idEvento):
-    evento = Eventos.query.get_or_404(idEvento)
+@bp.route('/Eventos/edit/<int:id>', methods=['GET', 'POST'])
+def edit(id):
+    evento = Eventos.query.get_or_404(id)
 
     if request.method == 'POST':
         evento.idAnimal = request.form['idAnimal']
@@ -61,9 +61,9 @@ def edit(idEvento):
     return render_template('eventos/index.html', evento=evento,dataAnimales=dataAnimales, dataEnfermedades=dataEnfermedades, dataInstructores=dataInstructores)
 
 #   Delete
-@bp.route('/Eventos/delete/<int:idEvento>')
-def delete(idEvento):
-    evento = Eventos.query.get_or_404(idEvento)
+@bp.route('/Eventos/delete/<int:id>')
+def delete(id):
+    evento = Eventos.query.get_or_404(id)
 
     db.session.delete(evento)
     db.session.commit()
