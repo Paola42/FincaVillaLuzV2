@@ -41,9 +41,9 @@ def add():
 
 
 #   Edit
-@bp.route('/Praderas/edit/<int:idPradera>', methods=['GET', 'POST'])
-def edit(idPradera):
-    pradera = Praderas.query.get_or_404(idPradera)
+@bp.route('/Praderas/edit/<int:id>', methods=['GET', 'POST'])
+def edit(id):
+    pradera = Praderas.query.get_or_404(id)
 
     if request.method == 'POST':
         pradera.nombrePradera = request.form['nombrePradera']
@@ -65,9 +65,9 @@ def edit(idPradera):
 
 
 #   Delete
-@bp.route('/Praderas/delete/<int:idPradera>')
-def delete(idPradera):
-    pradera = Praderas.query.get_or_404(idPradera)
+@bp.route('/Praderas/delete/<int:id>')
+def delete(id):
+    pradera = Praderas.query.get_or_404(id)
 
     db.session.delete(pradera)
     db.session.commit()

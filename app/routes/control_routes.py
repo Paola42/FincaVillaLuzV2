@@ -37,9 +37,9 @@ def add():
 
 
 #   Edit
-@bp.route('/Controles/edit/<int:idControl>', methods=['GET', 'POST'])
-def edit(idControl):
-    control = Controles.query.get_or_404(idControl)
+@bp.route('/Controles/edit/<int:id>', methods=['GET', 'POST'])
+def edit(id):
+    control = Controles.query.get_or_404(id)
 
     if request.method == 'POST':
         control.descripcionControl = request.form['descripcionControl']

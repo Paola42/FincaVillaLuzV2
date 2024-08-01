@@ -44,9 +44,9 @@ def add():
 
 
 #   Edit
-@bp.route('/AnimalesMejorados/edit/<int:idAnimalMejorado>', methods=['GET', 'POST'])
-def edit(idAnimalMejorado):
-    animalMejorado = AnimalesMejorados.query.get_or_404(idAnimalMejorado)
+@bp.route('/AnimalesMejorados/edit/<int:id>', methods=['GET', 'POST'])
+def edit(id):
+    animalMejorado = AnimalesMejorados.query.get_or_404(id)
 
     if request.method == 'POST':
         animalMejorado.idPadre = request.form['idPadre']
@@ -69,9 +69,9 @@ def edit(idAnimalMejorado):
 
 
 #   Delete
-@bp.route('/AnimalesMejorados/delete/<int:idAnimalMejorado>')
-def delete(idAnimalMejorado):
-    animalMejorado = AnimalesMejorados.query.get_or_404(idAnimalMejorado)
+@bp.route('/AnimalesMejorados/delete/<int:id>')
+def delete(id):
+    animalMejorado = AnimalesMejorados.query.get_or_404(id)
 
     db.session.delete(animalMejorado)
     db.session.commit()

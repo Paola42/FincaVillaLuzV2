@@ -35,9 +35,9 @@ def add():
 
 
 #   Edit
-@bp.route('/Forrajes/edit/<int:idForraje>', methods=['GET', 'POST'])
-def edit(idForraje):
-    forraje = Forrajes.query.get_or_404(idForraje)
+@bp.route('/Forrajes/edit/<int:id>', methods=['GET', 'POST'])
+def edit(id):
+    forraje = Forrajes.query.get_or_404(id)
 
     if request.method == 'POST':
         forraje.fechaDeSiembraForraje = request.form['fechaDeSiembraForraje']
@@ -55,9 +55,9 @@ def edit(idForraje):
 
 
 #   Delete
-@bp.route('/Forrajes/delete/<int:idForraje>')
-def delete(idForraje):
-    forraje = Forrajes.query.get_or_404(idForraje)
+@bp.route('/Forrajes/delete/<int:id>')
+def delete(id):
+    forraje = Forrajes.query.get_or_404(id)
 
     db.session.delete(forraje)
     db.session.commit()

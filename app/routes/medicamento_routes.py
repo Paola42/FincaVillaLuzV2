@@ -34,9 +34,9 @@ def add():
 
 
 #   Edit
-@bp.route('/Medicamentos/edit/<int:idMedicamento>', methods=['GET', 'POST'])
-def edit(idMedicamento):
-    medicamento = Medicamentos.query.get_or_404(idMedicamento)
+@bp.route('/Medicamentos/edit/<int:id>', methods=['GET', 'POST'])
+def edit(id):
+    medicamento = Medicamentos.query.get_or_404(id)
 
     if request.method == 'POST':
         medicamento.nombreMedicamento = request.form['nombreMedicamento']
@@ -53,9 +53,9 @@ def edit(idMedicamento):
 
 
 #   Delete
-@bp.route('/Medicamentos/delete/<int:idMedicamento>')
-def delete(idMedicamento):
-    medicamento = Medicamentos.query.get_or_404(idMedicamento)
+@bp.route('/Medicamentos/delete/<int:id>')
+def delete(id):
+    medicamento = Medicamentos.query.get_or_404(id)
 
     db.session.delete(medicamento)
     db.session.commit()
