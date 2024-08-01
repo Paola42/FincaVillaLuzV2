@@ -14,24 +14,24 @@
     <form action="{{ url_for('animal.edit', id=animal.idAnimal) }}" method="post">
         <div class="form-group">
             <label for="tecnicaEventoGenetico">tecnica usada</label>
-            <input type="text" id="tecnicaEventoGenetico" name="tecnicaEventoGenetico"value="{{ mejoramientoGenerico.tecnicaEventoGenetico}}" required>
+            <input type="text" id="tecnicaEventoGenetico" name="tecnicaEventoGenetico"value="{{ animal.tecnicaEventoGenetico}}" required>
         </div>
         <div class="form-group">
             <label for="fechaEvento">fecha del evento </label>
-            <input type="text" id="fechaEvento" name="fechaEvento" value="{{mejoramientoGenerico .fechaEvento}}" required>
+            <input type="text" id="fechaEvento" name="fechaEvento" value="{{animal .fechaEvento}}" required>
             </div>  
     
             <div class="form-group"></div>
             <label for="resultado">resultados</label>
-            <input type="text" id="resultado" name="resultado"value="{{ mejoramientoGenerico.resultado}}" required>
+            <input type="text" id="resultado" name="resultado"value="{{ animal.resultado}}" required>
 
             <div class="form-group">
                 <label for="detalles">detalles</label>
-                <input type="text" id="detalles" name="detalles"value="{{ mejoramientoGenerico.detalles}}" required>
+                <input type="text" id="detalles" name="detalles"value="{{ animal.detalles}}" required>
             </div>  
             <div class="form-group">
                 <label for="idAnimalMejorado">N° animal mejorado</label>
-                <input type="text" id="idAnimalMejorado" name="idAnimalMejorado" value="{{mejoramientoGenerico.idAnimalMejorado}}" required>
+                <input type="text" id="idAnimalMejorado" name="idAnimalMejorado" value="{{animal.idAnimalMejorado}}" required>
             </div>  
             
             <button type="submit">Actualizar Animal</button>
@@ -39,4 +39,4 @@
     </div>
     </body>
     
-    </hnimal
+    
