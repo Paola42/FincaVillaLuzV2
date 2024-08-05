@@ -51,8 +51,11 @@ def login():
         if administrador:
             login_user(administrador)
             flash("Login successful!", "success")
+            
 
             return render_template('bovinos/index.html')
+    
+        
         
         aprendiz = Aprendices.query.filter_by(correoAprendiz=correo, passwordAprendiz=password).first()
         
@@ -69,6 +72,7 @@ def login():
     
     return render_template("login/login.html")
     
+
 
 
 
