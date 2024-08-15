@@ -69,3 +69,10 @@ def delete(id):
     db.session.commit()
 
     return redirect(url_for('animal.index'))
+
+
+# ruta para animal
+@bp.route('/animal')
+def animal():
+    
+    return redirect(url_for('animal/index.html')) 

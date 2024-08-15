@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pastoreo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="/style.css">
 
     
 </head>
@@ -13,66 +13,65 @@
     
         <header>
             <div class="logo">
-                <img src="C:\Users\SENA\Desktop\fincaVillaLuz\app\templates\img\logo-sena-verde-png-sin-fondo.webp" alt="logo">
+                <img src="/img/logo-sena-verde-png-sin-fondo.webp" alt="logo">
                 <h1 class="nombre">Finca Villa Luz</h1>
             </div>
             <nav>
-                
-             
-                <a href="">Crear cuenta</a>
-                <a href="">Login</a>
+                <a href="">Volver</a>
+                <a href="/inicio/loginpastoreo.html">Salir</a>
             </nav>
         </header>
-    <form class="formulario">
+    <form class="formulario" action="{{url_for('vacuna.add')}}" method="post"></form>
         <h2 class="name">Pastoreo</h2>
         <div class="input-group">
             <div class="input-conteiner">
-                <label for="IDPastoreo">ID Pastoreo</label><br>
-                <input type="text"  placeholder="ID Pastoreo">
+                <label for="idpastoreo">ID pastoreo</label><br>
+                <input type="text" id="idpastoreo" name="idpastoreo" placeholder="ID pastoreo"
+                value="{{pastoreo.idpastoreo}}" required>
             </div>
             <div class="input-conteiner">
-                <label for="Fechadeiniciopastoreo">Fecha de inicio pastoreo</label><br>
-                <input type="text"  placeholder="Fecha de inicio pastoreo">
-            </div>
-
-            <div class="input-conteiner">
-                <label for="Duraciondepastoreo">Duracion del pastoreo</label><br>
-                <input type="text"  placeholder="Duracion del Pastoreo">
+                <label for="fehcadeiniciopastoreo">Fehca de inicio pastoreo</label><br>
+                <input type="text" id="fehcadeiniciopastoreo" name="fehcadeiniciopastoreo" placeholder="Fecha de inicio pastoreo"
+                value="{{pastoreo.fehcadeiniciopastoreo}}" required>
             </div>
 
             <div class="input-conteiner">
-                <label for="Cargaanimal">Carga animal</label><br>
-                <input type="text"  placeholder="Carga animal">
+                <label for="duraciondelpastoreo">Duracion del pastoreo</label><br>
+                <input type="text" id="duraciondelpastoreo" name="duraciondelpastoreo" placeholder="Duracion del pastoreo"
+                value="{{pastoreo.duraciondelpastoreo}}" required>
             </div>
 
             <div class="input-conteiner">
-                <label for="Horasdepastoreo">Horas de pastoreo</label><br>
-                <input type="text"  placeholder="Horas de pastoreo">
+                <label for="cargaanimal">Carga animal</label><br>
+                <input type="text" id="cargaanimal" name="cargaanimal" placeholder="Carga animal"
+                value="{{pastoreo.cargaanimal}}" required>
             </div>
 
             <div class="input-conteiner">
-                <label for="Idpraderas">ID praderas</label><br>
-                <input type="text"  placeholder="ID praderas">
+                <label for="horasdepastoreo">Horas de pastoreo</label><br>
+                <input type="text" id="horasdepastoreo" name="horasdepastoreo" placeholder="Horas de pastoreo"
+                value="{{pastoreo.horasdepastoreo}}" required>
             </div>
 
             <div class="input-conteiner">
-                <label for="IDanimal">ID animal</label><br>
-                <input type="text"  placeholder="ID animal">
+                <label for="idpraderas">ID praderas</label><br>
+                <input type="text" id="idpraderas" name="idpraderas"  placeholder="ID praderas"
+                value="{{pastoreo.idpastoreo}}" required>
             </div>
 
-
+            <div class="input-conteiner">
+                <label for="idanimal">ID animal</label><br>
+                <input type="text" id="idanimal" name="idanimal" placeholder="ID animal"
+                value="{{pastoreo.idanimal}}" required>
+                
+            </div>
             <div class="button">
                 <button  type="submit"> <a href=""></a>Guardar Datos</button>
 
             </div>
             
-
-        
-
-
         </div>
     </form>
-
 
 </body>
 </html>
