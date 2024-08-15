@@ -43,7 +43,7 @@ def edit(id):
     mejoramientoGenetico = MejoramientosGeneticos.query.get_or_404(id)
 
     if request.method == 'POST':
-
+        
         mejoramientoGenetico.tecnicaEventoGenetico = request.form['tecnicaEventoGenetico']
         mejoramientoGenetico.fechaEvento = request.form['fechaEvento']
         mejoramientoGenetico.resultados = request.form['resultados']
