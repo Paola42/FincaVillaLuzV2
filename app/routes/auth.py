@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, redirect, url_for, request, flash
 from flask_login import login_user, logout_user, login_required, current_user
 from app.models.administradores import Administrador
 from app.models.aprendices import Aprendices
+from app.models.instructores import Instructores
 from app.models.usuarios import Usuarios
 
 from app import db
@@ -60,12 +61,21 @@ def login():
             login_user(aprendiz)
             flash("Login successful!", "success")
 
-            return redirect(url_for("auth.dashboar"))
+            return render_template('inicio/index2.html')
         
         flash('Invalid credentials. Please try again.', 'danger')
     
         
+        instructor= Instructores.query.filter_by(correoInstructor=correo, passworInstructor=password).first()
+        
+        if instructor:
+            login_user(instructor)
+            flash("Login successful!", "success")
 
+            return render_template('inicio/index1.html')
+        
+        flash('Invalid credentials. Please try again.', 'danger')
+    
     
     return render_template("login/login.html")
     
