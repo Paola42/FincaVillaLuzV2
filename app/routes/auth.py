@@ -44,7 +44,6 @@ def login():
     if request.method == 'POST':
         correo= request.form['correo']
         password = request.form['password']
-
        # busca el administrador con las credenciales proporcionadas
         administrador = Administrador.query.filter_by(correoAdministrador=correo, passwordAdministrador =password).first()
         
@@ -63,7 +62,17 @@ def login():
             login_user(aprendiz)
             flash("Login successful!", "success")
 
-            return redirect(url_for("auth.dashboar"))
+            return render_template('inicio/index2.html')
+        
+        flash('Invalid credentials. Please try again.', 'danger')
+        
+        aprendiz = Aprendices.query.filter_by(correoAprendiz=correo, passwordAprendiz=password).first()
+        
+        if aprendiz:
+            login_user(aprendiz)
+            flash("Login successful!", "success")
+
+            return render_template('inicio/index2.html')
         
         flash('Invalid credentials. Please try again.', 'danger')
     
