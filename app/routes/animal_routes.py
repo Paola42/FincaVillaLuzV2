@@ -24,9 +24,9 @@ def add():
         sexoAnimal = request.form['sexoAnimal']
         fechaNacimiento = request.form['fechaNacimiento']
         pesoAnimal = request.form['pesoAnimal']
+        padresAnimal = request.form['padresAnimal']
         idAnimalPadre = request.form['idAnimalPadre']
         idAnimalMadre = request.form['idAnimalMadre']
-        padresAnimal = request.form['padresAnimal']
 
         new_animal = Animales( especieAnimal=especieAnimal, razaAnimal=razaAnimal, sexoAnimal=sexoAnimal, fechaNacimiento=fechaNacimiento, pesoAnimal=pesoAnimal,idAnimalPadre=idAnimalPadre, idAnimalMadre=idAnimalMadre, padresAnimal=padresAnimal)
         db.session.add(new_animal)
@@ -49,9 +49,9 @@ def edit(id):
         animal.sexoAnimal = request.form['sexoAnimal']
         animal.fechaNacimiento = request.form['fechaNacimiento']
         animal.pesoAnimal = request.form['pesoAnimal']
+        animal.padresAnimal = request.form['padresAnimal']
         animal.idAnimalPadre = request.form['idAnimalPadre']
         animal.idAnimalMadre = request.form['idAnimalMadre']
-        animal.padresAnimal = request.form['padresAnimal']
 
         db.session.commit()
         

@@ -24,27 +24,32 @@
                     <th>resultados</th>
                     <th>detalles</th>
                     <th>N° animal mejorado</th>
-                    <th></th>
-                    <th></th>
+                    <th>Acciones</th>
                 </tr>
-                {% for aprendiz in data %}
+
+                {% for mejoramientoGenetico in dataMejoramientosGeneticos %}
                     <tr>
-                        <td>{{ animal.idMejoramientoGenetico}}</td>
-                        <td>{{ animal.tecnicaEventoGenetico}}</td>
-                        <td>{{ animal.fechaEvento}}</td>
-                        <td>{{ animal.resultados}}</td>
-                        <td>{{ animal.detalles}}</td>
-                        <td>{{ animal.idAnimalMejorado}}</td>
-            nimal
-                            <a href="{{ url_for('animal.edit', id=animal.idAnimal) }}"><i class="bi bi-pencil-square"></i></a>
-                            <a href="{{ url_for('animal.delete', id=animal.idAnimal) }}"><i class="bi bi-archive"></i></a>
+                        <td>{{ mejoramientoGenetico.idMejoramientoGenetico}}</td>
+                        <td>{{ mejoramientoGenetico.tecnicaEventoGenetico}}</td>
+                        <td>{{ mejoramientoGenetico.fechaEvento}}</td>
+                        <td>{{ mejoramientoGenetico.resultados}}</td>
+                        <td>{{ mejoramientoGenetico.detalles}}</td>
+
+                        {% for animalMejorado in dataAnimalesMejorados %}
+                            <td>{{ animal.idAnimalMejorado}}</td>
+                        {% endfor %}
+
+                        <td>
+                            <a href="{{ url_for('mejoramientogenetico.edit', idMejoramientoGenetico=mejoramientogenetico.idMejoramientoGenetico) }}"><i class="bi bi-pencil-square"></i></a>
+                            <a href="{{ url_for('mejoramientogenetico.delete', idMejoramietnoGenetico=mejoramientogenetico.idMejoramientoGenetico) }}"><i class="bi bi-archive"></i></a>
                             <!-- Agrega aquí el enlace para eliminar -->
                         </td>
                     </tr>
                 {% endfor %}
+
             </table>
         </div>
-        <a href="{{ url_for('animal.add')}}">Agregar Apnimal</a>
+        <a href="{{ url_for('animal.add')}}">Agregar Animal</a>
         <br>
        <!-- <a href="{{ url_for('aprendiz.inicio')}}">Inicio</a>-->
     </div>

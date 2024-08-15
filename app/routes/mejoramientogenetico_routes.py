@@ -13,7 +13,7 @@ def index():
     dataMejoramientosGeneticos = MejoramientosGeneticos.query.all()
     dataAnimalesMejorados = AnimalesMejorados.query.all()
 
-    return render_template('mejoramientosgeneticos/index.html', dataMejoramientosGeneticos=dataMejoramientosGeneticos, dataAnimalesMejorados=dataAnimalesMejorados)
+    return render_template('mejoramientoGenetico/index.html', dataMejoramientosGeneticos=dataMejoramientosGeneticos, dataAnimalesMejorados=dataAnimalesMejorados)
 
 
 #   Add
@@ -21,12 +21,12 @@ def index():
 def add():
     if request.method == 'POST':
         tecnicaEventoGenetico = request.form['tecnicaEventoGenetico']
-        fechaEventoGenetico = request.form['fechaEventoGenetico']
-        resultadosGenetico = request.form['resultadosGenetico']
-        detallesGenetico = request.form['detallesGenetico']
-        idAnimalMejorado = request.form['idAnimalMejorado']
+        fechaEvento = request.form['fechaEvento']
+        resultados = request.form['resultados']
+        detalles = request.form['detalles']
+        animalMejorado = request.form['animalMejorado']
 
-        newMejoramientoGenetico = MejoramientosGeneticos(tecnicaEventoGenetico=tecnicaEventoGenetico, fechaEventoGenetico=fechaEventoGenetico, resultadosGenetico=resultadosGenetico, detallesGenetico=detallesGenetico, idAnimalMejorado=idAnimalMejorado)
+        newMejoramientoGenetico = MejoramientosGeneticos(tecnicaEventoGenetico=tecnicaEventoGenetico, fechaEvento=fechaEvento, resultados=resultados, detalles=detalles, animalMejorado=animalMejorado)
         db.session.add(newMejoramientoGenetico)
         db.session.commit()
 
@@ -34,7 +34,7 @@ def add():
     
     dataAnimalesMejorados = AnimalesMejorados.query.all()
 
-    return render_template('mejoramientosgeneticos/add.html', dataAnimalesMejorados=dataAnimalesMejorados)
+    return render_template('mejoramientoGenetico/add.html', dataAnimalesMejorados=dataAnimalesMejorados)
 
 
 #   Edit
@@ -43,11 +43,12 @@ def edit(id):
     mejoramientoGenetico = MejoramientosGeneticos.query.get_or_404(id)
 
     if request.method == 'POST':
+
         mejoramientoGenetico.tecnicaEventoGenetico = request.form['tecnicaEventoGenetico']
-        mejoramientoGenetico.fechaEventoGenetico = request.form['fechaEventoGenetico']
-        mejoramientoGenetico.resultadosGenetico = request.form['resultadosGenetico']
-        mejoramientoGenetico.detallesGenetico = request.form['detallesGenetico']
-        mejoramientoGenetico.idAnimalMejorado = request.form['idAnimalMejorado']
+        mejoramientoGenetico.fechaEvento = request.form['fechaEvento']
+        mejoramientoGenetico.resultados = request.form['resultados']
+        mejoramientoGenetico.detalles = request.form['detalles']
+        mejoramientoGenetico.animalMejorado = request.form['animalMejorado']
 
         db.session.commit()
         
@@ -55,7 +56,7 @@ def edit(id):
     
     dataAnimalesMejorados = AnimalesMejorados.query.all()
 
-    return render_template('mejoramientosgeneticos/edit.html', mejoramientoGenetico=mejoramientoGenetico, dataAnimalesMejorados=dataAnimalesMejorados)
+    return render_template('mejoramientoGenetico/edit.html', mejoramientoGenetico=mejoramientoGenetico, dataAnimalesMejorados=dataAnimalesMejorados)
 
 
 #   Delete
