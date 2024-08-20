@@ -38,9 +38,9 @@ def add():
 
 
 #   Edit
-@bp.route('/MejoramientosGeneticos/edit/<int:id>', methods=['GET', 'POST'])
-def edit(id):
-    mejoramientoGenetico = MejoramientosGeneticos.query.get_or_404(id)
+@bp.route('/MejoramientosGeneticos/edit/<int:idMejoramientoGenetico>', methods=['GET', 'POST'])
+def edit(idMejoramientoGenetico):
+    mejoramientoGenetico = MejoramientosGeneticos.query.get_or_404(idMejoramientoGenetico)
 
     if request.method == 'POST':
         
@@ -60,9 +60,9 @@ def edit(id):
 
 
 #   Delete
-@bp.route('/MejoramientosGeneticos/delete/<int:id>')
-def delete(id):
-    mejoramientoGenetico = MejoramientosGeneticos.query.get_or_404(id)
+@bp.route('/MejoramientosGeneticos/delete/<int:idMejoramientoGenetico>')
+def delete(idMejoramientoGenetico):
+    mejoramientoGenetico = MejoramientosGeneticos.query.get_or_404(idMejoramientoGenetico)
 
     db.session.delete(mejoramientoGenetico)
     db.session.commit()

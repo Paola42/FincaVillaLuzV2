@@ -1,57 +1,55 @@
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Editar Animal</title>
-
 </head>
-
 <body>
     <div class="overlay">
         <h1>Editar Animal</h1>
-        <form action="{{ url_for('animal.edit', id=animal.idAnimal) }}" method="post">
+        
+        <form action="{{ url_for('animal.edit', idAnimal=animal.idAnimal) }}" method="post">
             <div class="form-group">
                 <label for="especieAnimal">Especie Annimal</label>
-                <input type="text" id="especieAnimal" name="especieAnimal" value="{{ Animal.especieAnimal}}" required>
-            </div>
-            <div class="form-group">
-                <label for="razaAnimal">Raza Animal</label>
-                <input type="text" id="razaAnimal" name="razaAnimal" value="{{Animal.razaAnimal}}" required>
+                <input type="text" id="especieAnimal" name="especieAnimal" value="{{ animal.especieAnimal }}" required>
             </div>
 
-            <div class="form-group"></div>
-            <label for="sexoAnimal">Sexo Animal</label>
-            <input type="text" id="dsexoAnimal" name="sexoAnimal" value="{{ Animal.sexoAnimal}}"
-                required>
+            <div class="form-group">
+                <label for="razaAnimal">Raza Animal</label>
+                <input type="text" id="razaAnimal" name="razaAnimal" value="{{ animal.razaAnimal }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="sexoAnimal">Sexo Animal</label>
+                <input type="text" id="sexoAnimal" name="sexoAnimal" value="{{ animal.sexoAnimal }}" required>
+            </div>
+
             <div class="form-group">
                 <label for="fechaNacimiento">Fecha de Nacimiento</label>
-                <input type="text" id="fechaNacimiento" name="fechaNacimiento" value="{{ Animal.fechaNacimiento}}"
-                    required>
+                <input type="text" id="fechaNacimiento" name="fechaNacimiento" value="{{ animal.fechaNacimiento }}" required>
             </div>
+
             <div class="form-group">
-                <label for="peso">peso</label>
-                <input type="text" id="peso" name="peso" value="{{Animal.peso}}"
-                    required>
+                <label for="pesoAnimal">Peso</label>
+                <input type="text" id="pesoAnimal" name="pesoAnimal" value="{{ animal.pesoAnimal }}" required>
             </div>
+
             <div class="form-group">
-                <label for="padres">padres</label>
-                <input type="text" id="padres" name="padres" value="{{Animal.padres}}"
-                    required>
+                <label for="padres">Padres</label>
+                <input type="text" id="padres" name="padres" value="{{ animal.padres }}" required>
             </div>
+
             <div class="form-group">
-                <label for="idAnimalPadre">idAnimalPadre</label>
-                <input type="text" id="idAnimalPadre" name="idAnimalPadre" value="{{Animal.idAnimalPadre}}"
-                    required>
+                <label for="idAnimalPadre">id Animal Padre</label>
+                <input type="text" id="idAnimalPadre" name="idAnimalPadre" value="{{ animal.idAnimalPadre }}" required>
             </div>
+
             <div class="form-group">
-                <label for="idAnimalMadre">idAnimalMadre</label>
-                <input type="text" id="idAnimalMadre" name="idAnimalMadre" value="{{Animal.idAnimalMadre}}"
-                    required>
+                <label for="idAnimalMadre">id Animal Madre</label>
+                <input type="text" id="idAnimalMadre" name="idAnimalMadre" value="{{ animal.idAnimalMadre }}" required>
             </div>
-            
 
             <button type="submit">Actualizar Animal</button>
         </form>

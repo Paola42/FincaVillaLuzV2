@@ -9,25 +9,25 @@
     <script src="{{ url_for('static', filename='/boot/js/bootstrap.js') }}"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styleCliente.css') }}">
-    <title>Animal</title>
-    
+    <title>Animales</title>
 </head>
 <body>
     <div class="overlay">
-        <h1>Lista del animal</h1>
+        <h1>Lista de los Animales</h1>
         <div style="overflow-x:auto;">
             <table>
                 <tr>
                     <th>ID</th>
-                    <th>especieAnimal</th>
-                    <th>razaAnimal</th>
-                    <th>sexoAnimal</th>
-                    <th>fechaAnimal</th>
-                    <th>peso animal</th>
-                    <th>padres</th>
+                    <th>Especie del Animal</th>
+                    <th>Raza del Animal</th>
+                    <th>Sexo del Animal</th>
+                    <th>Fecha del Animal</th>
+                    <th>Peso del Animal</th>
+                    <th>Padres del Animal</th>
                     <th>Acciones</th>
                 </tr>
-                {% for Animal in data %}
+
+                {% for Animal in dataAnimales %}
                     <tr>
                         <td>{{ Animal.idAnimal}}</td>
                         <td>{{ Animal.especieAnimal}}</td>
@@ -39,15 +39,16 @@
                         <td>{{ Animal.idAnimalPadre}}</td>
                         <td>{{ Animal.idAnimnimal}}</td>
                         <td>
-                            <a href="{{ url_for('animal.edit', id=animal.idAnimal) }}"><i class="bi bi-pencil-square"></i></a>
-                            <a href="{{ url_for('animal.delete', id=animal.idAnimal) }}"><i class="bi bi-archive"></i></a>
+                            <a href="{{ url_for('animal.edit', idAnimal=animal.idAnimal) }}"><i class="bi bi-pencil-square"></i></a>
+                            <a href="{{ url_for('animal.delete', idAnimal=animal.idAnimal) }}"><i class="bi bi-archive"></i></a>
                             <!-- Agrega aquí el enlace para eliminar -->
                         </td>
                     </tr>
                 {% endfor %}
+                
             </table>
         </div>
-        <a href="{{ url_for('anima.add')}}">Agregar Animal</a>
+        <a href="{{ url_for('animal.add')}}">Agregar Animal</a>
         <br>
        <!-- <a href="{{ url_for('aprendiz.inicio')}}">Inicio</a>-->
     </div>

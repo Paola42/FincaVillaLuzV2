@@ -9,44 +9,50 @@
     <script src="{{ url_for('static', filename='/boot/js/bootstrap.js') }}"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styleCliente.css') }}">
-    <title>Mejoramiento</title>
-    
+    <title>Animal Mejorado</title>
 </head>
 <body>
     <div class="overlay">
-        <h1>Lista de Mejoramiento</h1>
+        <h1>Lista de Animales Mejorados</h1>
         <div style="overflow-x:auto;">
             <table>
                 <tr>
-                    <th>ID Mejoramiento</th>
-                    <th>N° padre aportante</th>
+                    <th>ID</th>
+                    <th>ID Padre aportante</th>
                     <th>Nombre Padre</th>
                     <th>Raza Padre</th>
-                    <th>N° Madre Aportante</th>
+                    <th>ID Madre Aportante</th>
                     <th>Nombre Madre</th>
                     <th>Raza Madre</th>
+                    <th>Animal</th>
                     <th>Acciones</th>
                 </tr>
-                {% for animal in data %}
+
+                {% for animalMejorado in dataAnimalesMejorados %}
                     <tr>
-                        <td>{{ animal.idAnimalMejorado}}</td>
-                        <td>{{ animal.idPadreAportante}}</td>
-                        <td>{{ animal.NombrePadre}}</td>
-                        <td>{{ animal.razaPadre}}</td>
-                        <td>{{ animal.idMadreAportante}}</td>
-                        <td>{{ animal.nombreMadre}}</td>
-                        <td>{{ animal.razaMadre}}</td>
-                        <td>{{ animal.idAnimal}}</td>
+                        <td>{{ animalMejorado.idAnimalMejorado}}</td>
+                        <td>{{ animalMejorado.idPadreAportante}}</td>
+                        <td>{{ animalMejorado.nombrePadre}}</td>
+                        <td>{{ animalMejorado.razaPadre}}</td>
+                        <td>{{ animalMejorado.idMadreAportante}}</td>
+                        <td>{{ animalMejorado.nombreMadre}}</td>
+                        <td>{{ animalMejorado.razaMadre}}</td>
+
+                        {% for animalMejorado in dataAnimales %}
+                            <td>{{ animalMejorado.idAnimal}}</td>
+                        {% endfor %}
+                        
                         <td>
-                            <a href="{{ url_for('animal.edit', id=animal.idAnimal) }}"><i class="bi bi-pencil-square"></i></a>
-                            <a href="{{ url_for('animal.delete', id=animal.idAnimal) }}"><i class="bi bi-archive"></i></a>
+                            <a href="{{ url_for('animalmejorado.edit', idAnimalMejorado=animalMejorado.idAnimalMejorado) }}"><i class="bi bi-pencil-square"></i></a>
+                            <a href="{{ url_for('animalmejorado.delete', idAnimalMejorado=animalMejorado.idAnimalMejorado) }}"><i class="bi bi-archive"></i></a>
                             <!-- Agrega aquí el enlace para eliminar -->
                         </td>
-            nimal
+                    </tr>
                 {% endfor %}
+                
             </table>
         </div>
-        <a href="{{ url_for('animal.add')}}">Agregar Mejoramiento</a>
+        <a href="{{ url_for('animalmejorado.add')}}">Agregar Animal Mejorado</a>
         <br>
        <!-- <a href="{{ url_for('aprendiz.inicio')}}">Inicio</a>-->
     </div>

@@ -6,78 +6,61 @@
     <title>Vacunaciòn</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/style.css">
-
-    
 </head>
 <body>
-    
-        <header>
-            <div class="logo">
-                <img src="/img/logo-sena-verde-png-sin-fondo.webp" alt="logo">
-                <h1 class="nombre">Finca Villa Luz</h1>
-            </div>
-            <nav>
-                
-                <a href="/aplicacionVacuna/add.html">Aplicar Vacuna</a>
-                <a href="">Volver</a>
-                <a href="/inicio/loginVacuna.html">Salir</a>
-            </nav>
-        </header>
+    <header>
+        <div class="logo">
+            <img src="/img/logo-sena-verde-png-sin-fondo.webp" alt="logo">
+            <h1 class="nombre">Finca Villa Luz</h1>
+        </div>
+        <nav> 
+            <a href="/aplicacionVacuna/add.html">Aplicar Vacuna</a>
+            <a href="">Volver</a>
+            <a href="/inicio/loginVacuna.html">Salir</a>
+        </nav>
+    </header>
     <form class="formulario">
         <h2 class="name">Vacunaciòn</h2>
         <div class="input-group">
             <div class="input-conteiner">
                 <label for="nombreVacuna">Nombre de Vacuna</label><br>
-                <input type="text" id="nombreVacuna" name="nombreVacuna" placeholder="Nombre de Vacuna"
-                value="{{vacuna.nombreVacuna}}" required>
+                <input type="text" id="nombreVacuna" name="nombreVacuna" placeholder="Nombre de Vacuna" value="{{vacuna.nombreVacuna}}" required>
             </div>
+
             <div class="input-conteiner">
                 <label for="Dosis">Dosis de Vacuna</label><br>
-                <input type="text" id="dosis" name="dosis" placeholder="Dosis de Vacuna"
-                value="{{vacuna.dosis}}" required>
+                <input type="text" id="dosis" name="dosis" placeholder="Dosis de Vacuna" value="{{vacuna.dosis}}" required>
             </div>
 
             <div class="input-conteiner">
                 <label for="viaAdministracion">Via de administraciòn</label><br>
-                <input type="text" id="viaAdministracion" name="viaAdministracion" placeholder="Via de administraciòn"
-                value="{{vacuna.viaAdministracion}}" required>
+                <input type="text" id="viaAdministracion" name="viaAdministracion" placeholder="Via de administraciòn" value="{{vacuna.viaAdministracion}}" required>
             </div>
 
             <div class="input-conteiner">
                 <label for="intervaloRevacunacion">Intervalos de Vacunaciòn</label><br>
-                <input type="text" id="intervalosRevacunacion" name="intervalosRevacunacion" placeholder="Intervalos de Vacunaciòn"
-                value="{{vacuna.intervaloRevacunacion}}" required>
+                <input type="text" id="intervalosRevacunacion" name="intervalosRevacunacion" placeholder="Intervalos de Vacunaciòn" value="{{vacuna.intervaloRevacunacion}}" required>
             </div>
 
             <div class="input-conteiner">
                 <label for="enfermedadObjetivo">Tipo de enfermedad</label><br>
-                <input type="text" id="enfermedadObjetivo" name="enfermedadObjetivo" placeholder="Tipo de enfermedad"
-                value="{{vacuna.enfermedadObjetivo}}" required>
+                <input type="text" id="enfermedadObjetivo" name="enfermedadObjetivo" placeholder="Tipo de enfermedad" value="{{vacuna.enfermedadObjetivo}}" required>
             </div>
 
             <div class="input-conteiner">
                 <label for="tipoVacuna">Tipo de Vacuna</label><br>
-                <input type="tipoVacuna" id="tipoVacuna" name="tipoVacuna"  placeholder="Tipo de Vacuna"
-                value="{{vacuna.tipoVacuna}}" required>
+                <input type="tipoVacuna" id="tipoVacuna" name="tipoVacuna"  placeholder="Tipo de Vacuna" value="{{vacuna.tipoVacuna}}" required>
             </div>
 
             <div class="input-conteiner">
                 <label for="planNacional">Plan Nacional</label><br>
-                <input type="text" id="planNacional" name="planNacional" placeholder="planNacional"
-                value="{{vacuna.planNacional}}" required>
-                
+                <input type="text" id="planNacional" name="planNacional" placeholder="planNacional" value="{{vacuna.planNacional}}" required>
             </div>
+
             <div class="button">
                 <button  type="submit"> <a href=""></a>Editar Datos</button>
-
             </div>
-            
-
-        
-
-
         </div>
     </form>
-
 </body>
 </html>

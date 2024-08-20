@@ -1,53 +1,51 @@
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Editar Mejoramiento</title>
-
+    <title>Agregar Animal Mejorado</title>
 </head>
-
 <body>
     <div class="overlay">
-        <h1>Editar Mejoramiento</h1>
-        <form action="{{ url_for('animal.add', id=animal.idAnimal) }}" method="post">
+        <h1>Agregar Animal Mejorado</h1>
+        <form action="{{ url_for('animalmejorado.add', idAmimalMejorado=animalMejorado.idAnimalMejorado) }}" method="post">
             <div class="form-group">
-                <label for="idPadreAportante">N° padre Aportante</label>
-                <input type="int" id="idPadreAportante" name="idPadreAportante" value="{{ animal.idPadreAportante}}"
-                    required>
-            </div>
-            <div class="form-group">
-                <label for="nombrePadre">NombrePadre</label>
-                <input type="text" id="nombrePadre" name="nombrePadre" value="{{animal.nombrePadre}}" required>
+                <label for="idPadreAportante">ID Padre Aportante</label>
+                <input type="int" id="idPadreAportante" name="idPadreAportante" required>
             </div>
 
-            <div class="form-group"></div>
-            <label for="razaPadre">raza del padre</label>
-            <input type="text" id="drazaPadre" name="razaPadre" value="{{ animal.razaPadre}}" required>
+            <div class="form-group">
+                <label for="nombrePadreAportante">Nombre del Padre</label>
+                <input type="text" id="nombrePadreAportante" name="nombrePadreAportante" required>
+            </div>
 
             <div class="form-group">
-                <label for="idMadreAportante">N° de la nombreMadremadre aportante</label>
-                <input type="int" id="idMadreAportante" name="idMadreAportante" value="{{ animal.idMadreAportante}}"
-                    required>
+                <label for="razaPadreAportante">Raza del padre</label>
+                <input type="text" id="razaPadreAportante" name="razaPadreAportante" required>
             </div>
+
             <div class="form-group">
-                <label for="nombreMadre">Nombre de la Madre</label>
-                <input type="text" id="nombreMadre" name="nombreMadre" value="{{animal.nombreMadre}}"
-                    required>
+                <label for="idMadreAportante">ID Madre Aportante</label>
+                <input type="int" id="idMadreAportante" name="idMadreAportante" required>
             </div>
+
             <div class="form-group">
-                <label for="razaMadre">raza de la Madre</label>
-                <input type="text" id="razaMadre" name="razaMadre" value="{{animal.razaMadre}}"
-                    required>
+                <label for="nombreMadreAportante">Nombre de la Madre</label>
+                <input type="text" id="nombreMadreAportante" name="nombreMadreAportante" required>
             </div>
+
             <div class="form-group">
-                <label for="idAnimal">idAnimal</label>
-                <input type="int" id="idAnimal" name="idAnimal" value="{{animal.idAnimal}}"
-                    required>
+                <label for="razaMadreAportante">Raza de la Madre</label>
+                <input type="text" id="razaMadreAportante" name="razaMadreAportante" required>
             </div>
-            <button type="submit">Actualizar Mejoramiento</button>
+
+            <div class="form-group">
+                <label for="idAnimal">id Animal</label>
+                <input type="int" id="idAnimal" name="idAnimal" required>
+            </div>
+
+            <button type="submit">Agregar Animal Mejorado</button>
         </form>
     </div>
 </body>
