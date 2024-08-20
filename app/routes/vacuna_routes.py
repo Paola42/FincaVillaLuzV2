@@ -11,7 +11,7 @@ bp = Blueprint('vacuna', __name__)
 def index():
     dataVacunas = Vacunas.query.all()
 
-    return render_template('vacunas/index.html', dataVacunas=dataVacunas)
+    return render_template('vacuna/index.html', dataVacunas=dataVacunas)
 
 
 #   Add
@@ -19,14 +19,14 @@ def index():
 def add():
     if request.method == 'POST':
         nombreVacuna = request.form['nombreVacuna']
-        dosisVacuna = request.form['dosisVacuna']
-        viaAdministracionVacuna = request.form['viaAdministracionVacuna']
-        intervaloRevacunacionVacuna = request.form['intervaloRevacunacionVacuna']
-        enfermedadObjetivoVacuna = request.form['enfermedadObjetivoVacuna']
+        dosis= request.form['dosis']
+        viaAdministracion = request.form['viaAdministracion']
+        intervaloReVacunacion = request.form['intervaloReVacunacion']
+        enfermedadObjetivo = request.form['enfermedadObjetivo']
         tipoVacuna = request.form['tipoVacuna']
-        planNacionalVacuna = request.form['planNacionalVacuna']
+        planNacional = request.form['planNacional']
 
-        newVacuna = Vacunas(nombreVacuna=nombreVacuna, dosisVacuna=dosisVacuna, viaAdministracionVacuna=viaAdministracionVacuna, intervaloRevacunacionVacuna=intervaloRevacunacionVacuna, enfermedadObjetivoVacuna=enfermedadObjetivoVacuna, tipoVacuna=tipoVacuna, planNacionalVacuna=planNacionalVacuna)
+        newVacuna = Vacunas(nombreVacuna=nombreVacuna, dosis=dosis, viaAdministracion=viaAdministracion, intervaloReVacunacion=intervaloReVacunacion, enfermedadObjetivo=enfermedadObjetivo, tipoVacuna=tipoVacuna, planNacional=planNacional)
         db.session.add(newVacuna)
         db.session.commit()
 
@@ -37,29 +37,29 @@ def add():
 
 #   Edit
 @bp.route('/Vacunas/edit/<int:id>', methods=['GET', 'POST'])
-def edit(id):
-    vacuna = Vacunas.query.get_or_404(id)
+def edit(idVacuna):
+    vacuna = Vacunas.query.get_or_404(idVacuna)
 
     if request.method == 'POST':
         vacuna.nombreVacuna = request.form['nombreVacuna']
-        vacuna.dosisVacuna = request.form['dosisVacuna']
-        vacuna.viaAdministracionVacuna = request.form['viaAdministracionVacuna']
-        vacuna.intervaloRevacunacionVacuna = request.form['intervaloRevacunacionVacuna']
-        vacuna.enfermedadObjetivoVacuna = request.form['enfermedadObjetivoVacuna']
+        vacuna.dosis = request.form['dosis']
+        vacuna.viaAdministracion = request.form['viaAdministracion']
+        vacuna.intervaloReVacunacion = request.form['intervaloReVacunacion']
+        vacuna.enfermedadObjetivo = request.form['enfermedadObjetivo']
         vacuna.tipoVacuna = request.form['tipoVacuna']
-        vacuna.planNacionalVacuna = request.form['planNacionalVacuna']
+        vacuna.planNacional = request.form['planNacional']
 
         db.session.commit()
         
         return redirect(url_for('vacuna.index'))
     
-    return render_template('vacunas/edit.html', vacuna=vacuna)
+    return render_template('vacuna/edit.html', vacuna=vacuna)
 
 
 #   Delete
-@bp.route('/Vacunas/delete/<int:id>')
-def delete(id):
-    vacuna = Vacunas.query.get_or_404(id)
+@bp.route('/Vacunas/delete/<int:idVacuna>')
+def delete(idVacuna):
+    vacuna = Vacunas.query.get_or_404(idVacuna)
 
     db.session.delete(vacuna)
     db.session.commit()

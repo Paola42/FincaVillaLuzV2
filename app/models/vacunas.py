@@ -8,6 +8,6 @@ class Vacunas(db.Model):
     dosis = db.Column(db.String(255), nullable=False)
     viaAdministracion = db.Column(db.String(255), nullable=False)
     intervaloReVacunacion = db.Column(db.String(255), nullable=False)
-    enfermedadOdjectivo = db.Column(db.String(255), nullable=False)
+    enfermedadObjetivo = db.Column(db.String(255), nullable=False)
     tipoVacuna = db.Column(db.String(255), nullable=False)
     planNacional= db.Column(db.String(255), nullable=False)
