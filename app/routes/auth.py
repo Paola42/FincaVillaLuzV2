@@ -4,6 +4,7 @@ from app.models.administradores import Administrador
 from app.models.aprendices import Aprendices
 from app.models.instructores import Instructores
 from app.models.usuarios import Usuarios
+from app.models.operarios import Operarios
 
 from app import db
 
@@ -68,13 +69,13 @@ def login():
         
         flash('Invalid credentials. Please try again.', 'danger')
         
-        aprendiz = Aprendices.query.filter_by(correoAprendiz=correo, passwordAprendiz=password).first()
+        operario = Operarios.query.filter_by( corre=correo, password=password).first()
         
-        if aprendiz:
-            login_user(aprendiz)
+        if operario:
+            login_user(operario)
             flash("Login successful!", "success")
 
-            return render_template('inicio/index2.html')
+            return render_template('inicio/index3.html')
 
         
         flash('Invalid credentials. Please try again.', 'danger')
@@ -92,13 +93,12 @@ def login():
     
     
     return render_template("login/login.html")
-    
+
+@auth_bp.route('/operario', methods=['GET', 'POST'])
+def operario():
+    return render_template('inicio/index3.html')
 
 
-
-
-
-    
 
 @auth_bp.route('/logout')
 @login_required
