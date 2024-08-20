@@ -4,6 +4,7 @@ from app.models.administradores import Administrador
 from app.models.aprendices import Aprendices
 from app.models.instructores import Instructores
 from app.models.usuarios import Usuarios
+from app.models.operarios import Operarios
 
 from app import db
 
@@ -92,13 +93,14 @@ def login():
     
     
     return render_template("login/login.html")
-    
+
+@auth_bp.route('/login', methods=['GET', 'POST'])
+def login():
+    return render_template('index3.html')
 
 
 
 
-
-    
 
 @auth_bp.route('/logout')
 @login_required
