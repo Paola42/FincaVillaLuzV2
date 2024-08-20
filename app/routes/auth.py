@@ -69,7 +69,7 @@ def login():
         
         flash('Invalid credentials. Please try again.', 'danger')
         
-        operario = Operarios.query.filter_by( corre=correo, password=password).first()
+        operario = Operarios.query.filter_by( correoOperario=correo, passwordOperario=password).first()
         
         if operario:
             login_user(operario)

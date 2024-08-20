@@ -10,7 +10,7 @@ class Operarios(db.Model,UserMixin):
     direccionOperario  = db.Column(db.String(255), nullable=False)
     telefonoOperario   = db.Column(db.String(255), nullable=False)
     correoOperario      = db.Column(db.String(255), nullable=False)
-    password = db.Column(db.String(255), nullable=False)
+    passwordOperario = db.Column(db.String(255), nullable=False)
 
     def get_id(self):
         return str(self.idOperario)
