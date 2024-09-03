@@ -14,8 +14,8 @@
     <h1>Editar Aprendiz</h1>
     <form action="{{ url_for('aprendiz.edit', id=aprendiz.idAprendiz) }}" method="post">
         <div class="form-group">
-            <label for="nombreAPrendiz">Nombre Aprendiz</label>
-            <input type="text" id="nombreAPrendiz" name="nombreAPrendiz"
+            <label for="nombreAprendiz">Nombre Aprendiz</label>
+            <input type="text" id="nombreAprendiz" name="nombreAprendiz"
                 value="{{ aprendiz.nombreAprendiz}}" required>
         </div>
 
@@ -27,7 +27,7 @@
 
         <div class="form-group"></div>
         <label for="direccionAprendiz">Direccion  Aprendiz</label>
-        <input type="text" id="direccionAdprendiz" name="direccionAprendiz" value="{{ aprendiz.direccionAprendiz}}" required>
+        <input type="text" id="direccionAprendiz" name="direccionAprendiz" value="{{ aprendiz.direccionAprendiz}}" required>
      
     <div class="form-group">
         <label for="telefonoAprendiz">Telefono Aprendiz</label>

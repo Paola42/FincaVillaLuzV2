@@ -16,9 +16,9 @@ def add():
         documentoAprendiz  = request.form['documentoAprendiz']
         direccionAprendiz  = request.form['direccionAprendiz']
         telefonoAprendiz   = request.form['telefonoAprendiz']
-        correo             = request.form['correo']
-        password   = request.form['password']
-        new_aprendiz = Aprendices(nombreAprendiz =nombreAprendiz , documentoAprendiz=documentoAprendiz, direccionAprendiz=direccionAprendiz, telefonoAprendiz=telefonoAprendiz, correo=correo, password=password)
+        correoAprendiz     = request.form['correoAprendiz']
+        passwordAprendiz   = request.form['passwordAprendiz']
+        new_aprendiz = Aprendices(nombreAprendiz =nombreAprendiz , documentoAprendiz=documentoAprendiz, direccionAprendiz=direccionAprendiz, telefonoAprendiz=telefonoAprendiz, correoAprendiz=correoAprendiz, passwordAprendiz=passwordAprendiz)
         db.session.add(new_aprendiz)
         db.session.commit()
         
@@ -27,7 +27,7 @@ def add():
     return render_template('aprendiz/add.html')
 
 @bp.route('/ aprendiz/edit/<int:id>', methods=['GET', 'POST'])
-def edit(id):
+def edit(idAprendiz):
     aprendiz = Aprendices.query.get_or_404(id)
 
     if request.method == 'POST':
@@ -46,7 +46,7 @@ def edit(id):
     
 
 @bp.route('/aprendiz/delete/<int:id>')
-def delete(id):
+def delete(idAprendiz):
     aprendiz = Aprendices.query.get_or_404(id)
     
     db.session.delete(aprendiz)

@@ -8,7 +8,7 @@ class Aprendices(db.Model,UserMixin):
     nombreAprendiz    = db.Column(db.String(255), nullable=False)
     documentoAprendiz = db.Column(db.String(255), nullable=False)
     direccionAprendiz = db.Column(db.String(255), nullable=False)
-    direccionAprendiz  = db.Column(db.String(255), nullable=False)
+    telefonoAprendiz  = db.Column(db.String(255), nullable=False)
     correoAprendiz    = db.Column(db.String(255), nullable=False)
     passwordAprendiz= db.Column(db.String(255), nullable=False)
 
