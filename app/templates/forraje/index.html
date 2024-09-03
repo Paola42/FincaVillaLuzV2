@@ -38,20 +38,20 @@
                 <th>Aforo</th>
             </tr>
         </div>
-        {%for vacuna in data%}
+        {%for forraje in data%}
 
     <div class="contenido">
         <tr>
-            <td>{{forraje.idforraje}}</td>
-            <td>{{forraje.especie}}</td>
-            <td>{{forraje.fechadesiembre}}</td>
-            <td>{{forraje.fechadecosecha}}</td>
-            <td>{{forraje.area}}</td>
-            <td>{{forraje.manejos}}</td>
-            <td>{{forraje.aforo}}</td>
+            <td>{{forraje.idForraje}}</td>
+            <td>{{forraje.especieForraje}}</td>
+            <td>{{forraje.fechaDeSiembraForraje}}</td>
+            <td>{{forraje.fechaDeCosechaForraje}}</td>
+            <td>{{forraje.areaForraje}}</td>
+            <td>{{forraje.manejosForraje}}</td>
+            <td>{{forraje.aforoForraje}}</td>
 
-            <a href="{{ url_for('forraje.edit', id=forraje.idAprendiz) }}"><i class="bi bi-pencil-square"></i></a>
-            <a href="{{ url_for('forraje.delete', id=forraje.idAprendiz) }}"><i class="bi bi-archive"></i></a>
+            <a href="{{ url_for('forraje.edit', id=forraje.idForraje) }}"><i class="bi bi-pencil-square"></i></a>
+            <a href="{{ url_for('forraje.delete', id=forraje.idForraje) }}"><i class="bi bi-archive"></i></a>
             <!-- Agrega aquí el enlace para eliminar -->
         </td>
     </tr>

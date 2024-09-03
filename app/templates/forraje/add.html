@@ -21,52 +21,50 @@
                 <a href="/inicio/loginforraje.html">Salir</a>
             </nav>
         </header>
-    <form class="formulario" action="{{url_for('vacuna.add')}}" method="post"></form>
+
+        <form class="formulario" action="{{url_for('forraje.add')}}" method="post"></form>
+
         <h2 class="name">Forraje</h2>
         <div class="input-group">
+            
             <div class="input-conteiner">
-                <label for="idforraje">ID forraje</label><br>
-                <input type="text" id="idforraje" name="idforraje" placeholder="ID forraje"
-                value="{{forraje.idforraje}}" required>
-            </div>
-            <div class="input-conteiner">
-                <label for="especie">Especie</label><br>
-                <input type="text" id="especie" name="especie" placeholder="Especie"
+                <label for="especieForraje">Especie</label><br>
+                <input type="text" id="especieForraje" name="especieForraje" placeholder="especieForraje"
                 value="{{forraje.especie}}" required>
             </div>
 
             <div class="input-conteiner">
-                <label for="fehcadesiembra">Fecha de siembra</label><br>
-                <input type="text" id="fehcadesiembre" name="fechadesiembre" placeholder="Fehca de siembre"
-                value="{{forraje.fechadesiembre}}" required>
+                <label for="fechaDeSiembraForraje">Fecha de siembra</label><br>
+                <input type="text" id="fechaDeSiembraForraje" name="fechaDeSiembraForraje" placeholder="fehcaDeSiembraForraje"
+                value="{{forraje.fechaDeSiembraForraje}}" required>
             </div>
 
             <div class="input-conteiner">
-                <label for="fechadecosecha">Fecha de cosecha</label><br>
-                <input type="text" id="fechadecosecha name=" name="fechadecosecha" placeholder="Fecha de cosecha"
-                value="{{forraje.fechadecosecha}}" required>
+                <label for="fechaDeCosechaForraje">Fecha de cosecha</label><br>
+                <input type="text" id="fechaDeCosechaForraje" name="fechaDeCosechaForraje" placeholder="fechaDeCosechaForraje"
+                value="{{forraje.fechaDeCosechaForraje}}" required>
             </div>
 
             <div class="input-conteiner">
-                <label for="area">Area</label><br>
-                <input type="text" id="area" name="area" placeholder="Area"
-                value="{{forraje.area}}" required>
+                <label for="areaForraje">Area</label><br>
+                <input type="text" id="areaForraje" name="areaForraje" placeholder="areaForraje"
+                value="{{forraje.areaForraje}}" required>
             </div>
 
             <div class="input-conteiner">
-                <label for="manejos">Manejos</label><br>
-                <input type="text" id="manejos" name="manejos"  placeholder="Manejos"
-                value="{{forraje.manejos}}" required>
+                <label for="manejosForraje">Manejos</label><br>
+                <input type="text" id="manejosForraje" name="manejosForraje"  placeholder="manejosForraje"
+                value="{{forraje.manejosForraje}}" required>
             </div>
 
             <div class="input-conteiner">
-                <label for="aforos">Aforos</label><br>
-                <input type="text" id="aforos" name="aforos" placeholder="Aforos"
-                value="{{forraje.aforos}}" required>
+                <label for="aforosForreje">Aforos</label><br>
+                <input type="text" id="aforosForraje" name="aforosForraje" placeholder="AforosForraje"
+                value="{{forraje.aforosForraje}}" required>
                 
             </div>
             <div class="button">
-                <button  type="submit"> <a href=""></a>Guardar Datos</button>
+               <button  type="submit"> <a href=""></a>Guardar Datos</button>
 
             </div>
             
