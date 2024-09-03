@@ -20,12 +20,12 @@ def index():
 @bp.route('/Controles/add', methods=['GET', 'POST'])
 def add():
     if request.method == 'POST':
-        descripcionControl = request.form['descripcionControl']
-        fechaControl = request.form['fechaControl']
-        estadoControl = request.form['estadoControl']
+        descripcion = request.form['descripcion']
+        fecha = request.form['fecha']
+        estado = request.form['estado']
         idAnimalMejorado = request.form['idAnimalMejorado']
 
-        newControl = Controles(descripcionControl=descripcionControl, fechaControl=fechaControl, estadoControl=estadoControl, idAnimalMejorado=idAnimalMejorado)
+        newControl = Controles(descripcionControl=descripcion, fechaContro=fecha, estadoContro=estado, idAnimalMejorado=idAnimalMejorado)
         db.session.add(newControl)
         db.session.commit()
 

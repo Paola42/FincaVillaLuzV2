@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vacunaciòn</title>
+    <title>Tratamiento</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/style.css">
 
@@ -17,44 +17,49 @@
             <h1 class="nombre">Finca Villa Luz</h1>
         </div>
         <nav>
-            <a href="/aplicacionVacuna/add.html">Aplicar Vacuna</a>
             <a href="">Volver</a>
-            <a href="/inicio/loginVacuna.html">Salir</a>
+            <a href="/inicio/loginTratamiento.html">Salir</a>
         </nav>
     </header>
 
     <div>
-        <h1>Vacunaciòn</h1>
+        <h1>Tratamiento</h1>
     </div>
     
     <table>
         <div class="table">
             <tr>
-                <th>ID</th>
-                <th>Nombre de vacuna</th>
-                <th>Dosis de vacuna</th>
-                <th>Via de administrativa</th>
-                <th>Intervalos de Vacunaciòn</th>
-                <th>Tipo de enfermedad</th>
-                <th>Tipo de Vacuna</th>
-                <th>Plan Nacional</th>
+                <th>ID Tratamiento</th>
+                <th>Fecha de inicio del Tratamiento</th>
+                <th>Descripcion del tratamien+</th>
+                <th>ID Medicamento</th>
+                <th>ID Vacunaciòn</th>
+                <th>ID eventos</th>
+                <th>Fecha final del Tratamiento</th>
+                <th>Dosis</th>
+                <th>Via de administraciòn</th>
+                <th>Observacion</th>
+                <th>Frecuencia</th>
             </tr>
         </div>
         {%for vacuna in data%}
 
     <div class="contenido">
         <tr>
-            <td>{{vacuna.idVacuna}}</td>
-            <td>{{vacuna.nombreVacuna}}</td>
-            <td>{{vacuna.dosis}}</td>
-            <td>{{vacuna.viaAdministracion}}</td>
-            <td>{{vacuna.intervalo.revacunac}}</td>
-            <td>{{vacuna.enfermedadObjetivo}}</td>
-            <td>{{vacuna.tipoVacuna}}</td>
-            <td>{{vacuna.planNacional}}</td>
+            <td>{{tratamiento.idtratamiento}}</td>
+            <td>{{tratamientos.fechadeiniciodeltratamiento}}</td>
+            <td>{{tratamientos.descrpiondektratamiento}}</td>
+            <td>{{tratamientos.idmedicamentos}}</td>
+            <td>{{tratamientos.idvacunacion}}</td>
+            <td>{{tratamientos.ideventos}}</td>
+            <td>{{tratamientos.fehcafinaldeltratamiento}}</td>
+            <td>{{tratamientos.dosis}}</td>
+            <td>{{tratamientos.viadeadministracion}}</td>
+            <td>{{tratamientos.Observacion}}</td>
+            <td>{{tratamientos.frecuencia}}</td>
 
-            <a href="{{ url_for('vacuna.edit', id=vacuna.idAprendiz) }}"><i class="bi bi-pencil-square"></i></a>
-            <a href="{{ url_for('vacuna.delete', id=vacuna.idAprendiz) }}"><i class="bi bi-archive"></i></a>
+            <a href="{{ url_for('tratamiento.edit', id=tratameinto.idAprendiz) }}"><i class="bi bi-pencil-square"></i></a>
+            <a href="{{ url_for('tratamiento.delete', id=tratamiento.idAprendiz) }}"><i class="bi bi-archive"></i></a>
             <!-- Agrega aquí el enlace para eliminar -->
         </td>
     </tr>
@@ -64,9 +69,9 @@
     </div>   
     </table>
 
-    <a href="{{ url_for('vacuna.add')}}">Ingresar Vacunaciòn</a>
+    <a href="{{ url_for('tratamiento.add')}}">Ingresar Tratamiento</a>
     <br>
-   <!-- <a href="{{ url_for('vacuna.inicio')}}">Inicio</a>-->
+   <!-- <a href="{{ url_for('Tratameinto.inicio')}}">Inicio</a>-->
 
 </body>
 </html>

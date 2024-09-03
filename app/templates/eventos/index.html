@@ -39,17 +39,13 @@
 
     <div class="contenido">
         <tr>
-            <td>{{vacuna.idVacuna}}</td>
-            <td>{{vacuna.nombreVacuna}}</td>
-            <td>{{vacuna.dosis}}</td>
-            <td>{{vacuna.viaAdministracion}}</td>
-            <td>{{vacuna.intervalo.revacunac}}</td>
-            <td>{{vacuna.enfermedadObjetivo}}</td>
-            <td>{{vacuna.tipoVacuna}}</td>
-            <td>{{vacuna.planNacional}}</td>
+            <td>{{eventos.ideventos}}</td>
+            <td>{{eventos.idanimal}}</td>
+            <td>{{eventos.idenfermedad}}</td>
+            <td>{{eventos.idinstructor}}</td>
 
-            <a href="{{ url_for('vacuna.edit', id=vacuna.idAprendiz) }}"><i class="bi bi-pencil-square"></i></a>
-            <a href="{{ url_for('vacuna.delete', id=vacuna.idAprendiz) }}"><i class="bi bi-archive"></i></a>
+            <a href="{{ url_for('eventos.edit', id=eventos.idAprendiz) }}"><i class="bi bi-pencil-square"></i></a>
+            <a href="{{ url_for('eventos.delete', id=eventos.idAprendiz) }}"><i class="bi bi-archive"></i></a>
             <!-- Agrega aquí el enlace para eliminar -->
         </td>
     </tr>
@@ -59,9 +55,9 @@
     </div>   
     </table>
 
-    <a href="{{ url_for('vacuna.add')}}">Ingresar Vacunaciòn</a>
+    <a href="{{ url_for('eventos.add')}}">Ingresar evento</a>
     <br>
-   <!-- <a href="{{ url_for('vacuna.inicio')}}">Inicio</a>-->
+   <!-- <a href="{{ url_for('eventos.inicio')}}">Inicio</a>-->
 
 </body>
 </html>
