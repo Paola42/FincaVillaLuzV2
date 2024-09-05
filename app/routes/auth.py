@@ -81,7 +81,7 @@ def login():
         flash('Invalid credentials. Please try again.', 'danger')
     
         
-        instructor= Instructores.query.filter_by(correoInstructor=correo, passworInstructor=password).first()
+        instructor= Instructores.query.filter_by(correo=correo, Password=password).first()
         
         if instructor:
             login_user(instructor)
