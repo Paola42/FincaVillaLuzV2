@@ -11,7 +11,7 @@
 <body>
     <div class="overlay">
         <h1>Agregar Operario</h1>
-        <form action="{{ url_for('instructor.add') }}" method="post">
+        <form action="{{url_for('operario.add')}}" method="post">
             <div class="form-group">
                 <label for="nombreOperario">Nombre Operario</label>
                 <input type="text" id="nombreOperario" name="nombreOperario" required>
@@ -21,8 +21,8 @@
                 <input type="text" id="documentoOperario" name="documentoOperario" required>
             </div>
             <div class="form-group">
-                <label for="documentoOperario">Dirección Operario</label>
-                <input type="text" id="documentoOperario" name="documentoOperario" required>
+                <label for="direccionOperario">Dirección Operario</label>
+                <input type="text" id="direccionOperario" name="direccionOperario" required>
             </div>
             <div class="form-group">
                 <label for="telefonoOperario">Teléfono Operario</label>

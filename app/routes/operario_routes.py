@@ -15,8 +15,8 @@ def add():
         nombreOperario     = request.form['nombreOperario']
         documentoOperario  = request.form['documentoOperario']
         direccionOperario  = request.form['direccionOperario']
-        telefonoOperario   = request.form['telefonoOperario ']
-        correoOperario     = request.form['correOperario']
+        telefonoOperario   = request.form['telefonoOperario']
+        correoOperario     = request.form['correoOperario']
         passwordOperario   = request.form['passwordOperario']
         new_operario = Operarios(nombreOperario =nombreOperario, documentoOperario=documentoOperario, direccionOperario=direccionOperario, telefonoOperario=telefonoOperario, correoOperario=correoOperario,passwordOperario=passwordOperario)
         db.session.add(new_operario)
@@ -35,7 +35,7 @@ def edit(id):
         operario.documentoOperario  = request.form['documentoOperario']
         operario.direccionOperario  = request.form['direccionOperario']
         operario.telefonoOperario   = request.form['telefonoOperario']
-        operario.correoOperario     = request.form['correOperario']
+        operario.correoOperario     = request.form['correoOperario']
         operario.passwordOperario   = request.form['passwordOperario']
         
     

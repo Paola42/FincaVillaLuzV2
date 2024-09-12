@@ -28,17 +28,36 @@ def registro():
         password = request.form['password']
         tipo    = request.form['tipo']
 
-        nuevo_usuario = Usuarios(nombre=nombre, documento=documento, direccion=direccion,telefono=telefono, correo=correo, password=password, tipo=tipo)
+        
+
+        nuevo_usuario = Usuarios(
+            nombre=nombre, 
+            documento=documento, 
+            direccion=direccion, 
+            telefono=telefono, 
+            correo=correo, 
+            password=password, 
+            tipo=tipo
+        )
         try:
             db.session.add(nuevo_usuario)
             db.session.commit()
             flash('Registro exitoso!', 'success')
-            return redirect(url_for('auth.index'))
+
+            # Redirigir según el tipo de usuario
+            if tipo == 'aprendiz':
+                return redirect(url_for('templates_aprendiz'))
+            elif tipo == 'instructor':
+                return redirect(url_for('formulario_instructor'))
+            elif tipo == 'administrador':
+                return redirect(url_for('formulario_administrador'))
+            else:
+                flash('Tipo de usuario no válido.','danger')
+
         except:
             flash('Error en el registro. Por favor, intente de nuevo.', 'danger')
+
     return render_template('registro/registro.html')
-
-
 
 
 @auth_bp.route('/login', methods=['GET', 'POST'])

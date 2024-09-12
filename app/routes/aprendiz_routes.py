@@ -9,7 +9,7 @@ def index():
     data = Aprendices.query.all()
     return render_template('aprendiz/index.html', data=data)
 
-@bp.route('/Aprendices/add', methods=['GET', 'POST'])
+@bp.route('/aprendiz/add', methods=['GET', 'POST'])
 def add():
     if request.method == 'POST':
         nombreAprendiz     = request.form['nombreAprendiz']
@@ -22,12 +22,12 @@ def add():
         db.session.add(new_aprendiz)
         db.session.commit()
         
-        return redirect(url_for(' aprendiz.index'))
+        return redirect(url_for('aprendiz.index.html'))
 
     return render_template('aprendiz/add.html')
 
-@bp.route('/ aprendiz/edit/<int:id>', methods=['GET', 'POST'])
-def edit(idAprendiz):
+@bp.route('/aprendiz/edit/<int:id>', methods=['GET', 'POST'])
+def edit(id):
     aprendiz = Aprendices.query.get_or_404(id)
 
     if request.method == 'POST':
@@ -46,7 +46,7 @@ def edit(idAprendiz):
     
 
 @bp.route('/aprendiz/delete/<int:id>')
-def delete(idAprendiz):
+def delete(id):
     aprendiz = Aprendices.query.get_or_404(id)
     
     db.session.delete(aprendiz)

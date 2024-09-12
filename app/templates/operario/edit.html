@@ -12,17 +12,17 @@
 <body>
     <div class="overlay">
     <h1>Editar Operario</h1>
-    <form action="{{ url_for('instructor.edit', id=instructor.idOperario) }}" method="post">
+    <form action="{{url_for('operario.edit', id=operario.idOperario)}}" method="post">
         <div class="form-group">
             <label for="nombreOperario">Nombre Operario</label>
             <input type="text" id="nombreOperario" name="nombreOperario"
-                value="{{instructor.nombreOperario}}" required>
+                value="{{operario.nombreOperario}}" required>
         </div>
 
         <div class="form-group">
         <label for="documentoOperario">Documento  Operario</label>
         <input type="text" id="documentoOperario" name="documentoOperario"
-            value="{{instructor.documentoOperario}}" required>
+            value="{{oerario.documentoOperario}}" required>
         </div>  
 
         <div class="form-group"></div>
@@ -30,7 +30,7 @@
         <input type="text" id="direccionOperario" name="direccionOperario" value="{{operario.direccionOperario}}" required>
      
     <div class="form-group">
-        <label for="telefonoInstructor">Telefono Operario</label>
+        <label for="telefonoOperario">Telefono Operario</label>
         <input type="text" id="telefonoOperario" name="telefonoOperario" value="{{operario.telefonoOperario}}" required>
     </div>  
     <div class="form-group">
