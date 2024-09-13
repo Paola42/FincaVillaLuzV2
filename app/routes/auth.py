@@ -13,51 +13,79 @@ auth_bp = Blueprint('auth', __name__)
 
 @auth_bp.route("/")
 def index():
-    return render_template('principal/principal.html')
+    return render_template('/principal/principal.html')
 
 
 @auth_bp.route('/registro', methods=['GET', 'POST'])
 def registro():
+    
+    
     if request.method == 'POST':
-        # Procesar el formulario de registro
-        nombre = request.form['nombre']
-        documento = request.form['documento']
-        direccion = request.form['direccion']
-        telefono = request.form['telefono']
-        correo = request.form['correo']
-        password = request.form['password']
-        tipo    = request.form['tipo']
+        # Recoger los datos del formulario
+        nombre = request.form.get('nombre')
+        documento = request.form.get('documento')
+        direccion = request.form.get('direccion')
+        telefono = request.form.get('telefono')
+        correo = request.form.get('correo')
+        password = request.form.get('password')
+        tipo = request.form.get('tipo')
+        flash(f'El usuario {tipo} ha sido registrado correctamente.', 'success')
+        
+        # Crear el usuario basado en el tipo
+        if tipo == 'aprendiz':
+            nuevo_usuario = Aprendices(
+                nombreAprendiz=nombre, 
+                documentoAprendiz=documento, 
+                direccionAprendiz=direccion, 
+                telefonoAprendiz=telefono, 
+                correoAprendiz=correo, 
+                passwordAprendiz=password
+            )
+        
+        elif tipo == 'instructor':
+            nuevo_usuario = Instructores(
+                nombreInstructor=nombre, 
+                documentoInstructor=documento, 
+                direccionInstructor=direccion, 
+                telefonoInstructor=telefono, 
+                correo=correo, 
+                Password=password
+            )
+        
+        elif tipo == 'operario':
+            nuevo_usuario = Operarios(
+                nombreOperario=nombre, 
+                documentoOperario=documento, 
+                direccionOperario=direccion, 
+                telefonoOperario=telefono, 
+                correoOperario=correo, 
+                passwordOperario=password
+            )
+        
+        elif tipo == 'administrador':
+            nuevo_usuario = Administrador(
+                nombreAdministrador=nombre, 
+                documentoAdministrador=documento, 
+                direccionAdministrador=direccion, 
+                telefonoAdministrador=telefono, 
+                correoAdministrador=correo, 
+                passwordAdministrador=password
+            )
+        
+        else:
+            return  "Tipo de usuario no válido", 400
+        
+        # Añadir y guardar en la base de datos
+        db.session.add(nuevo_usuario)
+        db.session.commit()
+        # Redirigir a la vista de login
+        return redirect(url_for('auth.principal'))
 
         
+    return render_template("registro/registro.html")
+    
 
-        nuevo_usuario = Usuarios(
-            nombre=nombre, 
-            documento=documento, 
-            direccion=direccion, 
-            telefono=telefono, 
-            correo=correo, 
-            password=password, 
-            tipo=tipo
-        )
-        try:
-            db.session.add(nuevo_usuario)
-            db.session.commit()
-            flash('Registro exitoso!', 'success')
-
-            # Redirigir según el tipo de usuario
-            if tipo == 'aprendiz':
-                return redirect(url_for('templates_aprendiz'))
-            elif tipo == 'instructor':
-                return redirect(url_for('formulario_instructor'))
-            elif tipo == 'administrador':
-                return redirect(url_for('formulario_administrador'))
-            else:
-                flash('Tipo de usuario no válido.','danger')
-
-        except:
-            flash('Error en el registro. Por favor, intente de nuevo.', 'danger')
-
-    return render_template('registro/registro.html')
+#------------------------------------------------------------login----------------------------------
 
 
 @auth_bp.route('/login', methods=['GET', 'POST'])
@@ -127,8 +155,9 @@ def logout():
     return redirect(url_for('auth.login'))
 
 
-
-
+@auth_bp.route('/principal')
+def principal():
+    return render_template('principal/principal.html')
 
 
 

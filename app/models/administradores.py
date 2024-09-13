@@ -10,7 +10,7 @@ class Administrador(db.Model,UserMixin):
     direccionAdministrador = db.Column(db.String(255), nullable=False)
     telefonoAdministrador = db.Column(db.String(255), nullable=False)
     correoAdministrador = db.Column(db.String(255), nullable=False)
-    passwordAdministrador= db.Column(db.String(255), nullable=False)
+    passwordAdministrador = db.Column(db.String(255), nullable=False)
 
     def get_id(self):
         return str(self.idAdministrador)

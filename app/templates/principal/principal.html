@@ -1,42 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Mi página principal</title>
-</head>
-<body>
-    <h1> FINCA VILLA  LUZ</h1>
+  </head>
+  <body>
+    <h1>FINCA VILLA LUZ</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %}
+    <ul>
+      {% for category, message in messages %}
+      <li class="{{ category }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
 
     <nav class="navbar bg-body-tertiary">
       <div class="container-fluid">
-        <form class="d-flex" role="login" action="{{ url_for('auth.login') }}" method="get">
-          <input class="form-control me-2" type="hidden" aria-label="Login">
-          <button class="btn btn-outline-success" type="submit">Iniciar Sesión</button>
-      </form>
+        <form
+          class="d-flex"
+          role="login"
+          action="{{ url_for('auth.login') }}"
+          method="get"
+        >
+          <input class="form-control me-2" type="hidden" aria-label="Login" />
+          <button class="btn btn-outline-success" type="submit">
+            Iniciar Sesión
+          </button>
+        </form>
       </div>
     </nav>
 
     <nav class="navbar bg-body-tertiary">
       <div class="container-fluid">
-        <form class="d-flex" role="registro" action="{{ url_for('auth.registro') }}" method="get">
-          <input class="form-control me-2" type="hidden" aria-label="registro">
-          <button class="btn btn-outline-success" type="submit">Registro</button>
-      </form>
+        <form
+          class="d-flex"
+          role="registro"
+          action="{{ url_for('auth.registro') }}"
+          method="get"
+        >
+          <input
+            class="form-control me-2"
+            type="hidden"
+            aria-label="registro"
+          />
+          <button class="btn btn-outline-success" type="submit">
+            Registro
+          </button>
+        </form>
       </div>
     </nav>
-  
-
-  
-
-   
 
     <div>
-    <a href="{{ url_for('auth.login') }}">Login</a>
+      <a href="{{ url_for('auth.login') }}">Login</a>
     </div>
 
-
     {% if current_user.is_authenticated %}
-        <a href="{{ url_for('auth.logout') }}">Cerrar sesión</a>
+    <a href="{{ url_for('auth.logout') }}">Cerrar sesión</a>
     {% endif %}
-</body>
+  </body>
 </html>

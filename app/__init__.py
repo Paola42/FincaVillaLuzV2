@@ -23,7 +23,6 @@ def create_app():
     app.register_blueprint(auth_bp)
 
     from app.routes import (auth,administrador_routes,operario_routes,aprendiz_routes,instructor_routes)
-
     
     app.register_blueprint(administrador_routes.bp)
     app.register_blueprint(operario_routes.bp)
