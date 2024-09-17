@@ -22,7 +22,7 @@ def add():
         db.session.add(new_aprendiz)
         db.session.commit()
         
-        return redirect(url_for('aprendiz.index.html'))
+        return redirect(url_for('aprendiz.index'))
 
     return render_template('aprendiz/add.html')
 

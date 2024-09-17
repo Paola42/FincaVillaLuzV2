@@ -29,6 +29,13 @@ def registro():
         tipo    = request.form['tipo']
 
         
+        if tipo == "instructor":
+            nombre=nombre, 
+            documento=documento, 
+            direccion=direccion, 
+            telefono=telefono, 
+            correo=correo, 
+            password=password
 
         nuevo_usuario = Usuarios(
             nombre=nombre, 

@@ -30,12 +30,12 @@
                 </tr>
                 {% for administrador in data %}
                     <tr>
-                        <td>{{ administrador.idAdministrador }}</td>
-                        <td>{{ administrador.nombreAdministrador }}</td>
-                        <td>{{ administrador.documentoAdministrador }}</td>
-                        <td>{{ administrador.direccionAdministrador }}</td>
-                        <td>{{ administrador.telefonoAdministrador }}</td>
-                        <td>{{ administrador.correoAdministrador }}</td>
+                        <td>{{ administrador.idAdministrador}}</td>
+                        <td>{{ administrador.nombreAdministrador}}</td>
+                        <td>{{ administrador.documentoAdministrador}}</td>
+                        <td>{{ administrador.direccionAdministrador}}</td>
+                        <td>{{ administrador.telefonoAdministrador}}</td>
+                        <td>{{ administrador.correoAdministrador}}</td>
                         <td>{{ administrador.passwordAdministrador}}</td>
                         <td>
                             <a href="{{ url_for('administrador.edit', id=administrador.idAdministrador) }}"><i class="bi bi-pencil-square"></i></a>
@@ -48,7 +48,7 @@
         </div>
         <a href="{{ url_for('administrador.add')}}">Agregar Administrador</a>
         <br>
-       <!-- <a href="{{ url_for('administrador.inicio')}}">Inicio</a>-->
+       
 
     </div>
 </body>

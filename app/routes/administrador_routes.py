@@ -17,7 +17,7 @@ def add():
         direccionAdministrador  = request.form['direccionAdministrador']
         telefonoAdministrador   =request.form['telefonoAdministrador']
         correoAdministrador     = request.form['correoAdministrador']
-        passwordAdministrador   = request.form['passwordAdmimistrador']
+        passwordAdministrador   = request.form['passwordAdministrador']
         new_administrador = Administrador(nombreAdministrador=nombreAdministrador, documentoAdministrador=documentoAdministrador, direccionAdministrador=direccionAdministrador, telefonoAdministrador=telefonoAdministrador, correoAdministrador=correoAdministrador, passwordAdministrador=passwordAdministrador)
         db.session.add(new_administrador)
         db.session.commit()
