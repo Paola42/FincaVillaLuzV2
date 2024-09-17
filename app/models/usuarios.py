@@ -9,5 +9,5 @@ class Usuarios(db.Model, UserMixin):
     direccion =db.Column(db.String(80),nullable=False)
     telefono  =db.Column(db.String(80),nullable=False)
     correo    =db.Column(db.String(80),nullable=False)
-    password  = db.Column(db.String(120), nullable=False)
+    password  =db.Column(db.String(120), nullable=False)
     tipo      =db.Column(db.String(80),nullable=False)  
