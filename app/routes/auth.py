@@ -48,8 +48,8 @@ def registro():
                 documentoInstructor=documento, 
                 direccionInstructor=direccion, 
                 telefonoInstructor=telefono, 
-                correo=correo, 
-                Password=password
+                correoIntructor =correo, 
+                PasswordInstructor=password
             )
         
         elif tipo == 'operario':
