@@ -81,16 +81,6 @@ def registro():
         # Redirigir a la vista de login
         return redirect(url_for('auth.principal'))
 
-        
-
-        if tipo == "instructor":
-            nombre=nombre, 
-            documento=documento, 
-            direccion=direccion, 
-            telefono=telefono, 
-            correo=correo, 
-            password=password
-
     return render_template("registro/registro.html")
     
 
