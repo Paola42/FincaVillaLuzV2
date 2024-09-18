@@ -48,7 +48,7 @@ def registro():
                 documentoInstructor=documento, 
                 direccionInstructor=direccion, 
                 telefonoInstructor=telefono, 
-                correoIntructor =correo, 
+                correoInstructor =correo, 
                 PasswordInstructor=password
             )
         
@@ -128,7 +128,7 @@ def login():
         flash('Invalid credentials. Please try again.', 'danger')
     
         
-        instructor= Instructores.query.filter_by(correo=correo, Password=password).first()
+        instructor= Instructores.query.filter_by(correoInstructor=correo, PasswordInstructor=password).first()
         
         if instructor:
             login_user(instructor)
