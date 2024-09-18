@@ -39,8 +39,8 @@ def add():
        
 #   Edit
 @bp.route('/animal/edit/<int:idAnimal>', methods=['GET', 'POST'])
-def edit(id):
-    animal = Animales.query.get_or_404(id)
+def edit(idAnimal):
+    animal = Animales.query.get_or_404(idAnimal)
 
     if request.method == 'POST':
         
@@ -48,7 +48,7 @@ def edit(id):
         animal.razaAnimal = request.form['razaAnimal']
         animal.sexoAnimal = request.form['sexoAnimal']
         animal.fechaNacimiento = request.form['fechaNacimiento']
-        animal.pesoAnimal = request.form['peso']
+        animal.pesoAnimal = request.form['pesoAnimal']
         animal.padres = request.form['padres']
         animal.idAnimalPadre = request.form['idAnimalPadre']
         animal.idAnimalMadre = request.form['idAnimalMadre']
@@ -57,13 +57,13 @@ def edit(id):
         
         return redirect(url_for('animal.index'))
     
-    return render_template('animales/edit.html', animal=animal)
+    return render_template('animal/edit.html', animal=animal)
 
 
 #   Delete
 @bp.route('/animal/delete/<int:id>')
-def delete(id):
-    animal = Animales.query.get_or_404(id)
+def delete(idAnimal):
+    animal = Animales.query.get_or_404(idAnimal)
 
     db.session.delete(animal)
     db.session.commit()
@@ -75,4 +75,4 @@ def delete(id):
 @bp.route('/animal')
 def animal():
     
-    return redirect(url_for('animal/index.html')) 
+    return redirect(url_for('animal.index')) 
