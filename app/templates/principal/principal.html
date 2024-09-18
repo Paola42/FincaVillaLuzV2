@@ -56,10 +56,6 @@
       </div>
     </nav>
 
-    <div>
-      <a href="{{ url_for('auth.login') }}">Login</a>
-    </div>
-
     {% if current_user.is_authenticated %}
     <a href="{{ url_for('auth.logout') }}">Cerrar sesión</a>
     {% endif %}
