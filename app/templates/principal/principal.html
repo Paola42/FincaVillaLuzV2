@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Mi página principal</title>
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finca Villa Luz</title>
+    <link rel="stylesheet" href="style/style.css"> 
+    <link rel="stylesheet" href="/style/img/logo_sena.png.png"> 
+</head>
+<body>
     <h1>FINCA VILLA LUZ</h1>
+    <img src="style/img/logo_sena.png" alt="imagen sena"> <!-- Ruta hacia la imagen -->
 
     {% with messages = get_flashed_messages(with_categories=true) %} {% if
     messages %}
