@@ -61,7 +61,7 @@ def edit(idAnimal):
 
 
 #   Delete
-@bp.route('/animal/delete/<int:id>')
+@bp.route('/animal/delete/<int:idAnimal>')
 def delete(idAnimal):
     animal = Animales.query.get_or_404(idAnimal)
 
