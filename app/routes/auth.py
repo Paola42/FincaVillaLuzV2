@@ -1,5 +1,7 @@
-from flask import Blueprint, render_template, redirect, url_for, request, flash
-from flask_login import login_user, logout_user, login_required
+from flask import Blueprint, render_template, redirect, url_for, request, flash, Flask  
+from flask_login import login_user, logout_user, login_required 
+from flask_mail import Mail, Message
+from itsdangerous import URLSafeTimedSerializer
 from app.models.administradores import Administrador
 from app.models.aprendices import Aprendices
 from app.models.instructores import Instructores
@@ -8,7 +10,10 @@ from app.models.operarios import Operarios
 from app import db
 import os
 #-------------------------------------------------------------emails---------------------------------------------
-
+app = Flask(__name__)
+app.secret_key = 'tu_clave_secreta'
+mail = Mail(app)
+s = URLSafeTimedSerializer(app.secret_key)
 #--------------------------------------------------------------------emails---------------------------------------------------------
 
 auth_bp = Blueprint('auth', __name__)
@@ -162,10 +167,69 @@ def logout():
 def principal():
     return render_template('principal/principal.html')
 
-
-
-#-----------------------------------------------------recuperacion de contraseña por gmail---------------------------------------------------
 @auth_bp.route('/principal2')
 def principal2():
     
     return render_template('/recuperacion.html')
+
+
+
+#-----------------------------------------------------recuperacion de contraseña por gmail---------------------------------------------------
+
+
+
+@auth_bp.route('/restablecer_contraseña')
+def restablecer_contraseña():
+    
+    return render_template('principal/recuperar_Contraseña.html')
+
+@auth_bp.route('/recuperacion')
+def recuperacion():
+    
+    return render_template('principal/contraseñas.html')
+
+
+
+@auth_bp.route('/solicitar_restablecimiento', methods=['POST'])
+def solicitar_restablecimiento():
+    email = request.form['email']
+    token = s.dumps(email, salt='email-reset-salt')
+    link = url_for('auth.recuperacion', token=token, _external=True)
+
+    msg = Message('usted a solicitado la recuperacion de su contraseña', sender='juanespitia538@gmail.com', recipients=[email])
+    msg.body = f'Para restablecer tu contraseña, haz clic en el siguiente enlace: {link}'
+    mail.send(msg)
+    try:
+    
+        flash('Se ha enviado un correo con instrucciones para restablecer tu contraseña.', 'success')
+    except Exception as e:
+        flash(f'Error al enviar el correo: {str(e)}', 'error')
+
+
+    flash('Se ha enviado un correo con instrucciones para restablecer tu contraseña.', 'success')
+    return redirect(url_for('auth.restablecer_contraseña'))
+
+
+@auth_bp.route('/restablecer_contraseña/<token>', methods=['GET', 'POST'])
+def restablecer_contrasena(token):
+    if request.method == 'POST':
+            password = request.form['password']
+            confirm_password = request.form['confirm_password']
+        
+        # Aquí deberías validar que las contraseñas coincidan y actualizar la contraseña en la base de datos
+            if password != confirm_password:
+                flash('Las contraseñas no coinciden.', 'error')
+                return redirect(url_for('auth.restablecer_contraseña', token=token))
+        
+            flash('Tu contraseña ha sido restablecida con éxito.', 'success')
+            return redirect(url_for('auth.login'))
+
+    try:
+        email = s.loads(token, salt='email-reset-salt', max_age=3600)  # Token válido por 1 hora
+    except Exception:
+        flash('El enlace es inválido o ha expirado.', 'error')
+        return redirect(url_for('auth.restablecer_contraseña'))
+
+    return render_template('restablecer_contrasena.html', token=token)
+
+
