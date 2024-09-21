@@ -1,42 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container-lg {
+            max-width: 500px;
+            width: 100%;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+        }
+
+        h2 {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .flash-message {
+            margin-bottom: 15px;
+        }
+
+        .links-container {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .links-container a {
+            color: #007bff;
+            font-weight: 500;
+            margin: 0 5px;
+        }
+
+        .links-container a:hover {
+            color: #0056b3;
+            text-decoration: none;
+        }
+
+        .form-control {
+            height: 45px;
+            font-size: 16px;
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+    </style>
 </head>
+
 <body>
 
-<div class="container mt-5">
-    <div class="col-md-6 offset-md-3">
+    <div class="container-lg">
         <h2>Login</h2>
+
+        <!-- Flash messages -->
         {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}             
-                    {% for category, message in messages %}
-                        <div class="flash-message alert alert-{{ category }}">{{ message }}</div>
-                    {% endfor %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-message alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
             {% endif %}
         {% endwith %}
 
+        <!-- Login Form -->
         <form method="post" action="{{ url_for('auth.login') }}">
             <div class="form-group">
                 <label for="correo">Email</label>
-                <input type="text" name="correo" id="correo" class="form-control" required>
+                <input type="email" name="correo" id="correo" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password" class="form-control" required>
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
+
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
         </form>
-        <div>
-        <a href="{{url_for('auth.restablecer_contraseña') }}">olvidaste tu contraseña</a> 
-        </div>
+
+        <!-- Links below the form -->
+        <div class="links-container">
+            <a href="{{url_for('auth.restablecer_contraseña')}}">¿Olvidaste tu contraseña?</a>
+            <a href="{{url_for('auth.principal')}}">Volver a la página principal</a>
+            <a href="{{url_for('auth.registro')}}">no estas registrado aún?</a>
         
+        </div>
     </div>
-    <a href="{{url_for('auth.principal')}}">volver a la pagina principal</a>
-</div>
 
 </body>
+
 </html>
