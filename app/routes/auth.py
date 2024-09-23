@@ -162,6 +162,10 @@ def logout():
     flash('You have been logged out.', 'info')
     return redirect(url_for('auth.login'))
 
+@auth_bp.route('/evento')
+def evento():
+    return render_template('eventos/index.html')
+
 
 @auth_bp.route('/principal')
 def principal():
