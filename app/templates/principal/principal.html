@@ -41,7 +41,7 @@ ul {
 <body>
     <div class="container text-center mt-5">
         <h1>FINCA VILLA LUZ</h1>
-        <img src="style/img/logo_sena.png" alt="imagen sena" class="img-fluid mt-3">
+        <img src="{{ url_for("static", filename="img/logo_sena.png") }}" alt="imagen sena" class="img-fluid mt-3">
 
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
