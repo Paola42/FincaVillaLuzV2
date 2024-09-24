@@ -21,7 +21,7 @@ auth_bp = Blueprint('auth', __name__)
 
 @auth_bp.route("/")
 def index():
-    return render_template('/principal/principal.html')
+    return render_template("principal/principal.html")
 
 
 @auth_bp.route('/registro', methods=['GET', 'POST'])
