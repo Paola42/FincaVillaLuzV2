@@ -26,7 +26,7 @@ def create_app():
     from app.routes.auth import auth_bp
     app.register_blueprint(auth_bp)
 
-    from app.routes import (auth,administrador_routes,operario_routes,aprendiz_routes,instructor_routes, animal_routes, animalmejorado_routes)
+    from app.routes import (auth,administrador_routes,operario_routes,aprendiz_routes, instructor_routes, animal_routes, animalmejorado_routes, aplicacionvacuna_routes, control_routes,enfermedad_routes,evento_routes, forraje_routes,medicamento_routes, mejoramientogenetico_routes, pastoreo_routes,pradera_routes,tratamiento_routes, vacuna_routes)
     
     app.register_blueprint(administrador_routes.bp)
     app.register_blueprint(operario_routes.bp)
@@ -34,6 +34,17 @@ def create_app():
     app.register_blueprint(instructor_routes.bp)
     app.register_blueprint(animal_routes.bp)
     app.register_blueprint(animalmejorado_routes.bp)
+    app.register_blueprint(aplicacionvacuna_routes.bp)
+    app.register_blueprint(control_routes.bp)
+    app.register_blueprint(enfermedad_routes.bp)
+    app.register_blueprint(evento_routes.bp)
+    app.register_blueprint(forraje_routes.bp)
+    app.register_blueprint(medicamento_routes.bp)
+    app.register_blueprint(mejoramientogenetico_routes.bp)
+    app.register_blueprint(pastoreo_routes.bp)
+    app.register_blueprint(pradera_routes.bp)
+    app.register_blueprint(tratamiento_routes.bp)
+    app.register_blueprint(vacuna_routes.bp)
 #-------------------------------------------------------emails-----------------------
    
     app.config['MAIL_SERVER'] = 'smtp.gmail.com'
