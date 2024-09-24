@@ -9,7 +9,7 @@ bp = Blueprint('animalmejorado', __name__)
 
 
 #   Index
-@bp.route('/AnimalesMejorados/index')
+@bp.route('/AnimalesMejorados')
 def index():
     dataAnimalesMejorados = AnimalesMejorados.query.all()
     dataAnimales = Animales.query.all()
