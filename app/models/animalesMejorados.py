@@ -4,7 +4,7 @@ class AnimalesMejorados(db.Model):
     __tablename__ = 'animalMejorado'
 
     idAnimalMejorado = db.Column(db.Integer, primary_key=True)
-    idPadreAportante = db.column(db.Integer,nullable=False)
+    idPadreAportante = db.Column(db.Integer,nullable=False)
     nombrePadreAportante = db.Column(db.String(255), nullable=False)
     razaPadreAportante = db.Column(db.String(255), nullable=False)
     idMadreAportante = db.Column(db.Integer,nullable=False)
