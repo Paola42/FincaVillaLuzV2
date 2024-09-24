@@ -26,13 +26,14 @@ def create_app():
     from app.routes.auth import auth_bp
     app.register_blueprint(auth_bp)
 
-    from app.routes import (auth,administrador_routes,operario_routes,aprendiz_routes,instructor_routes, animal_routes)
+    from app.routes import (auth,administrador_routes,operario_routes,aprendiz_routes,instructor_routes, animal_routes, animalmejorado_routes)
     
     app.register_blueprint(administrador_routes.bp)
     app.register_blueprint(operario_routes.bp)
     app.register_blueprint(aprendiz_routes.bp)
     app.register_blueprint(instructor_routes.bp)
     app.register_blueprint(animal_routes.bp)
+    app.register_blueprint(animalmejorado_routes.bp)
 #-------------------------------------------------------emails-----------------------
    
     app.config['MAIL_SERVER'] = 'smtp.gmail.com'
