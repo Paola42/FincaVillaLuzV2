@@ -5,4 +5,5 @@ from app.models.instructores import Instructores
 from app.models.operarios import Operarios
 from app.models.animales import Animales
 from app.models.animalesMejorados import AnimalesMejorados
-from app.models.aplicacionVacunas import AplicacionVacunas
+from app.models.mejoramientosGeneticos import MejoramientosGeneticos
+from app.models.controles import Controles
