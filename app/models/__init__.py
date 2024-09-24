@@ -6,13 +6,3 @@ from app.models.operarios import Operarios
 from app.models.animales import Animales
 from app.models.animalesMejorados import AnimalesMejorados
 from app.models.aplicacionVacunas import AplicacionVacunas
-from app.models.controles import Controles
-from app.models.enfermedades import Enfermedades
-from app.models.eventos import Eventos
-from app.models.forrajes import Forrajes
-from app.models.medicamentos import Medicamentos
-from app.models.mejoramientosGeneticos import MejoramientosGeneticos
-from app.models.pastoreos import Pastoreos
-from app.models.praderas import Praderas
-from app.models.tratamientos import Tratamientos
-from app.models.vacunas import Vacunas
