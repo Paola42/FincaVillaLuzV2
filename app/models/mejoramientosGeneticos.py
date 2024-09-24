@@ -7,5 +7,5 @@ class MejoramientosGeneticos(db.Model):
     tecnicaEventoGenetico = db.Column(db.String(255), nullable=False)
     fechaEvento     = db.Column(db.Date,nullable=True)
     resultados      = db.Column(db.String(255), nullable=False)
-    detalles        = db.Columna(db.String(255), nullable=False)
+    detalles        = db.Column(db.String(255), nullable=False)
     animalMejorado  = db.Column(db.Integer, db.ForeignKey('animalMejorado.idAnimalMejorado'))
