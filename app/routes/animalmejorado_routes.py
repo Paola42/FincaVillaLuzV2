@@ -9,7 +9,7 @@ bp = Blueprint('animalmejorado', __name__)
 
 
 #   Index
-@bp.route('/AnimalesMejorados')
+@bp.route('/animalmejorado')
 def index():
     dataAnimalesMejorados = AnimalesMejorados.query.all()
     dataAnimales = Animales.query.all()
@@ -18,7 +18,7 @@ def index():
 
 
 #   Add
-@bp.route('/AnimalesMejorados/add', methods=['GET', 'POST'])
+@bp.route('/animalmejorado/add', methods=['GET', 'POST'])
 def add():
     if request.method == 'POST':
         idPadreAportante = request.form['idPadreAportante']
@@ -41,7 +41,7 @@ def add():
 
 
 #   Edit
-@bp.route('/AnimalesMejorados/edit/<int:idAnimalMejorado>', methods=['GET', 'POST'])
+@bp.route('/animalMejorado/edit/<int:idAnimalMejorado>', methods=['GET', 'POST'])
 def edit(idAnimalMejorado):
     animalMejorado = AnimalesMejorados.query.get_or_404(idAnimalMejorado)
 
@@ -66,7 +66,7 @@ def edit(idAnimalMejorado):
 
 
 #   Delete
-@bp.route('/AnimalesMejorados/delete/<int:idAnimalMejorado>')
+@bp.route('/animalMejorado/delete/<int:idAnimalMejorado>')
 def delete(idAnimalMejorado):
     animalMejorado = AnimalesMejorados.query.get_or_404(idAnimalMejorado)
 
