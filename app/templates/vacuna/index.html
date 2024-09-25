@@ -40,24 +40,19 @@
         </div>
 
         {% for vacuna in dataVacunas %}
-
-        {%for vacuna in dataVacunas%}
-
-
     <div class="contenido">
         <tr>
             <td>{{vacuna.idVacuna}}</td>
             <td>{{vacuna.nombreVacuna}}</td>
             <td>{{vacuna.dosis}}</td>
             <td>{{vacuna.viaAdministracion}}</td>
-            <td>{{vacuna.intervalo.revacunac}}</td>
+            <td>{{vacuna.intervaloReVacunacion}}</td>
             <td>{{vacuna.enfermedadObjetivo}}</td>
             <td>{{vacuna.tipoVacuna}}</td>
             <td>{{vacuna.planNacional}}</td>
 
-            <a href="{{ url_for('vacuna.edit', id=vacuna.idAprendiz) }}"><i class="bi bi-pencil-square"></i></a>
-            <a href="{{ url_for('vacuna.delete', id=vacuna.idAprendiz) }}"><i class="bi bi-archive"></i></a>
-            <!-- Agrega aquí el enlace para eliminar -->
+            <a href="{{ url_for('vacuna.edit', id=vacuna.idVacuna) }}"><i class="bi bi-pencil-square">Editar</i></a>
+            <a href="{{ url_for('vacuna.delete', id=vacuna.idVacuna) }}"><i class="bi bi-archive"></i>Eliminar</a>
         </td>
     </tr>
         {% endfor %}
@@ -68,7 +63,7 @@
 
     <a href="{{ url_for('vacuna.add')}}">Ingresar Vacunaciòn</a>
     <br>
-   <!-- <a href="{{ url_for('vacuna.inicio')}}">Inicio</a>-->
+   
 
 </body>
 </html>
