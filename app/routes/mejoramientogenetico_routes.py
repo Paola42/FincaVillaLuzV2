@@ -30,7 +30,7 @@ def add():
         db.session.add(newMejoramientoGenetico)
         db.session.commit()
 
-        return redirect(url_for('mejoramientogenetico.index'))
+        return redirect(url_for('mejoramientoGenetico.index'))
     
     dataAnimalesMejorados = AnimalesMejorados.query.all()
 
@@ -56,7 +56,7 @@ def edit(idMejoramientoGenetico):
     
     dataAnimalesMejorados = AnimalesMejorados.query.all()
 
-    return render_template('mejoramientoGenetico/edit.html', mejoramientoGenetico=mejoramientoGenetico, dataAnimalesMejorados=dataAnimalesMejorados)
+    return render_template('mejoramientogenetico/edit.html', mejoramientoGenetico=mejoramientoGenetico, dataAnimalesMejorados=dataAnimalesMejorados)
 
 
 #   Delete

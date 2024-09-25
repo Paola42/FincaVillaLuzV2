@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="overlay">
-        <h1>Lista de animales</h1>
+        <h1>Lista Mejoramiento</h1>
         <div style="overflow-x:auto;">
             <table>
                 <tr>
@@ -35,22 +35,22 @@
                         <td>{{ mejoramientoGenetico.detalles}}</td>
 
                         {% for animalMejorado in dataAnimalesMejorados %}
-                            <td>{{ mejoramientogenetico.animalMejorado}}</td>
+                            <td>{{ mejoramientoGenetico.animalMejorado}}</td>
                         {% endfor %}
 
                         <td>
-                            <a href="{{ url_for('mejoramientogenetico.edit', idMejoramientoGenetico=mejoramientogenetico.idMejoramientoGenetico) }}"><i class="bi bi-pencil-square"></i></a>
-                            <a href="{{ url_for('mejoramientogenetico.delete', idMejoramietnoGenetico=mejoramientogenetico.idMejoramientoGenetico) }}"><i class="bi bi-archive"></i></a>
-                            <!-- Agrega aquí el enlace para eliminar -->
+                            <a href="{{ url_for('mejoramientoGenetico.edit', idMejoramientoGenetico=idMejoramientoGenetico) }}"><i class="bi bi-pencil-square">Editar</i></a>
+                            <a href="{{ url_for('mejoramientoGenetico.delete', idMejoramietnoGenetico=idMejoramientoGenetico) }}"><i class="bi bi-archive">Eliminar</i></a>
+                            
                         </td>
                     </tr>
                 {% endfor %}
 
             </table>
         </div>
-        <a href="{{ url_for('animal.add')}}">Agregar Animal</a>
+        <a href="{{ url_for('mejoramientoGenetico.add')}}">Agregar Animal</a>
         <br>
-       <!-- <a href="{{ url_for('aprendiz.inicio')}}">Inicio</a>-->
+       
     </div>
 </body>
 </html>
