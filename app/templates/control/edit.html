@@ -5,29 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Editar Administrador</title>
+    <title>Editar Control</title>
     
 </head>
 <body>
     <div class="overlay">
     <h1>Editar Control</h1>
-    <form action="{{ url_for('Animal.edit', id=Animal.idAnimal) }}" method="post">
+    <form action="{{ url_for('Control.edit', id=control.idControl) }}" method="post">
        
             <div class="form-group">
                 <label for="descripcion">descripcion</label>
-                <input type="text" id="descripcion" name="descripcion"  value="{{animal .descripcion}}" required> 
+                <input type="text" id="descripcion" name="descripcion"  value="{{control.descripcion}}" required> 
             </div>
             <div class="form-group">
                 <label for="fecha">fecha</label>
-                <input type="text" id="fecha" name="fecha"  value="{{animal .fecha}}" required>
+                <input type="date" id="fecha" name="fecha"  value="{{control.fecha}}" required>
             </div>
             <div class="form-group">
                 <label for="estado">estado</label>
-                <input type="text" id="estado " name="estado" value="{{animal .estado}}" required> 
+                <input type="text" id="estado " name="estado" value="{{control.estado}}" required> 
             </div>
             <div class="form-group">
                 <label for="idAnimalMejorado">idAnimalMejorado</label>
-                <input type="text" id="idAnimalMejorado" name="idAnimalMejorado"  value="{{ animal.idAnimalMejorado}}" required>
+                <input type="text" id="idAnimalMejorado" name="idAnimalMejorado"  value="{{control.idAnimalMejorado}}" required>
             </div>
             <button type="submit">Actualizar Control</button>
         </form>

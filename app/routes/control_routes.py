@@ -13,7 +13,7 @@ def index():
     dataControles = Controles.query.all()
     dataAnimalesMejorados = AnimalesMejorados.query.all()
 
-    return render_template('controles/index.html', dataControles=dataControles, dataAnimalesMejorados=dataAnimalesMejorados)
+    return render_template('control/index.html', dataControles=dataControles, dataAnimalesMejorados=dataAnimalesMejorados)
 
 
 #   Add
@@ -25,15 +25,15 @@ def add():
         estado = request.form['estado']
         idAnimalMejorado = request.form['idAnimalMejorado']
 
-        newControl = Controles(descripcionControl=descripcion, fechaContro=fecha, estadoContro=estado, idAnimalMejorado=idAnimalMejorado)
+        newControl = Controles(descripcion=descripcion, fecha=fecha, estado=estado, animalMejorado=idAnimalMejorado)
         db.session.add(newControl)
-        db.session.commit()
+        
 
         return redirect(url_for('control.index'))
     
     dataAnimalesMejorados = AnimalesMejorados.query.all()
 
-    return render_template('controles/add.html', dataAnimalesMejorados=dataAnimalesMejorados)
+    return render_template('control/add.html', dataAnimalesMejorados=dataAnimalesMejorados)
 
 
 #   Edit
@@ -53,7 +53,7 @@ def edit(id):
     
     dataAnimalesMejorados = AnimalesMejorados.query.all()
 
-    return render_template('controles/edit.html', control=control, dataAnimalesMejorados=dataAnimalesMejorados)
+    return render_template('control/edit.html', control=control, dataAnimalesMejorados=dataAnimalesMejorados)
 
 
 #   Delete

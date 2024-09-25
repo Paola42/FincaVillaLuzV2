@@ -24,25 +24,25 @@
                     <th>Estado</th>
                     <th>Acciones</th>
                 </tr>
-                {% for Animal in data %}
+                {% for control in dataControles %}
                     <tr>
-                        <td>{{ Animal.idControl}}</td>
-                        <td>{{ Animal.descripcion}}</td>
-                        <td>{{ Animal.fecha}}</td>
-                        <td>{{ Animal.Estado}}</td>
+                        <td>{{ Control.idControl}}</td>
+                        <td>{{ Control.descripcion}}</td>
+                        <td>{{ Control.fecha}}</td>
+                        <td>{{ Control.estado}}</td>
                         <td>
-                            <a href="{{ url_for('animal.edit', id=animal.idAnimal) }}"><i class="bi bi-pencil-square"></i></a>
-                            <a href="{{ url_for('animal.delete', id=animal.idAnimal) }}"><i class="bi bi-archive"></i></a>
-                            <!-- Agrega aquí el enlace para eliminar -->
+                            <a href="{{ url_for('control.edit', id=control.idControl) }}"><i class="bi bi-pencil-square"></i>Edital</a>
+                            <a href="{{ url_for('control.delete', id=animal.idControl) }}"><i class="bi bi-archive"></i>Eliminar</a>
+                            
                         </td>
                     </tr>
                 {% endfor %}
             </table>
-Animal
-        <a href="{{ url_for('animal.add')}}">Agregar Control</a>
-        <br>
-       <!-- <a href="{{ url_for('aprendiz.inicio')}}">Inicio</a>-->
-    </div>
+        </div>
+            <a href="{{ url_for('control.add')}}">Agregar Control</a>
+            <br>
+       
+    
 </body>
 </html>
 
