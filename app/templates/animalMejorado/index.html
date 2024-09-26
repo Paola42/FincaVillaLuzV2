@@ -32,7 +32,7 @@
                     <tr>
                         <td>{{ animalMejorado.idAnimalMejorado}}</td>
                         <td>{{ animalMejorado.idPadreAportante}}</td>
-                        <td>{{ animalMejorado.nombrePadre}}</td>
+                        <td>{{ animalMejorado.nombrePadreAportante}}</td>
                         <td>{{ animalMejorado.razaPadre}}</td>
                         <td>{{ animalMejorado.idMadreAportante}}</td>
                         <td>{{ animalMejorado.nombreMadre}}</td>
@@ -43,8 +43,8 @@
                         {% endfor %}
                         
                         <td>
-                            <a href="{{ url_for('animalmejorado.edit', idAnimalMejorado=animalMejorado.idAnimalMejorado) }}"><i class="bi bi-pencil-square"></i></a>
-                            <a href="{{ url_for('animalmejorado.delete', idAnimalMejorado=animalMejorado.idAnimalMejorado) }}"><i class="bi bi-archive"></i></a>
+                            <a href="{{ url_for('animalMejorado.edit', idAnimalMejorado=animalMejorado.idAnimalMejorado) }}"><i class="bi bi-pencil-square"></i></a>
+                            <a href="{{ url_for('animalMejorado.delete', idAnimalMejorado=animalMejorado.idAnimalMejorado) }}"><i class="bi bi-archive"></i></a>
                             <!-- Agrega aquí el enlace para eliminar -->
                         </td>
                     </tr>
@@ -52,7 +52,7 @@
                 
             </table>
         </div>
-        <a href="{{ url_for('animalmejorado.add')}}">Agregar Animal Mejorado</a>
+        <a href="{{ url_for('animalMejorado.add')}}">Agregar Animal Mejorado</a>
         <br>
     
     </div>
