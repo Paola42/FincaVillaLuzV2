@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Finca Villa Luz</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
     <div class="container text-center mt-5">
@@ -25,9 +26,11 @@
         <nav class="navbar bg-light mt-4">
             <div class="container-fluid">
                 <form class="d-flex" role="login" action="{{ url_for('auth.login') }}" method="get">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                     <button class="btn btn-outline-success" type="submit">Iniciar Sesión</button>
                 </form>
                 <form class="d-flex ms-2" role="registro" action="{{ url_for('auth.registro') }}" method="get">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                     <button class="btn btn-outline-success" type="submit">Registro</button>
                 </form>
             </div>

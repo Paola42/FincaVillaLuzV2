@@ -200,17 +200,15 @@ def solicitar_restablecimiento():
     token = s.dumps(email, salt='email-reset-salt')
     link = url_for('auth.recuperacion', token=token, _external=True)
 
-    msg = Message('usted a solicitado la recuperacion de su contraseña', sender='juanespitia538@gmail.com', recipients=[email])
+    msg = Message('usted ha solicitado la recuperación de su contraseña', sender='juanespitia538@gmail.com', recipients=['email'])
     msg.body = f'Para restablecer tu contraseña, haz clic en el siguiente enlace: {link}'
-    mail.send(msg)
-    try:
     
+    try:
+        mail.send(msg)
         flash('Se ha enviado un correo con instrucciones para restablecer tu contraseña.', 'success')
     except Exception as e:
         flash(f'Error al enviar el correo: {str(e)}', 'error')
 
-
-    flash('Se ha enviado un correo con instrucciones para restablecer tu contraseña.', 'success')
     return redirect(url_for('auth.restablecer_contraseña'))
 
 

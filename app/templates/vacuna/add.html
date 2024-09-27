@@ -21,7 +21,8 @@
         </nav>
     </header>
     <form class="formulario" action="{{url_for('vacuna.add')}}" method="post">
-        <h2 class="name">Agregar Vacuna Vacuna</h2>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <h2 class="name">Editar Vacuna</h2>
         <div class="input-group">
             <div class="input-conteiner">
                 <label for="nombreVacuna">Nombre de Vacuna</label><br>

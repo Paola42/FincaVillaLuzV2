@@ -11,6 +11,8 @@
         <h1>Editar Animal</h1>
         
         <form action="{{ url_for('animal.edit', idAnimal=animal.idAnimal) }}" method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            
             <div class="form-group">
                 <label for="especieAnimal">Especie Annimal</label>
                 <input type="text" id="especieAnimal" name="especieAnimal" value="{{ animal.especieAnimal }}" required>

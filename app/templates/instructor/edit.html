@@ -13,6 +13,7 @@
     <div class="overlay">
     <h1>Editar Instructor</h1>
     <form action="{{ url_for('instructor.edit', id=instructor.idInstructor) }}" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <div class="form-group">
             <label for="nombreInstructor">Nombre Instructor</label>
             <input type="text" id="nombreInstructor" name="nombreInstructor"

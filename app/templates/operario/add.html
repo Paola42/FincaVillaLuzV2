@@ -12,6 +12,7 @@
     <div class="overlay">
         <h1>Agregar Operario</h1>
         <form action="{{url_for('operario.add')}}" method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <div class="form-group">
                 <label for="nombreOperario">Nombre Operario</label>
                 <input type="text" id="nombreOperario" name="nombreOperario" required>

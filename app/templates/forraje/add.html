@@ -24,6 +24,7 @@
         </header>
 
         <form class="formulario" action="{{url_for('forraje.add')}}" method="post"></form>
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
         <h2 class="name">Forraje</h2>
         <div class="input-group">

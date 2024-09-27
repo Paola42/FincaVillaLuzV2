@@ -24,6 +24,7 @@
         <h2>Agregar Animal</h1>
 
         <form action="{{ url_for('animal.add') }}" method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <div class="form-group">
                 <label for="especieAnimal">Especie Animal</label>
                 <input type="text" id="especieAnimal" name="especieAnimal" required>

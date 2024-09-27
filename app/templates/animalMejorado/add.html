@@ -9,8 +9,8 @@
 <body>
     <div class="overlay">
         <h1>Agregar Animal Mejorado</h1>
-        <form action="{{ url_for('animalesmejorado.add') }}" method="post">
-
+        <form action="{{ url_for('animalmejorado.add', idAmimalMejorado=animalMejorado.idAnimalMejorado) }}" method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <div class="form-group">
                 <label for="idPadreAportante">ID Padre Aportante</label>
                 <input type="int" id="idPadreAportante" name="idPadreAportante" required>

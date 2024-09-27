@@ -12,6 +12,7 @@
     <div class="overlay">
         <h1>Agregar </h1>
         <form action="{{ url_for('aprendiz.add')}}" method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <div class="form-group">
                 <label for="nombreAprendiz">Nombre Aprendiz</label>
                 <input type="text" id="nombreAprendiz" name="nombreAprendiz" required>

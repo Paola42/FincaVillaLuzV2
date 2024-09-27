@@ -10,7 +10,8 @@
     <div class="overlay">
         <h1>Editar Mejoramiento Genetico</h1>
 
-        <form action="{{ url_for('mejoramientoGenetico.edit', idMejoramientoGenetico=mejoramientoGenetico.idMejoramientoGenetico) }}" method="post">
+        <form action="{{ url_for('mejoramientogenetico.edit', idMejoramientoGenetico=mejoramientoGenetico.idMejoramientoGenetico) }}" method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
             <div class="form-group">
                 <label for="tecnicaEventoGenetico">Técnica usada</label>

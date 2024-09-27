@@ -21,6 +21,7 @@
     <div class="overlay">
         <h1>Agregar Administrador</h1>
         <form action="{{ url_for('administrador.add') }}" method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <div class="form-group">
                 <label for="nombreAdministrador">Nombre:</label>
                 <input type="text" id="nombreAdministrador" name="nombreAdministrador" required>

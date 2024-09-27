@@ -20,6 +20,7 @@
             </nav>
         </header>
     <form class="formulario" action="{{url_for('aplicacionVacuna.add')}}" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <h2 class="name"> Aplicar Vacuna</h2>
         <div class="input-group">
             <div class="input-conteiner">

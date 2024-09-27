@@ -13,6 +13,7 @@
     <div class="overlay">
         <h2>Agregar Control</h2>
         <form action="{{ url_for('control.add') }}" method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <div class="form-group">
                 <label for="descripcion">Descripcion</label>
                 <input type="text" id="descripcion" name="descripcion"  required>

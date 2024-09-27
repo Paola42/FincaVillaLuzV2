@@ -5,13 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
     <title>Agregar Mejoramiento Genetico</title>
 </head>
 <body>
     <div class="overlay">
         <h1>Agregar Mejoramiento Genetico</h1>
 
-        <form action="{{ url_for('mejoramientoGenetico.add') }}" method="post">
+        <form action="{{ url_for('mejoramientogenetico.add', idMejoramientoGenetico=mejoramientogenetico.idMejoramientoGenetico) }}" method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
             <div class="form-group">
                 <label for="tecnicaEventoGenetico">Técnica usada</label>

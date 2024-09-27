@@ -13,6 +13,7 @@
     <div class="overlay">
     <h1>Editar Administrador</h1>
     <form action="{{ url_for('administrador.edit', id=administrador.idAdministrador) }}" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <div class="form-group">
             <label for="nombreAdministrador">Nombre Administrador</label>
             <input type="text" id="nombreAdministrador" name="nombreAdministrador"
