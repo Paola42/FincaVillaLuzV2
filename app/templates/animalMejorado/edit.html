@@ -9,7 +9,7 @@
 <body>
     <div class="overlay">
         <h1>Editar Animal Mejorado</h1>
-        <form action="{{ url_for('animalmejorado.edit', idAnimalMejorado=animalMejorado.idAnimalMejorado) }}" method="post">
+        <form action="{{ url_for('animalMejorado.edit', idAnimalMejorado=animalMejorado.idAnimalMejorado) }}" method="post">
             <div class="form-group">
                 <label for="idPadreAportante">ID Padre Aportante</label>
                 <input type="int" id="idPadreAportante" name="idPadreAportante" value="{{ animalMejorado.idPadreAportante }}" required>

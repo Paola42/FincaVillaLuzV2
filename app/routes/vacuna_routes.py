@@ -32,7 +32,7 @@ def add():
 
         return redirect(url_for('vacuna.index'))
     
-    return render_template('vacunas/add.html')
+    return render_template('vacuna/add.html')
 
 
 #   Edit
