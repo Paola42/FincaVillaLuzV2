@@ -110,7 +110,7 @@ def login():
             flash("Login successful!", "success")
             
 
-            return render_template('bovinos/index.html')
+            return render_template('inicio/index.html')
     
         
         
@@ -245,6 +245,11 @@ def bovinos():
 def salida():
     
     return render_template('inicio/index3.html')
+
+@auth_bp.route('/salida1')
+def salida1():
+    
+    return render_template('inicio/index.html')
 
 @auth_bp.route('/operarios')
 def operarios():

@@ -20,19 +20,19 @@ def index():
 def add():
     if request.method == 'POST':
         idPadreAportante = request.form['idPadreAportante']
-        nombrePadreAportante = request.form['nombrePadre']
+        nombrePadreAportante = request.form['nombrePadreAportante']
         razaPadreAportante = request.form['razaPadreAportante']
         idMadreAportante = request.form['idMadreAportante']
         nombreMadreAportante = request.form['nombreMadreAportante']
         razaMadreAportante = request.form['razaMadreAportante']
-        idAnimal = request.form['idAnimal']
+        idAnimal= request.form['idAnimal']
         newAnimalMejorado = AnimalesMejorados(idPadreAportante=idPadreAportante, nombrePadreAportante=nombrePadreAportante, razaPadreAportante=razaPadreAportante, idMadreAportante=idMadreAportante, nombreMadreAportante=nombreMadreAportante, razaMadreAportante=razaMadreAportante,idAnimal=idAnimal)
         db.session.add(newAnimalMejorado)
         db.session.commit()
 
         return redirect(url_for('animalmejorado.index'))
     
-    dataAnimal = dataAnimal.query.all()
+    dataAnimal = Animales.query.all()
      
     return render_template('animalMejorado/add.html', dataAnimal=dataAnimal)
 
