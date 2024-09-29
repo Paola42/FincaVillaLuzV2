@@ -10,4 +10,4 @@ class AnimalesMejorados(db.Model):
     idMadreAportante = db.Column(db.Integer,nullable=False)
     nombreMadreAportante = db.Column(db.String(255), nullable=False)
     razaMadreAportante = db.Column(db.String(255), nullable=False)
-    mejoramientoGenetico = db.Column(db.Integer, db.ForeignKey('mejoramientoGenetico.idMejoramientoGenetico'))
+    idAnimal = db.Column(db.Integer, db.ForeignKey('animales.idAnimal'))

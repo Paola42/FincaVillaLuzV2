@@ -6,4 +6,4 @@ class AplicacionVacunas(db.Model):
     idAplicacionVacuna= db.Column(db.Integer, primary_key=True)
     fechaAplicacion=db.Column(db.Date,nullable=True)
     animal= db.Column(db.Integer, db.ForeignKey('animal.idAnimal'))
-    vacuna = db.Column(db.Integer, db.ForeignKey('vacuna.idVacuna'))
+    vacuna = db.Column(db.Integer, db.ForeignKey('vacunas.idVacuna'))

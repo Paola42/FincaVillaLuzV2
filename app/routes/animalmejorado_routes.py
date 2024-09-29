@@ -26,19 +26,20 @@ def add():
         nombreMadreAportante = request.form['nombreMadreAportante']
         razaMadreAportante = request.form['razaMadreAportante']
         idAnimal= request.form['idAnimal']
+
         newAnimalMejorado = AnimalesMejorados(idPadreAportante=idPadreAportante, nombrePadreAportante=nombrePadreAportante, razaPadreAportante=razaPadreAportante, idMadreAportante=idMadreAportante, nombreMadreAportante=nombreMadreAportante, razaMadreAportante=razaMadreAportante,idAnimal=idAnimal)
         db.session.add(newAnimalMejorado)
         db.session.commit()
 
         return redirect(url_for('animalmejorado.index'))
     
-    dataAnimal = Animales.query.all()
+    dataAnimales = Animales.query.all()
      
-    return render_template('animalMejorado/add.html', dataAnimal=dataAnimal)
+    return render_template('animalMejorado/add.html', dataAnimales=dataAnimales)
 
 
 #   Edit
-@bp.route('/animalmejorado/edit/<int:id>', methods=['GET', 'POST'])
+@bp.route('/animalmejorado/edit/<int:idAnimalMejorado>', methods=['GET', 'POST'])
 def edit(idAnimalMejorado):
     animalMejorado = AnimalesMejorados.query.get_or_404(idAnimalMejorado)
 
@@ -47,6 +48,7 @@ def edit(idAnimalMejorado):
         animalMejorado.nombrePadreAportante = request.form['nombrePadreAportante']
         animalMejorado.razaPadreAportante = request.form['razaPadreAportante']
         animalMejorado.idMadreAportante = request.form['idMadreAportante']
+        animalMejorado.nombreMadreAportante = request.form['nombreMadreAportante']
         animalMejorado.razaMadreAportante = request.form['razaMadreAportante']
         animalMejorado.idAnimal= request.form['idAnimal']
         

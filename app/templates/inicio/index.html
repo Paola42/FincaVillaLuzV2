@@ -15,24 +15,56 @@
             <div class="logo d-flex align-items-center">
                 <img src="{{ url_for('static', filename='img/logo_sena.webp') }}" alt="imagen sena" class="img-fluid me-3" style="max-height: 50px;">
                 <h1 class="fs-3 mb-0">Finca Villa Luz</h1>
+                
+            
             </div>
         </div>
     </header>
 
     <!-- Main Content -->
-    <div class="container text-3center">
+    <div class="container text-center">
+        <h2 class="fs-3 mb-0">CENTRO AGROEMPRESARIAL DEL ORIENTE</h2>
         <h1 class="mb-4">Bienvenido Administrador</h1>
+        
+        <!-- Botones en la parte superior -->
         <div class="row text-center mb-5">
-            <div class="col-md-4 mb-3">
+            <div class="col-md-2 mb-3">
                 <a href="{{ url_for('auth.bovinos') }}" class="btn btn-info w-100">
                     <i class="bi bi-eye"></i> Ver Bovinos
                 </a>
             </div>
-            <div class="col-md-4 mb-3">
-                <a href="{{ url_for('auth.logout') }}" class="btn btn-danger w-100">
-                    <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+            <div class="col-md-2 mb-3">
+                <a href="{{ url_for('auth.bovinos') }}" class="btn btn-info w-100">
+                    <i class="bi bi-eye"></i> Ver Insumos
                 </a>
             </div>
+            <div class="col-md-2 mb-3">
+                <a href="{{ url_for('auth.bovinos') }}" class="btn btn-info w-100">
+                    <i class="bi bi-eye"></i> Otra Opción
+                </a>
+            </div>
+            <div class="col-md-2 mb-3">
+                <a href="{{ url_for('auth.bovinos') }}" class="btn btn-info w-100">
+                    <i class="bi bi-eye"></i> Agropecuario
+                </a>
+            </div>
+            <div class="col-md-2 mb-3">
+                <a href="{{ url_for('auth.bovinos') }}" class="btn btn-info w-100">
+                    <i class="bi bi-eye"></i> Piscicultura
+                </a>
+            </div>
+        </div>
+        
+        <!-- Imagen centrada en la página -->
+        <div class="mb-5">
+            <img src="{{ url_for('static', filename='img/PESCA.jpg') }}" alt="Imagen Centrada" class="img-fluid" style="max-width: 70%; height: auto;">
+        </div>
+
+        <!-- Botón de cerrar sesión -->
+        <div class="col-md-4 mb-3 mx-auto">
+            <a href="{{ url_for('auth.logout') }}" class="btn btn-danger w-100">
+                <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+            </a>
         </div>
     </div>
 
