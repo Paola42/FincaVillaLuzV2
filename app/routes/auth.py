@@ -7,6 +7,7 @@ from app.models.aprendices import Aprendices
 from app.models.instructores import Instructores
 from app.models.usuarios import Usuarios
 from app.models.operarios import Operarios
+from app.models.animales import Animales
 from app import db
 import os
 #-------------------------------------------------------------emails---------------------------------------------
@@ -233,5 +234,31 @@ def restablecer_contrasena(token):
         return redirect(url_for('auth.restablecer_contraseña'))
 
     return render_template('restablecer_contrasena.html', token=token)
+
+#----------------------------------------------------index  vacios -----------------------------------------------
+@auth_bp.route('/bovinos')
+def bovinos():
+    return render_template('bovinos/index.html')
+
+
+@auth_bp.route('/salida')
+def salida():
+    
+    return render_template('inicio/index3.html')
+
+@auth_bp.route('/operarios')
+def operarios():
+    data = Animales.query.all()
+    return render_template('animal/index.html', data=data)  # Asegúrate de que este archivo existe
+
+@auth_bp.route('/controles')
+def controles():
+    return render_template('control/index.html') # Asegúrate de que este archivo existe
+
+@auth_bp.route('/praderas')
+def praderas():
+    return render_template('pradera/index.html')  # Asegúrate de que este archivo existe
+
+
 
 

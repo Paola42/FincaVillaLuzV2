@@ -23,7 +23,7 @@
 <body>
     <div class="container">
         <h1>Restablecer Contraseña</h1> 
-        <form method="POST" action="{{ url_for('auth.solicitar_restablecimiento') }}">
+        <form method="POST" action="{{ url_for('auth.solicitar_restablecimiento') }}">|
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <label for="email">Correo Electrónico:</label>
             <input type="email" name="email" id="email" required>

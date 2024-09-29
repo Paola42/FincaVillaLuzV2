@@ -36,7 +36,7 @@ def add():
 
 
 #   Edit
-@bp.route('/Vacunas/edit/<int:id>', methods=['GET', 'POST'])
+@bp.route('/vacuna/edit/<int:idVacuna>', methods=['GET', 'POST'])
 def edit(idVacuna):
     vacuna = Vacunas.query.get_or_404(idVacuna)
 

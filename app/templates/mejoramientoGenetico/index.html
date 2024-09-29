@@ -4,56 +4,87 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='/boot/css/bootstrap.css') }}">
-    <script src="{{ url_for('static', filename='/boot/js/bootstrap.js') }}"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styleCliente.css') }}">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Mejoramientos Geneticos</title>
+    <title>Mejoramientos Genéticos</title>
 </head>
 <body>
-    <div class="overlay">
-        <h1>Lista Mejoramiento</h1>
-        <div style="overflow-x:auto;">
-            <table>
-                <tr>
-                    <th>ID Mejoramiento</th>
-                    <th>Tecnica Utilizada</th>
-                    <th>Fecha del evento</th>
-                    <th>Resultados</th>
-                    <th>Detalles</th>
-                    <th>ID Animal mejorado</th>
-                    <th>Acciones</th>
-                </tr>
-
-                {% for mejoramientoGenetico in dataMejoramientosGeneticos %}
-                    <tr>
-                        <td>{{ mejoramientoGenetico.idMejoramientoGenetico}}</td>
-                        <td>{{ mejoramientoGenetico.tecnicaEventoGenetico}}</td>
-                        <td>{{ mejoramientoGenetico.fechaEvento}}</td>
-                        <td>{{ mejoramientoGenetico.resultados}}</td>
-                        <td>{{ mejoramientoGenetico.detalles}}</td>
-
-                        {% for animalMejorado in dataAnimalesMejorados %}
-                            <td>{{ mejoramientoGenetico.animalMejorado}}</td>
-                        {% endfor %}
-
-                        <td>
-                            <a href="{{ url_for('mejoramientoGenetico.edit', idMejoramientoGenetico=idMejoramientoGenetico) }}"><i class="bi bi-pencil-square">Editar</i></a>
-                            <a href="{{ url_for('mejoramientoGenetico.delete', idMejoramietnoGenetico=idMejoramientoGenetico) }}"><i class="bi bi-archive">Eliminar</i></a>
-                            
-                        </td>
-                    </tr>
-                {% endfor %}
-
-            </table>
+    <header class="bg-light p-3 mb-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo d-flex align-items-center">
+                <img src="{{ url_for('static', filename='img/logo_sena.webp') }}" alt="imagen sena" class="img-fluid me-3" style="max-height: 50px;">
+                <h1 class="fs-3 mb-0">Finca Villa Luz</h1>
+            </div>
+            <nav>
+                <!-- Aquí se puede agregar la navegación si se requiere -->
+            </nav>
         </div>
-        <a href="{{ url_for('mejoramientoGenetico.add')}}">Agregar Animal</a>
-        <br>
-       
+    </header>
+
+    <!-- Contenedor principal para la vista de mejoramientos genéticos -->
+    <div class="container mt-5">
+        <!-- Título centrado -->
+        <h1 class="text-center mb-4">Lista de Mejoramientos Genéticos</h1>
+
+        <!-- Tabla con clases de Bootstrap -->
+        <div class="card shadow">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>ID Mejoramiento</th>
+                                <th>Técnica Utilizada</th>
+                                <th>Fecha del Evento</th>
+                                <th>Resultados</th>
+                                <th>Detalles</th>
+                                <th>ID Animal Mejorado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for mejoramientoGenetico in dataMejoramientosGeneticos %}
+                            <tr>
+                                <td>{{ mejoramientoGenetico.idMejoramientoGenetico }}</td>
+                                <td>{{ mejoramientoGenetico.tecnicaEventoGenetico }}</td>
+                                <td>{{ mejoramientoGenetico.fechaEvento }}</td>
+                                <td>{{ mejoramientoGenetico.resultados }}</td>
+                                <td>{{ mejoramientoGenetico.detalles }}</td>
+                                <td>
+                                    <!-- Obtener el ID del animal mejorado -->
+                                    {{ mejoramientoGenetico.animalMejorado }}
+                                </td>
+                                <td>
+                                    <!-- Botones de acciones con iconos y clases de Bootstrap -->
+                                    <a href="{{ url_for('mejoramientoGenetico.edit', idMejoramientoGenetico=mejoramientoGenetico.idMejoramientoGenetico) }}" class="btn btn-warning btn-sm">
+                                        <i class="bi bi-pencil-square"></i> Editar
+                                    </a>
+                                    <a href="{{ url_for('mejoramientoGenetico.delete', idMejoramientoGenetico=mejoramientoGenetico.idMejoramientoGenetico) }}" class="btn btn-danger btn-sm">
+                                        <i class="bi bi-archive"></i> Eliminar
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botones para agregar un nuevo mejoramiento y regresar a la página principal -->
+        <div class="d-flex justify-content-between mt-4">
+            <a href="{{ url_for('mejoramientogenetico.add') }}" class="btn btn-success">
+                <i class="bi bi-plus-circle"></i> Agregar Mejoramiento
+            </a>
+            <a href="{{ url_for('auth.bovinos') }}" class="btn btn-outline-dark">
+                <i class="bi bi-arrow-left"></i> Regresar a la Página Principal
+            </a>
+        </div>
     </div>
+
+    <!-- Bootstrap JS, Popper.js y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-

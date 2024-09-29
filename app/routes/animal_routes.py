@@ -76,3 +76,7 @@ def delete(idAnimal):
 def animal():
     
     return redirect(url_for('animal.index')) 
+
+
+
+

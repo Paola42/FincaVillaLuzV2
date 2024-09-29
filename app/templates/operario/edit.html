@@ -15,19 +15,19 @@
     <form action="{{url_for('operario.edit', id=operario.idOperario)}}" method="post">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <div class="form-group">
-            <label for="nombreOperario">Nombre Operario</label>
+            <label for="nombreOperario">Nombre del Operario</label>
             <input type="text" id="nombreOperario" name="nombreOperario"
                 value="{{operario.nombreOperario}}" required>
         </div>
 
         <div class="form-group">
-        <label for="documentoOperario">Documento  Operario</label>
+        <label for="documentoOperario">Documento del Operario</label>
         <input type="text" id="documentoOperario" name="documentoOperario"
-            value="{{oerario.documentoOperario}}" required>
+            value="{{operario.documentoOperario}}" required>
         </div>  
 
         <div class="form-group"></div>
-        <label for="direccionOperario">Direccion  Operario</label>
+        <label for="direccionOperario">Direccion del Operario</label>
         <input type="text" id="direccionOperario" name="direccionOperario" value="{{operario.direccionOperario}}" required>
      
     <div class="form-group">
@@ -35,11 +35,11 @@
         <input type="text" id="telefonoOperario" name="telefonoOperario" value="{{operario.telefonoOperario}}" required>
     </div>  
     <div class="form-group">
-        <label for="correoOperario">correo</label>
+        <label for="correoOperario">correo del Operario</label>
         <input type="text" id="correoOperario" name="correoOperario" value="{{operario.correoOperario}}" required>
     </div>  
     <div class="form-group">
-        <label for="Operario">Contraseña Operario</label>
+        <label for="Operario">Contraseña del Operario</label>
         <input type="text" id="passwordOperario" name="passwordOperario" value="{{operario.passwordOperario}}" required>
     </div>  
 

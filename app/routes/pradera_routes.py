@@ -29,15 +29,24 @@ def add():
         areaPradera = request.form['areaPradera']
         idForraje = request.form['idForraje']
 
-        newPradera = Praderas(nombrePradera=nombrePradera, ubicacionPradera=ubicacionPradera, capacidadCargaPradera=capacidadCargaPradera, estadoDePastoreoPradera=estadoDePastoreoPradera, manejosPradera=manejosPradera, aforosPradera=aforosPradera, areaPradera=areaPradera, idForraje=idForraje)
+        newPradera = Praderas(
+            nombrePradera=nombrePradera, 
+            ubicacionPradera=ubicacionPradera, 
+            capacidadCargaPradera=capacidadCargaPradera, 
+            estadoDePastoreoPradera=estadoDePastoreoPradera, 
+            manejosPradera=manejosPradera, 
+            aforosPradera=aforosPradera, 
+            areaPradera=areaPradera, 
+            idForraje=idForraje
+        )
         db.session.add(newPradera)
         db.session.commit()
 
-        return redirect(url_for('pradera.index'))
+        return redirect(url_for('praderas.index'))
     
     dataForrajes = Forrajes.query.all()
 
-    return render_template('praderas/add.html', dataForrajes=dataForrajes)
+    return render_template('Pradera/add.html', dataForrajes=dataForrajes)
 
 
 #   Edit

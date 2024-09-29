@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,12 +10,15 @@
 <body>
     <div class="overlay">
         <h1>Editar Animal</h1>
-        
         <form action="{{ url_for('animal.edit', idAnimal=animal.idAnimal) }}" method="post">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-            
             <div class="form-group">
-                <label for="especieAnimal">Especie Annimal</label>
+                <label for="idAnimal">ID Animal</label>
+                <input type="text" id="idAnimal" name="idAnimal" value="{{ animal.id }}" readonly required>
+            </div>
+
+            <div class="form-group">
+                <label for="especieAnimal">Especie Animal</label>
                 <input type="text" id="especieAnimal" name="especieAnimal" value="{{ animal.especieAnimal }}" required>
             </div>
 
@@ -30,12 +34,12 @@
 
             <div class="form-group">
                 <label for="fechaNacimiento">Fecha de Nacimiento</label>
-                <input type="text" id="fechaNacimiento" name="fechaNacimiento" value="{{ animal.fechaNacimiento }}" required>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" value="{{ animal.fechaNacimiento }}" required>
             </div>
 
             <div class="form-group">
                 <label for="pesoAnimal">Peso</label>
-                <input type="text" id="pesoAnimal" name="pesoAnimal" value="{{ animal.pesoAnimal }}" required>
+                <input type="number" id="pesoAnimal" name="pesoAnimal" value="{{ animal.pesoAnimal }}" required step="0.01">
             </div>
 
             <div class="form-group">
@@ -44,12 +48,12 @@
             </div>
 
             <div class="form-group">
-                <label for="idAnimalPadre">id Animal Padre</label>
+                <label for="idAnimalPadre">ID Animal Padre</label>
                 <input type="text" id="idAnimalPadre" name="idAnimalPadre" value="{{ animal.idAnimalPadre }}" required>
             </div>
 
             <div class="form-group">
-                <label for="idAnimalMadre">id Animal Madre</label>
+                <label for="idAnimalMadre">ID Animal Madre</label>
                 <input type="text" id="idAnimalMadre" name="idAnimalMadre" value="{{ animal.idAnimalMadre }}" required>
             </div>
 
@@ -57,5 +61,4 @@
         </form>
     </div>
 </body>
-
 </html>
