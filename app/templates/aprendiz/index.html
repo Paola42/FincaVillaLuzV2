@@ -1,56 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='/boot/css/bootstrap.css') }}">
-    <script src="{{ url_for('static', filename='/boot/js/bootstrap.js') }}"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styleCliente.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Aprendiz</title>
-    
+    <title>Lista de Aprendices</title>
 </head>
 
 <body>
-    <div class="overlay">
-        <h1>Lista de Aprendiz</h1>
-        <div style="overflow-x:auto;">
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre Aprendiz</th>
-                    <th>Documento Aprendiz</th>
-                    <th>Direccion Aprendiz</th>
-                    <th>Telefono Aprendiz</th>
-                    <th>Correo Aprendiz</th>
-                    <th>Contraseña Aprendiz</th>
-                    <th>Acciones</th>
-                </tr>
-                {% for aprendiz in data %}
+    <header class="bg-light p-3 mb-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo d-flex align-items-center">
+                <img src="{{ url_for('static', filename='img/logo_sena.webp') }}" alt="Logo SENA" class="img-fluid me-3" style="max-height: 50px;">
+                <h1 class="fs-3 mb-0">Lista de Aprendices</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Aprendices Registrados</h1>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
                     <tr>
-                        <td>{{ aprendiz.idAprendiz}}</td>
-                        <td>{{ aprendiz.nombreAprendiz}}</td>
-                        <td>{{ aprendiz.documentoAprendiz}}</td>
-                        <td>{{ aprendiz.direccionAprendiz}}</td>
-                        <td>{{ aprendiz.telefonoAprendiz}}</td>
-                        <td>{{ aprendiz.correoAprendiz}}</td>
-                        <td>{{ aprendiz.passwordAprendiz}}</td>
-                        <td>
-                            <a href="{{ url_for('aprendiz.edit', id=aprendiz.idAprendiz) }}"><i class="bi bi-pencil-square"></i></a>
-                            <a href="{{ url_for('aprendiz.delete', id=aprendiz.idAprendiz) }}"><i class="bi bi-archive"></i></a>
-                            <!-- Agrega aquí el enlace para eliminar -->
-                        </td>
+                        <th>ID</th>
+                        <th>Nombre Aprendiz</th>
+                        <th>Documento Aprendiz</th>
+                        <th>Dirección Aprendiz</th>
+                        <th>Teléfono Aprendiz</th>
+                        <th>Correo Aprendiz</th>
+                        <th>Contraseña Aprendiz</th>
+                        <th>Acciones</th>
                     </tr>
-                {% endfor %}
+                </thead>
+                <tbody>
+                    {% for aprendiz in data %}
+                        <tr>
+                            <td>{{ aprendiz.idAprendiz }}</td>
+                            <td>{{ aprendiz.nombreAprendiz }}</td>
+                            <td>{{ aprendiz.documentoAprendiz }}</td>
+                            <td>{{ aprendiz.direccionAprendiz }}</td>
+                            <td>{{ aprendiz.telefonoAprendiz }}</td>
+                            <td>{{ aprendiz.correoAprendiz }}</td>
+                            <td>{{ aprendiz.passwordAprendiz }}</td>
+                            <td>
+                                <a href="{{ url_for('aprendiz.edit', id=aprendiz.idAprendiz) }}" class="btn btn-warning btn-sm">
+                                    <i class="bi bi-pencil-square"></i> Editar
+                                </a>
+                                <a href="{{ url_for('aprendiz.delete', id=aprendiz.idAprendiz) }}" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas eliminar este aprendiz?');">
+                                    <i class="bi bi-archive"></i> Eliminar
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
             </table>
         </div>
-        <a href="{{ url_for('aprendiz.add')}}">Agregar Aprendiz</a>
-        <br>
-       
 
+        <div class="d-flex justify-content-between mt-4">
+            <a href="{{ url_for('aprendiz.add') }}" class="btn btn-success">
+                <i class="bi bi-plus-circle"></i> Agregar Aprendiz
+            </a>
+            <a href="{{ url_for('auth.instructor') }}" class="btn btn-outline-dark">
+                <i class="bi bi-arrow-left"></i> Regresar a la Página Principal
+            </a>
+        </div>
     </div>
+
+    <!-- Bootstrap JS, Popper.js y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

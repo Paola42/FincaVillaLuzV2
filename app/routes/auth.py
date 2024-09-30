@@ -120,7 +120,7 @@ def login():
             login_user(aprendiz)
             flash("Login successful!", "success")
 
-            return render_template('inicio/index2.html')
+            return render_template('inicio/index1.html')
 
         
         flash('Invalid credentials. Please try again.', 'danger')
@@ -262,7 +262,17 @@ def controles():
 
 @auth_bp.route('/praderas')
 def praderas():
-    return render_template('pradera/index.html')  # Asegúrate de que este archivo existe
+    return render_template('pradera/index.html') # Asegúrate de que este archivo existe
+
+@auth_bp.route('/instructor')
+def instructor():
+    return render_template('inicio/index2.html')
+
+@auth_bp.route('/salida_operario')
+def salida_operario():
+    return render_template('inicio/index3.html')
+
+ 
 
 
 

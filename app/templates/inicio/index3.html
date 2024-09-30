@@ -3,78 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Operario</title>
+    <title>Instructor</title>
 </head>
 <body>
+    <!-- Header -->
     <header class="bg-light p-3 mb-4">
         <div class="container d-flex justify-content-between align-items-center">
             <div class="logo d-flex align-items-center">
                 <img src="{{ url_for('static', filename='img/logo_sena.webp') }}" alt="imagen sena" class="img-fluid me-3" style="max-height: 50px;">
                 <h1 class="fs-3 mb-0">Finca Villa Luz</h1>
             </div>
+            <nav>
+                <a href="{{ url_for('auth.logout') }}" class="btn btn-outline-danger">Cerrar sesión</a>
+            </nav>
         </div>
     </header>
 
-    <div class="container mt-5">
-        <h1 class="mb-4 text-center">Bienvenido Operario</h1>
-        <div class="text-center mb-4">
-            <a href="{{ url_for('auth.logout') }}" class="btn btn-danger">
-                <i class="bi bi-box-arrow-right"></i> Cerrar sesión
-            </a>
-            <a href="#" onclick="loadPage('operarios')" class="btn btn-primary">
-                <i class="bi bi-eye"></i> Ver animales registrados
-            </a>
-            <a href="#" onclick="loadPage('controles')" class="btn btn-primary">
-                <i class="bi bi-check-square"></i> Ver controles
-            </a>
+    <!-- Main Content -->
+    <div class="container text-center">
+        <h2 class="fs-3 mb-0">CENTRO AGROEMPRESARIAL DEL ORIENTE</h2>
+        <h1 class="mb-4">Bienvenido Operario</h1>
+        
+        <!-- Botones en la parte superior -->
+        <div class="row text-center mb-5">
+            <div class="col-md-4 mb-3">
+                <a href="{{ url_for('pastoreo.index') }}" class="btn btn-primary w-100"> ver pastoreos</a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a href="{{ url_for('forraje.index') }}" class="btn btn-primary w-100">ver forrajes</a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a href="{{ url_for('pradera.index') }}" class="btn btn-primary w-100">ver praderas</a>
+            </div>
 
-            <a href="{{ url_for('auth.praderas') }}" class="btn btn-danger">
-                <i class="bi bi-box-arrow-right"></i> ver praderas
-            </a>
+            
         </div>
+        
+        <!-- Imagen centrada en la página -->
+        <div class="mb-5">
+            <img src="{{ url_for('static', filename='img/logo_sena.webp') }}" alt="Imagen Centrada" class="img-fluid" style="max-width: 70%; height: auto;">
+        </div>
+
+       
+       
     </div>
 
-    <!-- Contenedor para el contenido dinámico -->
-    <div id="content" class="mt-4">
-        <!-- El contenido se cargará aquí -->
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script>
-        let lastPage = '';  // Variable para almacenar la última página cargada
-    
-        function loadPage(page) {
-            $.ajax({
-                url: '/' + page,  // Asegúrate de que esta ruta esté definida en Flask
-                method: 'GET',
-                success: function(data) {
-                    $('#content').html(data); // Carga el contenido en el div
-                    lastPage = page;  // Guarda la última página cargada
-                    $('#backButton').show();  // Muestra el botón de regresar
-                },
-                error: function() {
-                    alert('Error al cargar la página.');
-                }
-            });
-        }
-    
-        // Función para regresar a la última página cargada
-        function goBack() {
-            if (lastPage) {
-                // Carga la página anterior solo si existe
-                loadPage(lastPage);
-            } else {
-                // Opcional: Si no hay una página anterior, puedes ocultar el botón
-                $('#backButton').hide();
-            }
-        }
-    </script>
-    
-    
+    <!-- Bootstrap 5 JS (opcional si necesitas componentes interactivos) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -2,80 +2,86 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>agregar pradera</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Vacunaciòn</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-
-    
 </head>
 <body>
-    
-        <header>
-            <div class="logo">
-                <img src="/img/logo-sena-verde-png-sin-fondo.webp" alt="logo">
-                <h1 class="nombre">Finca Villa Luz</h1>
+    <header class="bg-light p-3 mb-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo d-flex align-items-center">
+                <img src="{{ url_for('static', filename='img/logo_sena.webp') }}" alt="imagen sena" class="img-fluid me-3" style="max-height: 50px;">
+                <h1 class="fs-3 mb-0">Finca Villa Luz</h1>
             </div>
-            <nav>
-                
-                <a href="/aplicacionVacuna/add.html">Aplicar Vacuna</a>
-                <a href="">Volver</a>
-                <a href="/inicio/loginVacuna.html">Salir</a>
+            <a href="{{ url_for('pradera.index') }}" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> Volver a Praderas
+            </a>
             </nav>
-        </header>
-    <form class="formulario" action="{{url_for('pradera.add')}}" method="post">
-        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-        <h2 class="name">Pradera</h2>
-        <div class="input-group">
-            <div class="input-conteiner">
-                <label for="nombrePradera">Nombre Pradera</label><br>
-                <input type="text" id="nombrePradera"  placeholder="nombrePradera" required>
-            </div>
-            <div class="input-conteiner">
-                <label for="ubicacion">Ubicaciòn</label><br>
-                <input type="text" id="ubicacion" name="ubicacion" placeholder="ubicacion" required>
-            </div>
-
-            <div class="input-conteiner">
-                <label for="capacidadCarga">Capacidad de carga</label><br>
-                <input type="text" id="capacidadCarga" name="capacidadCarga" placeholder="Capacidad de carga" required>
-            </div>
-
-            <div class="input-conteiner">
-                <label for="estadoDePastoreo">Estado de Pastoreo</label><br>
-                <input type="text" id="estadoDePastoreo" name="estadoDePastoreo"  placeholder="Estado de Pastoreo" required>
-            </div>
-
-            <div class="input-conteiner">
-                <label for="manejo">Manejo</label><br>
-                <input type="text" id="manejo" name="manejo" placeholder="manejo" required>
-            </div>
-
-            <div class="input-conteiner">
-                <label for="aforo">Aforo</label><br> 
-                <input type="text" id="aforo" name="aforo" placeholder="Aforo" required>
-            </div>
-
-            <div class="input-conteiner">
-                <label for="area">Area</label><br>
-                <input type="text" id="area" name="area" placeholder="Area" required>
-                
-            </div>
-
-            <div class="input-conteiner">
-                <label for="idForrajes">Id Forrajes</label><br>
-                <input type="text" id="idForrajes" name="idForrajes" placeholder="Id Forrajes" required>
-                
-            </div>
-
-            <div class="button">
-                <button  type="submit"> <a href=""></a>Guardar datos</button>
-
-            </div>
-
         </div>
-    </form>
+    </header>
 
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Registrar Pradera</h2>
+
+        <form action="{{ url_for('pradera.add') }}" method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <div class="card shadow">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="nombrePradera">Nombre Pradera</label>
+                            <input type="text" id="nombrePradera" name="nombrePradera" class="form-control" placeholder="Nombre Pradera" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="ubicacion">Ubicación</label>
+                            <input type="text" id="ubicacion" name="ubicacion" class="form-control" placeholder="Ubicación" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="capacidadCarga">Capacidad de Carga</label>
+                            <input type="text" id="capacidadCarga" name="capacidadCarga" class="form-control" placeholder="Capacidad de Carga" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="estadoDePastoreo">Estado de Pastoreo</label>
+                            <input type="text" id="estadoDePastoreo" name="estadoDePastoreo" class="form-control" placeholder="Estado de Pastoreo" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="manejo">Manejo</label>
+                            <input type="text" id="manejo" name="manejo" class="form-control" placeholder="Manejo" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="aforo">Aforo</label>
+                            <input type="text" id="aforo" name="aforo" class="form-control" placeholder="Aforo" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="area">Área</label>
+                            <input type="text" id="area" name="area" class="form-control" placeholder="Área" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="idForrajes">ID Forrajes</label>
+                            <input type="text" id="idForrajes" name="idForrajes" class="form-control" placeholder="ID Forrajes" required>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Guardar datos</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

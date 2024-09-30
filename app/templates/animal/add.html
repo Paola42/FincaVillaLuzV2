@@ -4,61 +4,79 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Agregar Animal</title>
 </head>
 
 <body>
-    <div class="overlay">
-        <h2>Agregar Animal</h1>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-lg p-3 mb-5 bg-body rounded">
+                    <div class="card-body">
+                        <!-- Logo del SENA -->
+                       
+                        <h2 class="card-title text-center mb-4">Agregar Animal</h2>
+                        
+                        <form action="{{ url_for('animal.add') }}" method="post">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
-        <form action="{{ url_for('animal.add') }}" method="post">
-            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-            <div class="form-group">
-                <label for="especieAnimal">Especie Animal</label>
-                <input type="text" id="especieAnimal" name="especieAnimal" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="razaAnimal">Raza Animal</label>
-                <input type="text" id="razaAnimal" name="razaAnimal" required>
-            </div>
+                            <div class="mb-3">
+                                <label for="especieAnimal" class="form-label">Especie Animal</label>
+                                <input type="text" class="form-control" id="especieAnimal" name="especieAnimal" required>
+                            </div>
 
-            <div class="form-group">
-                <label for="sexoAnimal">Sexo Animal</label>
-                <input type="text" id="sexoAnimal" name="sexoAnimal" required>
-            </div>
+                            <div class="mb-3">
+                                <label for="razaAnimal" class="form-label">Raza Animal</label>
+                                <input type="text" class="form-control" id="razaAnimal" name="razaAnimal" required>
+                            </div>
 
-            <div class="form-group">
-                <label for="fechaNacimiento">FechaNacimiento </label>
+                            <div class="mb-3">
+                                <label for="sexoAnimal" class="form-label">Sexo Animal</label>
+                                <select class="form-select" id="sexoAnimal" name="sexoAnimal" required>
+                                    <option value="Macho">Macho</option>
+                                    <option value="Hembra">Hembra</option>
+                                </select>
+                            </div>
 
-                <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
-            </div>
+                            <div class="mb-3">
+                                <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                                <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" required>
+                            </div>
 
-            <div class="form-group">
-                <label for="pesoAnimal">Peso </label>
-                <input type="text" id="pesoAnimal" name="pesoAnimal" required>
-            </div>
+                            <div class="mb-3">
+                                <label for="pesoAnimal" class="form-label">Peso (kg)</label>
+                                <input type="number" class="form-control" id="pesoAnimal" name="pesoAnimal" step="0.1" required>
+                            </div>
 
-            <div class="form-group">
-                <label for="padres">Padres </label>
-                <input type="text" id="padres" name="padres" required>
-            </div>
+                            <div class="mb-3">
+                                <label for="padres" class="form-label">Padres</label>
+                                <input type="text" class="form-control" id="padres" name="padres" required>
+                            </div>
 
-            <div class="form-group">
-                <label for="idAnimalPadre">Padre</label>
-                <input type="text" id="idAnimalPadre" name="idAnimalPadre" required>
-            </div>
+                            <div class="mb-3">
+                                <label for="idAnimalPadre" class="form-label">ID del Padre</label>
+                                <input type="number" class="form-control" id="idAnimalPadre" name="idAnimalPadre" required>
+                            </div>
 
-            <div class="form-group">
-                <label for="idAnimalMadre">Madre</label>
-                <input type="text" id="idAnimalMadre" name="idAnimalMadre" required>
+                            <div class="mb-3">
+                                <label for="idAnimalMadre" class="form-label">ID de la Madre</label>
+                                <input type="number" class="form-control" id="idAnimalMadre" name="idAnimalMadre" required>
+                            </div>
+                            
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Agregar Animal</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            
-            <button type="submit">Agregar  Animal</button>
-            
-        </form>
+        </div>
     </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-

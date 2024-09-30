@@ -18,6 +18,15 @@
                 
             
             </div>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a href="{{ url_for('auth.logout') }}" class="btn btn-danger">
+                            <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </header>
 
@@ -30,7 +39,7 @@
         <div class="row text-center mb-5">
             <div class="col-md-2 mb-3">
                 <a href="{{ url_for('auth.bovinos') }}" class="btn btn-info w-100">
-                    <i class="bi bi-eye"></i> Ver Bovinos
+                    <i class="bi bi-eye"></i> Ver instructores
                 </a>
             </div>
             
@@ -38,7 +47,7 @@
         
         <!-- Imagen centrada en la página -->
         <div class="mb-5">
-            <img src="{{ url_for('static', filename='img/aprendices.webp') }}" alt="Imagen Centrada" class="img-fluid" style="max-width: 70%; height: auto;">
+            <img src="{{ url_for('static', filename='img/logo_sena.webp') }}" alt="Imagen Centrada" class="img-fluid" style="max-width: 70%; height: auto;">
         </div>
 
         <!-- Botón de cerrar sesión -->

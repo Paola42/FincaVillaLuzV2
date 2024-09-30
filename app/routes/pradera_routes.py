@@ -13,7 +13,7 @@ def index():
     dataPraderas = Praderas.query.all()
     dataForrajes = Forrajes.query.all()
 
-    return render_template('praderas/index.html', dataPraderas=dataPraderas, dataForrajes=dataForrajes)
+    return render_template('pradera/index.html', dataPraderas=dataPraderas, dataForrajes=dataForrajes)
 
 
 #   Add

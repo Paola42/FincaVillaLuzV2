@@ -2,69 +2,81 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>Forraje</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    
 </head>
 <body>
-    
-    <header>
-        <div class="logo">
-            <img src="/img/logo-sena-verde-png-sin-fondo.webp" alt="logo">
-            <h1 class="nombre">Finca Villa Luz</h1>
+    <header class="bg-light p-3 mb-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo d-flex align-items-center">
+                <img src="{{ url_for('static', filename='img/logo_sena.webp') }}" alt="imagen sena" class="img-fluid me-3" style="max-height: 50px;">
+                <h1 class="fs-3 mb-0">Finca Villa Luz</h1>
+            
+            </div>
         </div>
-        <nav>
-            <a href="">Volver</a>
-            <a href="/inicio/loginforraje.html">Salir</a>
-        </nav>
     </header>
 
-    <div>
-        <h1>Forraje</h1>
-    </div>
-    
-    <table>
-        <div class="table">
-            <tr>
-                <th>ID forraje</th>
-                <th>Especie</th>
-                <th>Fecha de sembra</th>
-                <th>Fecha de cosecha</th>
-                <th>Area</th>
-                <th>Manejos</th>
-                <th>Aforo</th>
-            </tr>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Lista de Forraje</h1>
+
+        <div class="card shadow">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>ID Forraje</th>
+                                <th>Especie</th>
+                                <th>Fecha de Siembra</th>
+                                <th>Fecha de Cosecha</th>
+                                <th>Área</th>
+                                <th>Manejos</th>
+                                <th>Aforo</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for forraje in data %}
+                            <tr>
+                                <td>{{ forraje.idForraje }}</td>
+                                <td>{{ forraje.especieForraje }}</td>
+                                <td>{{ forraje.fechaDeSiembraForraje }}</td>
+                                <td>{{ forraje.fechaDeCosechaForraje }}</td>
+                                <td>{{ forraje.areaForraje }}</td>
+                                <td>{{ forraje.manejosForraje }}</td>
+                                <td>{{ forraje.aforoForraje }}</td>
+                                <td>
+                                    <a href="{{ url_for('forraje.edit', id=forraje.idForraje) }}" class="btn btn-warning btn-sm">
+                                        <i class="bi bi-pencil-square"></i> Editar
+                                    </a>
+                                    <a href="{{ url_for('forraje.delete', id=forraje.idForraje) }}" class="btn btn-danger btn-sm">
+                                        <i class="bi bi-archive"></i> Eliminar
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-        {%for forraje in data%}
 
-    <div class="contenido">
-        <tr>
-            <td>{{forraje.idForraje}}</td>
-            <td>{{forraje.especieForraje}}</td>
-            <td>{{forraje.fechaDeSiembraForraje}}</td>
-            <td>{{forraje.fechaDeCosechaForraje}}</td>
-            <td>{{forraje.areaForraje}}</td>
-            <td>{{forraje.manejosForraje}}</td>
-            <td>{{forraje.aforoForraje}}</td>
+        <div class="d-flex justify-content-between mt-4">
+            <a href="{{ url_for('forraje.add') }}" class="btn btn-success">
+                <i class="bi bi-plus-circle"></i> Agregar Forraje
+            </a>
+            <a href="{{ url_for('auth.salida_operario') }}" class="btn btn-outline-dark">
+                <i class="bi bi-arrow-left"></i> Regresar a la Página Principal
+            </a>
+        </div>
+    </div>
 
-            <a href="{{ url_for('forraje.edit', id=forraje.idForraje) }}"><i class="bi bi-pencil-square"></i></a>
-            <a href="{{ url_for('forraje.delete', id=forraje.idForraje) }}"><i class="bi bi-archive"></i></a>
-            <!-- Agrega aquí el enlace para eliminar -->
-        </td>
-    </tr>
-{% endfor %}
-
-        </tr>
-    </div>   
-    </table>
-
-    <a href="{{ url_for('forraje.add')}}">Ingresar Forraje</a>
-    <br>
-   <!-- <a href="{{ url_for('forraje.inicio')}}">Inicio</a>-->
-
+    <!-- Bootstrap JS, Popper.js y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

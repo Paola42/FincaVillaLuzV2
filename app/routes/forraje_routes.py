@@ -7,11 +7,11 @@ bp = Blueprint('forraje', __name__)
 
 
 #   Index
-@bp.route('/Forrajes')
+@bp.route('/Forraje')
 def index():
     dataForrajes = Forrajes.query.all()
 
-    return render_template('forrajes/index.html', dataForrajes=dataForrajes)
+    return render_template('forraje/index.html', dataForrajes=dataForrajes)
 
 
 #   Add
@@ -31,7 +31,7 @@ def add():
 
         return redirect(url_for('forraje.index'))
     
-    return render_template('forrajes/add.html')
+    return render_template('forraje/add.html')
 
 
 #   Edit

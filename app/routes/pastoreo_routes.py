@@ -15,7 +15,7 @@ def index():
     dataPraderas = Praderas.query.all()
     dataAnimales = Animales.query.all()
 
-    return render_template('pastoreos/index.html', dataPastoreos=dataPastoreos, dataPraderas=dataPraderas, dataAnimales=dataAnimales)
+    return render_template('pastoreo/index.html', dataPastoreos=dataPastoreos, dataPraderas=dataPraderas, dataAnimales=dataAnimales)
 
 
 #   Add

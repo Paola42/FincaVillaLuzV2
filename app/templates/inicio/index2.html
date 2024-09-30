@@ -15,9 +15,8 @@
             <div class="logo d-flex align-items-center">
                 <img src="{{ url_for('static', filename='img/logo_sena.webp') }}" alt="imagen sena" class="img-fluid me-3" style="max-height: 50px;">
                 <h1 class="fs-3 mb-0">Finca Villa Luz</h1>
-                
-            
             </div>
+            
         </div>
     </header>
 
@@ -28,25 +27,26 @@
         
         <!-- Botones en la parte superior -->
         <div class="row text-center mb-5">
-            <div class="col-md-2 mb-3">
-                <a href="{{ url_for('auth.bovinos') }}" class="btn btn-info w-100">
-                    <i class="bi bi-eye"></i> Ver Bovinos
-                </a>
+            <div class="col-md-4 mb-3">
+                <a href="{{ url_for('aprendiz.index') }}" class="btn btn-primary w-100"> ver Aprendices</a>
             </div>
+            <div class="col-md-4 mb-3">
+                <a href="{{ url_for('aprendiz.add') }}" class="btn btn-primary w-100">agregar aprendiz</a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a href="{{ url_for('aprendiz.index') }}" class="btn btn-primary w-100">funcion3</a>
+            </div>
+
             
         </div>
         
         <!-- Imagen centrada en la página -->
         <div class="mb-5">
-            <img src="{{ url_for('static', filename='img/444.jpg') }}" alt="Imagen Centrada" class="img-fluid" style="max-width: 70%; height: auto;">
+            <img src="{{ url_for('static', filename='img/logo_sena.webp') }}" alt="Imagen Centrada" class="img-fluid" style="max-width: 70%; height: auto;">
         </div>
 
-        <!-- Botón de cerrar sesión -->
-        <div class="col-md-4 mb-3 mx-auto">
-            <a href="{{ url_for('auth.logout') }}" class="btn btn-danger w-100">
-                <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
-            </a>
-        </div>
+       
+       
     </div>
 
     <!-- Bootstrap 5 JS (opcional si necesitas componentes interactivos) -->
