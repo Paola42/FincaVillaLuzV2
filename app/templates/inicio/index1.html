@@ -1,15 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Instructor</title>
+    <title>Aprendiz</title>
 </head>
 <body>
-    <h1>bienvenido Instructor</h1>
-    <a href="{{url_for('auth.logout')}}"> cerrar sesión</a>
-    
+    <!-- Header -->
+    <header class="bg-light p-3 mb-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo d-flex align-items-center">
+                <img src="{{ url_for('static', filename='img/logo_sena.webp') }}" alt="imagen sena" class="img-fluid me-3" style="max-height: 50px;">
+                <h1 class="fs-3 mb-0">Finca Villa Luz</h1>
+                
+            
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container text-center">
+        <h2 class="fs-3 mb-0">CENTRO AGROEMPRESARIAL DEL ORIENTE</h2>
+        <h1 class="mb-4">Bienvenido Aprendiz</h1>
+        
+        <!-- Botones en la parte superior -->
+        <div class="row text-center mb-5">
+            <div class="col-md-2 mb-3">
+                <a href="{{ url_for('auth.bovinos') }}" class="btn btn-info w-100">
+                    <i class="bi bi-eye"></i> Ver Bovinos
+                </a>
+            </div>
+            
+        </div>
+        
+        <!-- Imagen centrada en la página -->
+        <div class="mb-5">
+            <img src="{{ url_for('static', filename='img/aprendices.webp') }}" alt="Imagen Centrada" class="img-fluid" style="max-width: 70%; height: auto;">
+        </div>
+
+        <!-- Botón de cerrar sesión -->
+        <div class="col-md-4 mb-3 mx-auto">
+            <a href="{{ url_for('auth.logout') }}" class="btn btn-danger w-100">
+                <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+            </a>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS (opcional si necesitas componentes interactivos) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

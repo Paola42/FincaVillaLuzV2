@@ -143,7 +143,7 @@ def login():
             login_user(instructor)
             flash("Login successful!", "success")
 
-            return render_template('inicio/index1.html')
+            return render_template('inicio/index2.html')
         
         flash('Invalid credentials. Please try again.', 'danger')
     
