@@ -29,11 +29,11 @@ def add():
         newMejoramientoGenetico = MejoramientosGeneticos(tecnicaEventoGenetico=tecnicaEventoGenetico, fechaEvento=fechaEvento, resultados=resultados, detalles=detalles, animalMejorado=animalMejorado)
         db.session.add(newMejoramientoGenetico)
         db.session.commit()
-        return redirect(url_for('mejoramientoGenetico.index'))
+        return redirect(url_for('mejoramientogenetico.index'))
     
     dataAnimalesMejorados = AnimalesMejorados.query.all()
 
-    return render_template('mejoramientoGenetico/add.html', dataAnimalesMejorados=dataAnimalesMejorados)
+    return render_template('mejoramientogenetico/add.html', dataAnimalesMejorados=dataAnimalesMejorados)
 
 
 #   Edit
