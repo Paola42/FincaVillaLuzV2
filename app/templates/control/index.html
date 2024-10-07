@@ -38,6 +38,7 @@
                                 <th>Descripción</th>
                                 <th>Fecha</th>
                                 <th>Estado</th>
+                                <th>Animal Mejorado</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -48,6 +49,7 @@
                                 <td>{{ control.descripcion }}</td>
                                 <td>{{ control.fecha }}</td>
                                 <td>{{ control.estado }}</td>
+                                <td>{{ control.animalMejorado }}</td>
                                 <td>
                                     <!-- Botones de acciones con iconos y clases de Bootstrap -->
                                     <a href="{{ url_for('control.edit', idControl=control.idControl) }}" class="btn btn-warning btn-sm">

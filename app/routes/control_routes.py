@@ -37,14 +37,14 @@ def add():
 
 
 #   Edit
-@bp.route('/Controles/edit/<int:id>', methods=['GET', 'POST'])
-def edit(id):
-    control = Controles.query.get_or_404(id)
+@bp.route('/Controles/edit/<int:idControl>', methods=['GET', 'POST'])
+def edit(idControl):
+    control = Controles.query.get_or_404(idControl)
 
     if request.method == 'POST':
-        control.descripcionControl = request.form['descripcionControl']
-        control.fechaControl = request.form['fechaControl']
-        control.estadoControl = request.form['estadoControl']
+        control.descripcion = request.form['descripcion']
+        control.fecha = request.form['fecha']
+        control.estado = request.form['estado']
         control.idAnimalMejorado = request.form['idAnimalMejorado']
 
         db.session.commit()
