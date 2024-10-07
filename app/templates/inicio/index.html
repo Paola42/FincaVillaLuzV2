@@ -36,49 +36,68 @@
                     <i class="bi bi-eye"></i> Ver Bovinos
                 </a>
             </div>
-            <div class="col-md-2 mb-3">
-                <a href="{{ url_for('auth.bovinos') }}" class="btn btn-info w-100">
-                    <i class="bi bi-eye"></i> Ver Insumos
-                </a>
+            <h2 class="fs-3 mb-0">alimentacion</h2></br></br>
+            <div class="col-md-4 mb-3">
+                <a href="{{ url_for('pastoreo.index') }}" class="btn btn-primary w-100"> ver pastoreos</a>
             </div>
-            <div class="col-md-2 mb-3">
-                <a href="{{ url_for('auth.bovinos') }}" class="btn btn-info w-100">
-                    <i class="bi bi-eye"></i> Otra Opción
-                </a>
+
+            <div class="col-md-4 mb-3">
+                <a href="{{ url_for('forraje.index') }}" class="btn btn-primary w-100">ver forrajes</a>
             </div>
-            <div class="col-md-2 mb-3">
-                <a href="{{ url_for('auth.bovinos') }}" class="btn btn-info w-100">
-                    <i class="bi bi-eye"></i> Agropecuario
-                </a>
+            <div class="col-md-4 mb-3">
+                <a href="{{ url_for('pradera.index') }}" class="btn btn-primary w-100">ver praderas</a>
             </div>
-            <div class="col-md-2 mb-3">
-                <a href="{{ url_for('auth.bovinos') }}" class="btn btn-info w-100">
-                    <i class="bi bi-eye"></i> Piscicultura
-                </a>
+
+            <h2 class="fs-3 mb-0">usuarios</h2></br></br>
+            <div class="col-md-4 mb-3">
+                <a href="{{ url_for('instructor.index') }}" class="btn btn-primary w-100">ver instructores</a>
             </div>
-            <div class="col-md-2 mb-3">
-                <a href="{{ url_for('auth.bovinos') }}" class="btn btn-info w-100">
-                    <i class="bi bi-eye"></i> otras Opciones
-                </a>
+            <div class="col-md-4 mb-3">
+                <a href="{{ url_for('aprendiz.index') }}" class="btn btn-primary w-100">ver aprendices</a>
             </div>
+            <div class="col-md-4 mb-3">
+                <a href="{{ url_for('operario.index') }}" class="btn btn-primary w-100">ver operarios</a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a href="{{ url_for('administrador.index') }}" class="btn btn-primary w-100">ver administradores</a>
+            </div>
+            <h2 class="fs-3 mb-0">reproduccion y mejoramiento genetico</h2></br></br>
+            <div class="col-md-4 mb-3">
+                <a href="{{ url_for('animalmejorado.index') }}" class="btn btn-primary w-100">ver animales mejorados</a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a href="{{ url_for('control.index') }}" class="btn btn-primary w-100">ver lista de controles</a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a href="{{ url_for('mejoramientogenetico.index') }}" class="btn btn-primary w-100">ver mejoramiento genetico</a>
+            </div>
+            <h2 class="fs-3 mb-0">sanidad</h2></br></br>
+            <div class="col-md-4 mb-3">
+                <a href="{{ url_for('vacuna.index') }}" class="btn btn-primary w-100">ver vacunas registradas</a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a href="{{ url_for('aplicacionvacuna.index') }}" class="btn btn-primary w-100">ver vacunas aplicadas</a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a href="{{ url_for('medicamento.index') }}" class="btn btn-primary w-100">ver medicamentos registrados</a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a href="{{ url_for('evento.index') }}" class="btn btn-primary w-100">ver eventos registrados</a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a href="{{ url_for('enfermedad.index') }}" class="btn btn-primary w-100">ver enfermedades registradas</a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a href="{{ url_for('tratamiento.index') }}" class="btn btn-primary w-100">ver tratamientos registrados</a>
+            </div>
+            
+
+
         </div>
 
-        <!-- Imagen centrada en la página -->
-        <div class="mb-5">
-            <img src="{{ url_for('static', filename='img/logo_sena.webp') }}" alt="Imagen Centrada" class="img-fluid" style="max-width: 70%; height: auto;">
-        </div>
-
-        <!-- Información adicional -->
-        <div class="card mb-4">
-            <div class="card-body">
-                <h5 class="card-title">Información Adicional</h5>
-                <p class="card-text"></p>
-            </div>
-        </div>
-
-        <!-- Botón de cerrar sesión -->
-        
-        </div>
+       
+            
+       
     </div>
 
     <!-- Bootstrap 5 JS (opcional si necesitas componentes interactivos) -->

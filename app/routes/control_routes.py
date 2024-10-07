@@ -27,7 +27,7 @@ def add():
 
         newControl = Controles(descripcion=descripcion, fecha=fecha, estado=estado, animalMejorado=idAnimalMejorado)
         db.session.add(newControl)
-        
+        db.session.commit()
 
         return redirect(url_for('control.index'))
     

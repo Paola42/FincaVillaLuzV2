@@ -61,7 +61,7 @@ def edit(idAnimalMejorado):
     dataAnimales = Animales.query.all()
     
      
-    return render_template('animalMejorado/add.html', animalMejorado=animalMejorado, dataAnimales=dataAnimales)
+    return render_template('animalMejorado/edit.html', animalMejorado=animalMejorado, dataAnimales=dataAnimales)
 
 
 #   Delete

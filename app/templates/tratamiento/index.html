@@ -12,16 +12,7 @@
 </head>
 <body>
     
-    <header>
-        <div class="logo">
-            <img src="/img/logo-sena-verde-png-sin-fondo.webp" alt="logo">
-            <h1 class="nombre">Finca Villa Luz</h1>
-        </div>
-        <nav>
-            <a href="">Volver</a>
-            <a href="/inicio/loginTratamiento.html">Salir</a>
-        </nav>
-    </header>
+    
 
     <div>
         <h1>Tratamiento</h1>
@@ -72,7 +63,10 @@
 
     <a href="{{ url_for('tratamiento.add')}}">Ingresar Tratamiento</a>
     <br>
-   <!-- <a href="{{ url_for('Tratameinto.inicio')}}">Inicio</a>-->
+    <a href="{{ url_for('auth.administrador') }}" class="btn btn-outline-dark">
+        <i class="bi bi-arrow-left"></i> Regresar a la Página Principal
+    </a>
+   
 
 </body>
 </html>

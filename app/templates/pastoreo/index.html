@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
+    
     <title>Pastoreo</title>
 </head>
 <body>
@@ -70,7 +73,7 @@
             <a href="{{ url_for('pastoreo.add') }}" class="btn btn-success">
                 <i class="bi bi-plus-circle"></i> Agregar Pastoreo
             </a>
-            <a href="{{ url_for('auth.salida_operario') }}" class="btn btn-outline-dark">
+            <a href="{{ url_for('auth.salida1') }}" class="btn btn-outline-dark">
                 <i class="bi bi-arrow-left"></i> Regresar a la Página Principal
             </a>
         </div>

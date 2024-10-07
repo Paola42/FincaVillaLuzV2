@@ -12,16 +12,7 @@
 </head>
 <body>
     
-    <header>
-        <div class="logo">
-            <img src="/img/logo-sena-verde-png-sin-fondo.webp" alt="logo">
-            <h1 class="nombre">Finca Villa Luz</h1>
-        </div>
-        <nav>
-            <a href="">Volver</a>
-            <a href="/inicio/loginenfermedad.html">Salir</a>
-        </nav>
-    </header>
+    
 
     <div>
         <h1>Enfermedad</h1>
@@ -56,9 +47,10 @@
     </div>   
     </table>
 
-    <a href="{{ url_for('enfemerdad.add')}}">Ingresar Enfermedad</a>
-    <br>
-   <!-- <a href="{{ url_for('enfermedad.inicio')}}">Inicio</a>-->
+    <a href="{{ url_for('enfermedad.add')}}">Ingresar Enfermedad</a>
+    <a href="{{ url_for('auth.administrador') }}" class="btn btn-outline-dark">
+        <i class="bi bi-arrow-left"></i> Regresar a la Página Principal
+    </a>
 
 </body>
 </html>

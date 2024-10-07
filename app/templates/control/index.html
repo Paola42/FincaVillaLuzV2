@@ -50,10 +50,10 @@
                                 <td>{{ control.estado }}</td>
                                 <td>
                                     <!-- Botones de acciones con iconos y clases de Bootstrap -->
-                                    <a href="{{ url_for('control.edit', id=control.idControl) }}" class="btn btn-warning btn-sm">
+                                    <a href="{{ url_for('control.edit', idControl=control.idControl) }}" class="btn btn-warning btn-sm">
                                         <i class="bi bi-pencil-square"></i> Editar
                                     </a>
-                                    <a href="{{ url_for('control.delete', id=control.idControl) }}" class="btn btn-danger btn-sm">
+                                    <a href="{{ url_for('control.delete', idControl=control.idControl) }}" class="btn btn-danger btn-sm">
                                         <i class="bi bi-archive"></i> Eliminar
                                     </a>
                                 </td>
@@ -70,7 +70,7 @@
             <a href="{{ url_for('control.add') }}" class="btn btn-success">
                 <i class="bi bi-plus-circle"></i> Agregar Control
             </a>
-            <a href="{{ url_for('auth.bovinos') }}" class="btn btn-outline-dark">
+            <a href="{{ url_for('auth.administrador') }}" class="btn btn-outline-dark">
                 <i class="bi bi-arrow-left"></i> Regresar a la Página Principal
             </a>
         </div>

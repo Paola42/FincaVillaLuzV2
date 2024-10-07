@@ -241,10 +241,10 @@ def bovinos():
     return render_template('bovinos/index.html')
 
 
-@auth_bp.route('/salida')
-def salida():
+@auth_bp.route('/administrador')
+def administrador():
     
-    return render_template('inicio/index3.html')
+    return render_template('inicio/index.html')
 
 @auth_bp.route('/salida1')
 def salida1():
@@ -271,6 +271,7 @@ def instructor():
 @auth_bp.route('/salida_operario')
 def salida_operario():
     return render_template('inicio/index3.html')
+
 
  
 

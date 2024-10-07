@@ -11,7 +11,7 @@ bp = Blueprint('enfermedad', __name__)
 def index():
     dataEnfermedades = Enfermedades.query.all()
 
-    return render_template('enfermedades/index.html', dataEnfermedades=dataEnfermedades)
+    return render_template('enfermedad/index.html', dataEnfermedades=dataEnfermedades)
 
 
 #   Add

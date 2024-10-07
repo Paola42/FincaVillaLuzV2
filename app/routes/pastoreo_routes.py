@@ -23,14 +23,19 @@ def index():
 def add():
     if request.method == 'POST':
         fechaInicioPastoreo = request.form['fechaInicioPastoreo']
-        fechaFinPastoreo = request.form['fechaFinPastoreo']
+        fechaFinPastoreo = request.form['fechaFinPastoreo']  # Asegúrate de que este campo existe en el formulario
         duracionPastoreo = request.form['duracionPastoreo']
-        cargaAnimalPastoreo = request.form['cargaAnimalPastoreo']
+        CargaAnimal = request.form['CargaAnimal']  # Asegúrate de que este campo es correcto
         horasDePastoreo = request.form['horasDePastoreo']
         idPradera = request.form['idPradera']
-        idAnimal = request.form['idAnimal']
 
-        newPastoreo = Pastoreos(fechaInicioPastoreo=fechaInicioPastoreo, fechaFinPastoreo=fechaFinPastoreo, duracionPastoreo=duracionPastoreo, cargaAnimalPastoreo=cargaAnimalPastoreo, horasDePastoreo=horasDePastoreo, idPradera=idPradera, idAnimal=idAnimal)
+        newPastoreo = Pastoreos(fechaInicioPastoreo=fechaInicioPastoreo, 
+                                fechaFinPastoreo=fechaFinPastoreo,
+                                duracionPastoreo=duracionPastoreo, 
+                                CargaAnimal=CargaAnimal, 
+                                horasDePastoreo=horasDePastoreo, 
+                                idPradera=idPradera, 
+                                )
         db.session.add(newPastoreo)
         db.session.commit()
 
@@ -39,7 +44,7 @@ def add():
     dataPraderas = Praderas.query.all()
     dataAnimales = Animales.query.all()
 
-    return render_template('pastoreos/add.html', dataPraderas=dataPraderas, dataAnimales=dataAnimales)
+    return render_template('pastoreo/add.html', dataPraderas=dataPraderas, dataAnimales=dataAnimales)
 
 
 #   Edit
@@ -60,10 +65,7 @@ def edit(id):
         
         return redirect(url_for('pastoreo.index'))
     
-    dataPraderas = Praderas.query.all()
-    dataAnimales = Animales.query.all()
-
-    return render_template('pastoreos/edit.html', pastoreo=pastoreo, dataPraderas=dataPraderas, dataAnimales=dataAnimales)
+   
 
 
 #   Delete

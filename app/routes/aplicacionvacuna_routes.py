@@ -17,7 +17,7 @@ def index():
     dataInstructores = Instructores.query.all()
     dataVacunas = Vacunas.query.all()
 
-    return render_template('aplicacionvacunas/index.html', dataAplicacionVacunas=dataAplicacionVacunas, dataAnimales=dataAnimales, dataInstructores=dataInstructores, dataVacunas=dataVacunas)
+    return render_template('aplicacionVacuna/index.html', dataAplicacionVacunas=dataAplicacionVacunas, dataAnimales=dataAnimales, dataInstructores=dataInstructores, dataVacunas=dataVacunas)
 
 
 #   Add

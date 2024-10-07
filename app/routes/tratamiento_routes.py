@@ -17,7 +17,7 @@ def index():
     dataVacunas = Vacunas.query.all()
     dataEventos = Eventos.query.all()
 
-    return render_template('tratamientos/index.html', dataTratamientos=dataTratamientos, dataMedicamentos=dataMedicamentos, dataVacunas=dataVacunas, dataEventos=dataEventos)
+    return render_template('tratamiento/index.html', dataTratamientos=dataTratamientos, dataMedicamentos=dataMedicamentos, dataVacunas=dataVacunas, dataEventos=dataEventos)
 
 
 #   Add

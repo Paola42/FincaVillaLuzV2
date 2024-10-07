@@ -54,20 +54,15 @@
                                     <td>{{ animalMejorado.idAnimalMejorado}}</td>
                                     <td>{{ animalMejorado.idPadreAportante}}</td>
                                     <td>{{ animalMejorado.nombrePadreAportante}}</td>
-                                    <td>{{ animalMejorado.razaPadre}}</td>
+                                    <td>{{ animalMejorado.razaPadreAportante}}</td>
                                     <td>{{ animalMejorado.idMadreAportante}}</td>
-                                    <td>{{ animalMejorado.nombreMadre}}</td>
-                                    <td>{{ animalMejorado.razaMadre}}</td>
-                            
-
-                                    {% for animalMejorado in dataAnimales %}
-                                        <td>{{ animalMejorado.idAnimal}}</td>
-                                    {% endfor %}
-
+                                    <td>{{ animalMejorado.nombreMadreAportante}}</td>
+                                    <td>{{ animalMejorado.razaMadreAportante}}</td>
+                                    <td>{{ animalMejorado.idAnimal}}</td>
                                     <td>
                                         <!-- Botones de acción estilizados -->
-                                        <a href="{{ url_for('animalmejorado.edit', idAnimalMejorado=animalMejorado.idAnimalMejorado) }}" class="btn btn-sm btn-primary" title="Editar"><i class="bi bi-pencil-square"></i></a>
-                                        <a href="{{ url_for('animalmejorado.delete', idAnimalMejorado=animalMejorado.idAnimalMejorado) }}" class="btn btn-sm btn-danger" title="Eliminar"><i class="bi bi-archive"></i></a>
+                                        <a href="{{ url_for('animalmejorado.edit', idAnimalMejorado=animalMejorado.idAnimalMejorado) }}" class="btn btn-sm btn-primary" title="Editar">editar mejoramiento</a>
+                                        <a href="{{ url_for('animalmejorado.delete', idAnimalMejorado=animalMejorado.idAnimalMejorado) }}" class="btn btn-sm btn-danger" title="Eliminar">eliminar mejoramiento</a>
                                     </td>
                                 </tr>
                             {% endfor %}
@@ -80,7 +75,7 @@
         <!-- Botones de navegación -->
         <div class="d-flex justify-content-between mt-4">
             <a href="{{ url_for('animalmejorado.add') }}" class="btn btn-success"><i class="bi bi-plus-circle"></i> Agregar Animal Mejorado</a>
-            <a href="{{ url_for('auth.bovinos') }}" class="btn btn-outline-dark"><i class="bi bi-arrow-left"></i> Regresar a la Página Principal</a>
+            <a href="{{ url_for('auth.administrador') }}" class="btn btn-outline-dark"><i class="bi bi-arrow-left"></i> Regresar a la Página Principal</a>
         </div>
     </div>
 

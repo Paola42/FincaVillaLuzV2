@@ -11,7 +11,7 @@ bp = Blueprint('medicamento', __name__)
 def index():
     dataMedicamentos = Medicamentos.query.all()
 
-    return render_template('medicamentos/index.html', dataMedicamentos=dataMedicamentos)
+    return render_template('medicamento/index.html', dataMedicamentos=dataMedicamentos)
 
 
 #   Add

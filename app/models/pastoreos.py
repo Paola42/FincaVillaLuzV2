@@ -8,4 +8,8 @@ class Pastoreos(db.Model):
     fechaFinPastoreo = db.Column(db.Date, nullable=True)
     duracionPastoreo = db.Column(db.String(255), nullable=False)
     CargaAnimal = db.Column(db.String(255), nullable=False)
-    horasDePastoreo = db.Column(db.String(255), nullable=True)  # Corregido a db.Column
+    horasDePastoreo = db.Column(db.String(255), nullable=True)
+    idPradera = db.Column(db.Integer, db.ForeignKey('pradera.idPradera'), nullable=False)
+    
+    
+

@@ -7,5 +7,5 @@ class Medicamentos(db.Model):
     nombreMedicamento = db.Column(db.String(255), nullable=False)
     dosis= db.Column(db.String(255), nullable=False)
     viaAdministracion = db.Column(db.String(255), nullable=False)
-    indicaciones  = db.Columnn(db.String(255),nullable=False)
-    contraindicaciones  = db.Columnn(db.String(255),nullable=False)
+    indicaciones  = db.Column(db.String(255),nullable=False)
+    contraindicaciones  = db.Column(db.String(255),nullable=False)
