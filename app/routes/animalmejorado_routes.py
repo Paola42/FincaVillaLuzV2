@@ -51,9 +51,6 @@ def edit(idAnimalMejorado):
         animalMejorado.nombreMadreAportante = request.form['nombreMadreAportante']
         animalMejorado.razaMadreAportante = request.form['razaMadreAportante']
         animalMejorado.idAnimal= request.form['idAnimal']
-        
-        
-
         db.session.commit()
         
         return redirect(url_for('animalmejorado.index'))

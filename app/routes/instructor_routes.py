@@ -12,13 +12,18 @@ def index():
 @bp.route('/Instructores/add', methods=['GET', 'POST'])
 def add():
     if request.method == 'POST':
-        nombreInstructor     = request.form['nombreInstructor']
+        nombreInstructor   = request.form['nombreInstructor']
         documentoInstructor  = request.form['documentoInstructor']
         direccionInstructor  = request.form['direccionInstructor']
         telefonoInstructor   = request.form['telefonoInstructor']
         correoInstructor     = request.form['correoInstructor']
-        passwordInstructor   = request.form['passwordInstructor']
-        new_instructor= Instructores(nombreInstructor=nombreInstructor,  documentoInstructor= documentoInstructor, direccionInstructor=direccionInstructor, telefonoInstructor=telefonoInstructor, correoInstructor=correoInstructor, passwordInstructor=passwordInstructor)
+        PasswordInstructor   = request.form['passwordInstructor']
+        new_instructor= Instructores(nombreInstructor=nombreInstructor,  
+                                     documentoInstructor= documentoInstructor, 
+                                     direccionInstructor=direccionInstructor, 
+                                     telefonoInstructor=telefonoInstructor, 
+                                     correoInstructor=correoInstructor, 
+                                     passwordInstructor=PasswordInstructor)
         db.session.add(new_instructor)
         db.session.commit()
         

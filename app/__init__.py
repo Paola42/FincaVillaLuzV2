@@ -26,7 +26,7 @@ def create_app():
         from .models.administradores import Administrador
         return Administrador.query.get(int(user_id))
 
-    from app.routes import (auth,administrador_routes,operario_routes,aprendiz_routes, instructor_routes, animal_routes, mejoramientogenetico_routes, control_routes, vacuna_routes, aplicacionvacuna_routes,animalmejorado_routes,pastoreo_routes,forraje_routes,pradera_routes,medicamento_routes,evento_routes,enfermedad_routes,tratamiento_routes)  
+    from app.routes import (auth,administrador_routes,operario_routes,aprendiz_routes, instructor_routes, animal_routes, mejoramientogenetico_routes, control_routes, vacuna_routes, aplicacionvacuna_routes,animalmejorado_routes,pastoreo_routes,forraje_routes,pradera_routes,medicamento_routes,evento_routes,enfermedad_routes,tratamiento_routes,praderaAnimal_routes)  
     app.register_blueprint(administrador_routes.bp)
     app.register_blueprint(operario_routes.bp)
     app.register_blueprint(aprendiz_routes.bp)
@@ -45,6 +45,7 @@ def create_app():
     app.register_blueprint(evento_routes.bp)
     app.register_blueprint(enfermedad_routes.bp)
     app.register_blueprint(tratamiento_routes.bp)
+    app.register_blueprint(praderaAnimal_routes.bp)
 #-------------------------------------------------------emails-----------------------
     mail.init_app(app)
     

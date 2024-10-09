@@ -2,7 +2,6 @@ from app import db
 
 class Praderas(db.Model):
     __tablename__ = 'pradera'
-    
     idPradera = db.Column(db.Integer, primary_key=True)
     nombrePradera = db.Column(db.String(255), nullable=False)
     ubicacion = db.Column(db.String(255), nullable=False)
