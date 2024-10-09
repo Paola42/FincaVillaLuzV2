@@ -45,8 +45,8 @@ def add():
         return redirect(url_for('praderas.index'))
     
     dataForrajes = Forrajes.query.all()
-
-    return render_template('Pradera/add.html', dataForrajes=dataForrajes)
+    pradera = Praderas.query.all()
+    return render_template('Pradera/add.html', dataForrajes=dataForrajes, praderas=pradera)
 
 
 #   Edit

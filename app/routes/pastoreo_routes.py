@@ -43,8 +43,9 @@ def add():
     
     dataPraderas = Praderas.query.all()
     dataAnimales = Animales.query.all()
+    pradera = Praderas.query.all()
 
-    return render_template('pastoreo/add.html', dataPraderas=dataPraderas, dataAnimales=dataAnimales)
+    return render_template('pastoreo/add.html', dataPraderas=dataPraderas, dataAnimales=dataAnimales,praderas=pradera)
 
 
 #   Edit
