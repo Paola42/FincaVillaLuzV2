@@ -11,11 +11,11 @@ bp = Blueprint('pastoreo', __name__)
 #   Index
 @bp.route('/Pastoreos')
 def index():
-    dataPastoreos = Pastoreos.query.all()
+    pastoreo = Pastoreos.query.all()
     dataPraderas = Praderas.query.all()
     dataAnimales = Animales.query.all()
 
-    return render_template('pastoreo/index.html', dataPastoreos=dataPastoreos, dataPraderas=dataPraderas, dataAnimales=dataAnimales)
+    return render_template('pastoreo/index.html', Pastoreo=pastoreo, dataPraderas=dataPraderas, dataAnimales=dataAnimales)
 
 
 #   Add
@@ -40,12 +40,9 @@ def add():
         db.session.commit()
 
         return redirect(url_for('pastoreo.index'))
+    pastoreo = Pastoreos.query.all()
     
-    dataPraderas = Praderas.query.all()
-    dataAnimales = Animales.query.all()
-    pradera = Praderas.query.all()
-
-    return render_template('pastoreo/add.html', dataPraderas=dataPraderas, dataAnimales=dataAnimales,praderas=pradera)
+    return render_template('pastoreo/add.html', Pastoreo=pastoreo)
 
 
 #   Edit
@@ -57,17 +54,14 @@ def edit(id):
         pastoreo.fechaInicioPastoreo = request.form['fechaInicioPastoreo']
         pastoreo.fechaFinPastoreo = request.form['fechaFinPastoreo']
         pastoreo.duracionPastoreo = request.form['duracionPastoreo']
-        pastoreo.cargaAnimalPastoreo = request.form['cargaAnimalPastoreo']
+        pastoreo.CargaAnimal = request.form['CargaAnimal']
         pastoreo.horasDePastoreo = request.form['horasDePastoreo']
         pastoreo.idPradera = request.form['idPradera']
-        pastoreo.idAnimal = request.form['idAnimal']
-
         db.session.commit()
         
         return redirect(url_for('pastoreo.index'))
     
-   
-
+    return render_template('pastoreo/edit.html', pastoreo=pastoreo)
 
 #   Delete
 @bp.route('/Pastoreos/delete/<int:id>')

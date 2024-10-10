@@ -35,29 +35,29 @@
                             <tr>
                                 <th>ID Pastoreo</th>
                                 <th>Fecha de Inicio</th>
-                                <th>Duración</th>
-                                <th>Carga Animal</th>
-                                <th>Horas de Pastoreo</th>
-                                <th>ID Praderas</th>
-                                <th>ID Animal</th>
+                                <th>fecha de terminacion</th>
+                                <th>duracion</th>
+                                <th>carga del animal</th>
+                                <th>horas de pastoreo</th>
+                                <th>id dela pradera</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for pastoreo in data %}
+                            {% for pastoreo in Pastoreo %}
                             <tr>
-                                <td>{{ pastoreo.idpastoreo }}</td>
-                                <td>{{ pastoreo.fechadeiniciopastoreo }}</td>
-                                <td>{{ pastoreo.duraciondelpastoreo }}</td>
-                                <td>{{ pastoreo.cargaanimal }}</td>
-                                <td>{{ pastoreo.horasdepastoreo }}</td>
-                                <td>{{ pastoreo.idpraderas }}</td>
-                                <td>{{ pastoreo.idanimal }}</td>
+                                <td>{{ pastoreo.idPastoreo}}</td>
+                                <td>{{ pastoreo.fechaInicioPastoreo }}</td>
+                                <td>{{ pastoreo.fechaFinPastoreo }}</td>
+                                <td>{{ pastoreo.duracionPastoreo }}</td>
+                                <td>{{ pastoreo.CargaAnimal }}</td>
+                                <td>{{ pastoreo.horasDePastoreo }}</td>
+                                <td>{{ pastoreo.idPradera }}</td>
                                 <td>
-                                    <a href="{{ url_for('pastoreo.edit', id=pastoreo.idpastoreo) }}" class="btn btn-warning btn-sm">
+                                    <a href="{{ url_for('pastoreo.edit', id=pastoreo.idPastoreo) }}" class="btn btn-warning btn-sm">
                                         <i class="bi bi-pencil-square"></i> Editar
                                     </a>
-                                    <a href="{{ url_for('pastoreo.delete', id=pastoreo.idpastoreo) }}" class="btn btn-danger btn-sm">
+                                    <a href="{{ url_for('pastoreo.delete', id=pastoreo.idPastoreo) }}" class="btn btn-danger btn-sm">
                                         <i class="bi bi-archive"></i> Eliminar
                                     </a>
                                 </td>

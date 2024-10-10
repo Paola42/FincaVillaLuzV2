@@ -11,49 +11,44 @@
     
 </head>
 <body>
-    <form class="formulario">
+    <form action="{{url_for('pastoreo.edit', id=pastoreo.idPastoreo)}}" method="post">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <h2 class="name">Editar Pastoreo</h2>
         <div class="input-group">
             <div class="input-conteiner">
-                <label for="idpastoreo">ID pastoreo</label><br>
-                <input type="text" id="idpastoreo" name="idpastoreo" placeholder="ID pastoreo"
-                value="{{pastoreo.idpastoreo}}" required>
-            </div>
-            <div class="input-conteiner">
-                <label for="fehcadeiniciopastoreo">Fehca de inicio pastoreo</label><br>
-                <input type="text" id="fehcadeiniciopastoreo" name="fehcadeiniciopastoreo" placeholder="Fecha de inicio pastoreo"
-                value="{{pastoreo.fehcadeiniciopastoreo}}" required>
+                <label for="fechaInicioPastoreo">Fehca de inicio pastoreo</label><br>
+                <input type="date" id="fechaInicioPastoreo" name="fechaInicioPastoreo" placeholder="Fecha de inicio pastoreo"
+                value="{{pastoreo.fechaInicioPastoreo}}" required>
             </div>
 
             <div class="input-conteiner">
-                <label for="duraciondelpastoreo">Duracion del pastoreo</label><br>
-                <input type="text" id="duraciondelpastoreo" name="duraciondelpastoreo" placeholder="Duracion del pastoreo"
-                value="{{pastoreo.duraciondelpastoreo}}" required>
+                <label for="fechaFinPastoreo">finalizacion</label><br>
+                <input type="date" id="fechaFinPastoreo" name="fechaFinPastoreo" placeholder="Duracion del pastoreo"
+                value="{{pastoreo.fechaFinPastoreo}}" required>
             </div>
 
             <div class="input-conteiner">
-                <label for="cargaanimal">Carga animal</label><br>
-                <input type="text" id="cargaanimal" name="cargaanimal" placeholder="Carga animal"
-                value="{{pastoreo.cargaanimal}}" required>
+                <label for="duracionPastoreo">duracion </label><br>
+                <input type="text" id="duracionPastoreo" name="duracionPastoreo" placeholder="Carga animal"
+                value="{{pastoreo.duracionPastoreo}}" required>
             </div>
 
             <div class="input-conteiner">
-                <label for="horasdepastoreo">Horas de pastoreo</label><br>
-                <input type="text" id="horasdepastoreo" name="horasdepastoreo" placeholder="Horas de pastoreo"
-                value="{{pastoreo.horasdepastoreo}}" required>
+                <label for="CargaAnimal">carga animal</label><br>
+                <input type="text" id="CargaAnimal" name="CargaAnimal" placeholder="Horas de pastoreo"
+                value="{{pastoreo.CargaAnimal }}" required>
             </div>
 
             <div class="input-conteiner">
-                <label for="idpraderas">ID praderas</label><br>
-                <input type="text" id="idpraderas" name="idpraderas"  placeholder="ID praderas"
-                value="{{pastoreo.idpastoreo}}" required>
+                <label for="horasDePastoreo">horas de pastoreo</label><br>
+                <input type="text" id="horasDePastoreo" name="horasDePastoreo"  placeholder="ID praderas"
+                value="{{pastoreo.horasDePastoreo}}" required>
             </div>
 
             <div class="input-conteiner">
-                <label for="idanimal">ID animal</label><br>
-                <input type="text" id="idanimal" name="idanimal" placeholder="ID animal"
-                value="{{pastoreo.idanimal}}" required>
+                <label for="idPradera">ID pradera</label><br>
+                <input type="text" id="idPradera" name="idPradera" placeholder="ID animal"
+                value="{{pastoreo.idPradera}}" required>
                 
             </div>
             <div class="button">
