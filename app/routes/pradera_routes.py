@@ -21,23 +21,22 @@ def index():
 def add():
     if request.method == 'POST':
         nombrePradera = request.form['nombrePradera']
-        ubicacionPradera = request.form['ubicacionPradera']
-        capacidadCargaPradera = request.form['capacidadCargaPradera']
-        estadoDePastoreoPradera = request.form['estadoDePastoreoPradera']
-        manejosPradera = request.form['manejosPradera']
-        aforosPradera = request.form['aforosPradera']
-        areaPradera = request.form['areaPradera']
+        ubicacion = request.form['ubicacion']
+        capacidadCarga = request.form['capacidadCarga']
+        estadoDePastoreo = request.form['estadoDePastoreo']
+        manejos = request.form['manejos']
+        aforos = request.form['aforos']
+        area = request.form['area']
         idForraje = request.form['idForraje']
 
-        newPradera = Praderas(
-            nombrePradera=nombrePradera, 
-            ubicacionPradera=ubicacionPradera, 
-            capacidadCargaPradera=capacidadCargaPradera, 
-            estadoDePastoreoPradera=estadoDePastoreoPradera, 
-            manejosPradera=manejosPradera, 
-            aforosPradera=aforosPradera, 
-            areaPradera=areaPradera, 
-            idForraje=idForraje
+        newPradera = Praderas( nombrePradera=nombrePradera,              
+            ubicacion=ubicacion, 
+            capacidadCarga=capacidadCarga, 
+            estadoDePastoreo=estadoDePastoreo, 
+            manejos=manejos, 
+            aforos=aforos, 
+            area=area, 
+            idForraje=idForraje,
         )
         db.session.add(newPradera)
         db.session.commit()
@@ -56,12 +55,12 @@ def edit(id):
 
     if request.method == 'POST':
         pradera.nombrePradera = request.form['nombrePradera']
-        pradera.ubicacionPradera = request.form['ubicacionPradera']
-        pradera.capacidadCargaPradera = request.form['capacidadCargaPradera']
-        pradera.estadoDePastoreoPradera = request.form['estadoDePastoreoPradera']
-        pradera.manejosPradera = request.form['manejosPradera']
-        pradera.aforosPradera = request.form['aforosPradera']
-        pradera.areaPradera = request.form['areaPradera']
+        pradera.ubicacion = request.form['ubicacion']
+        pradera.capacidadCarga = request.form['capacidadCarga']
+        pradera.estadoDePastoreo = request.form['estadoDePastoreo']
+        pradera.manejos = request.form['manejos']
+        pradera.aforos = request.form['aforos']
+        pradera.area= request.form['area']
         pradera.idForraje = request.form['idForraje']
 
         db.session.commit()

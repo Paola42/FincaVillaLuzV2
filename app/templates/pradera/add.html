@@ -38,37 +38,43 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="ubicacion">Ubicación</label>
-                            <input type="text" id="ubicacion" name="ubicacion" class="form-control" placeholder="Ubicación" required>
+                            <input type="text" id="ubicacion" name="ubicacion" class="form-control" placeholder="ubicacion" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="capacidadCarga">Capacidad de Carga</label>
-                            <input type="text" id="capacidadCarga" name="capacidadCarga" class="form-control" placeholder="Capacidad de Carga" required>
+                            <input type="text" id="capacidadCarga" name="capacidadCarga" class="form-control" placeholder="capacidadCarga" required>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="estadoDePastoreo">Estado de Pastoreo</label>
-                            <input type="text" id="estadoDePastoreo" name="estadoDePastoreo" class="form-control" placeholder="Estado de Pastoreo" required>
+                            <input type="text" id="estadoDePastoreo" name="estadoDePastoreo" class="form-control" placeholder="estadoDePastoreo" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="manejo">Manejo</label>
-                            <input type="text" id="manejo" name="manejo" class="form-control" placeholder="Manejo" required>
+                            <label for="manejosPradera">Manejo</label>
+                            <input type="text" id="manejos" name="manejos" class="form-control" placeholder="manejos" required>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="aforo">Aforo</label>
-                            <input type="text" id="aforo" name="aforo" class="form-control" placeholder="Aforo" required>
+                            <label for="aforos">Aforo</label>
+                            <input type="text" id="aforos" name="aforos" class="form-control" placeholder="aforos" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="area">Área</label>
-                            <input type="text" id="area" name="area" class="form-control" placeholder="Área" required>
+                            <input type="text" id="area" name="area" class="form-control" placeholder="area" required>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="idForrajes">ID Forrajes</label>
-                            <input type="text" id="idForrajes" name="idForrajes" class="form-control" placeholder="ID Forrajes" required>
+                    <div class="row">
+                       <div class="col-md-6 mb-3">
+                            <label for="idForraje"> ID forraje:</label>
+
+                         <select id="idForraje" name="idForraje">
+                          {% for forraje in dataForrajes %}
+                          <option value="{{forraje.idForraje}}">{{forraje.idForraje}}</option>
+                         {% endfor %}
+                         </select>
                         </div>
                     </div>
                     <div class="text-center">

@@ -43,16 +43,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for pradera in data %}
+                            {% for pradera in  dataPraderas %}
                             <tr>
                                 <td>{{ pradera.idPradera }}</td>
                                 <td>{{ pradera.nombrePradera }}</td>
-                                <td>{{ pradera.ubicacion }}</td>
-                                <td>{{ pradera.capacidadCarga }}</td>
-                                <td>{{ pradera.estadoDePastoreo }}</td>
-                                <td>{{ pradera.manejos }}</td>
-                                <td>{{ pradera.aforos }}</td>
-                                <td>{{ pradera.area }}</td>
+                                <td>{{ pradera.ubicacion}}</td>
+                                <td>{{ pradera.capacidadCarga}}</td>
+                                <td>{{ pradera.estadoDePastoreo}}</td>
+                                <td>{{ pradera.manejos}}</td>
+                                <td>{{ pradera.aforos}}</td>
+                                <td>{{ pradera.area}}</td>
                                 <td>{{ pradera.idForrajes }}</td>
                                 <td>
                                     <a href="{{ url_for('praderas.edit', id=pradera.idPradera) }}" class="btn btn-warning btn-sm">

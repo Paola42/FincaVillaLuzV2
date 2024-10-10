@@ -1,66 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Forraje</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    
+
 </head>
+
 <body>
 
-        <form class="formulario" action="{{url_for('forraje.add')}}" method="post"></form>
-        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <form action="{{url_for('forraje.add')}}" method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <h2 class="name">Forraje</h2>
+    <div class="input-group">
 
-        <h2 class="name">Forraje</h2>
-        <div class="input-group">
-            
-            <div class="input-conteiner">
-                <label for="especieForraje">Especie</label><br>
-                <input type="text" id="especieForraje" name="especieForraje" placeholder="especieForraje" value="{{forraje.especie}}" required>
-            </div>
+        <div class="input-conteiner">
+            <label for="especieForraje">Especie</label><br>
+            <input type="text" id="especieForraje" name="especieForraje" placeholder="especieForraje" required>
+        </div>
 
-            <div class="input-conteiner">
-                <label for="fechaDeSiembraForraje">Fecha de siembra</label><br>
-                <input type="text" id="fechaDeSiembraForraje" name="fechaDeSiembraForraje" placeholder="fehcaDeSiembraForraje"
-                value="{{forraje.fechaDeSiembraForraje}}" required>
-            </div>
+        <div class="input-conteiner">
+            <label for="fechaDeSiembraForraje">Fecha de siembra</label><br>
+            <input type="date" id="fechaDeSiembraForraje" name="fechaDeSiembraForraje"
+                placeholder="fechaDeSiembraForraje" required>
+        </div>
 
-            <div class="input-conteiner">
-                <label for="fechaDeCosechaForraje">Fecha de cosecha</label><br>
-                <input type="text" id="fechaDeCosechaForraje" name="fechaDeCosechaForraje" placeholder="fechaDeCosechaForraje"
-                value="{{forraje.fechaDeCosechaForraje}}" required>
-            </div>
+        <div class="input-conteiner">
+            <label for="fechaDeCosechaForraje">Fecha de cosecha</label><br>
+            <input type="date" id="fechaDeCosechaForraje" name="fechaDeCosechaForraje"
+                placeholder="fechaDeCosechaForraje">
+        </div>
 
-            <div class="input-conteiner">
-                <label for="areaForraje">Area</label><br>
-                <input type="text" id="areaForraje" name="areaForraje" placeholder="areaForraje"
-                value="{{forraje.areaForraje}}" required>
-            </div>
+        <div class="input-conteiner">
+            <label for="areaForraje">Area</label><br>
+            <input type="text" id="areaForraje" name="areaForraje" placeholder="areaForraje">
+        </div>
 
-            <div class="input-conteiner">
-                <label for="manejosForraje">Manejos</label><br>
-                <input type="text" id="manejosForraje" name="manejosForraje"  placeholder="manejosForraje"
-                value="{{forraje.manejosForraje}}" required>
-            </div>
+        <div class="input-conteiner">
+            <label for="manejosForraje">Manejos</label><br>
+            <input type="text" id="manejosForraje" name="manejosForraje" placeholder="manejosForraje">
+        </div>
 
-            <div class="input-conteiner">
-                <label for="aforosForreje">Aforos</label><br>
-                <input type="text" id="aforosForraje" name="aforosForraje" placeholder="AforosForraje"
-                value="{{forraje.aforosForraje}}" required>
-                
-            </div>
-            <div class="button">
-               <button  type="submit"> <a href=""></a>Guardar Datos</button>
-
-            </div>
-            
+        <div class="input-conteiner">
+            <label for="aforoForreje">Aforos</label><br>
+            <input type="text" id="aforoForraje" name="aforoForraje" placeholder="AforosForraje">
 
         </div>
+        <div class="button">
+            <button type="submit">agregar animal</button>
+
+        </div>
+
+
+    </div>
     </form>
 
 </body>
+
 </html>

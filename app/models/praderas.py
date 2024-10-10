@@ -12,4 +12,4 @@ class Praderas(db.Model):
     area = db.Column(db.String(255), nullable=False)
 
     # Asegúrate de que el nombre de la clave foránea sea correcto
-    forraje_id = db.Column(db.Integer, db.ForeignKey('forraje.idForraje'))  
+    idForraje = db.Column(db.Integer, db.ForeignKey('forraje.idForraje'))  
