@@ -17,7 +17,7 @@ def index():
 
 
 #   Add
-@bp.route('/Praderas/add', methods=['GET', 'POST'])
+@bp.route('/Pradera/add', methods=['GET', 'POST'])
 def add():
     if request.method == 'POST':
         nombrePradera = request.form['nombrePradera']
@@ -49,7 +49,7 @@ def add():
 
 
 #   Edit
-@bp.route('/Praderas/edit/<int:id>', methods=['GET', 'POST'])
+@bp.route('/Pradera/edit/<int:id>', methods=['GET', 'POST'])
 def edit(id):
     pradera = Praderas.query.get_or_404(id)
 
@@ -73,7 +73,7 @@ def edit(id):
 
 
 #   Delete
-@bp.route('/Praderas/delete/<int:id>')
+@bp.route('/Pradera/delete/<int:id>')
 def delete(id):
     pradera = Praderas.query.get_or_404(id)
 
