@@ -41,7 +41,7 @@ def add():
         db.session.add(newPradera)
         db.session.commit()
 
-        return redirect(url_for('praderas.index'))
+        return redirect(url_for('pradera.index'))
     
     dataForrajes = Forrajes.query.all()
     pradera = Praderas.query.all()
@@ -69,7 +69,7 @@ def edit(id):
     
     dataForrajes = Forrajes.query.all()
 
-    return render_template('praderas/edit.html', pradera=pradera, dataForrajes=dataForrajes)
+    return render_template('pradera/edit.html', pradera=pradera, dataForrajes=dataForrajes)
 
 
 #   Delete

@@ -55,10 +55,11 @@
                                 <td>{{ pradera.area}}</td>
                                 <td>{{ pradera.idForrajes }}</td>
                                 <td>
-                                    <a href="{{ url_for('praderas.edit', id=pradera.idPradera) }}" class="btn btn-warning btn-sm">
+                                    
+                                    <a href="{{ url_for('pradera.edit', id=pradera.idPradera) }}" class="btn btn-warning btn-sm">
                                         <i class="bi bi-pencil-square"></i> Editar
                                     </a>
-                                    <a href="{{ url_for('praderas.delete', id=pradera.idPradera) }}" class="btn btn-danger btn-sm">
+                                    <a href="{{ url_for('pradera.delete', id=pradera.idPradera) }}" class="btn btn-danger btn-sm">
                                         <i class="bi bi-archive"></i> Eliminar
                                     </a>
                                 </td>
