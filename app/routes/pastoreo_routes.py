@@ -41,8 +41,9 @@ def add():
 
         return redirect(url_for('pastoreo.index'))
     pastoreo = Pastoreos.query.all()
+    pradera = Praderas.query.all()
     
-    return render_template('pastoreo/add.html', Pastoreo=pastoreo)
+    return render_template('pastoreo/add.html', Pastoreo=pastoreo, praderas=pradera)
 
 
 #   Edit
