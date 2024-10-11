@@ -30,7 +30,7 @@ def add():
 
         return redirect(url_for('medicamento.index'))
     
-    return render_template('medicamentos/add.html')
+    return render_template('medicamento/add.html')
 
 
 #   Edit

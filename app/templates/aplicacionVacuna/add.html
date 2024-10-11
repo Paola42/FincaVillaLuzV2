@@ -8,37 +8,43 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-        <header>
-            <div class="logo">
-                <img src="/img/logo-sena-verde-png-sin-fondo.webp" alt="logo">
-                <h1 class="nombre">Finca Villa Luz</h1>
-            </div>
-            <nav>  
-                        
-                <a href="/vacuna/add.html">Vacuna</a>
-                <a href="/inicio/loginVacuna.html">Salir</a>
-            </nav>
-        </header>
-    <form class="formulario" action="{{url_for('aplicacionVacuna.add')}}" method="post">
+    <form action="{{url_for('aplicacionvacuna.add')}}"> 
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <h2 class="name"> Aplicar Vacuna</h2>
         <div class="input-group">
             <div class="input-conteiner">
                 <label for="fechaAplicacion">Fecha de aplicaciòn</label><br>
-                <input type="date" id="fechaAplicacion" name="fechaApicacion" placeholder="Fecha de Aplicacion" required>
+                <input type="date" id="fechaAplicacion" name="fechaApicacion" placeholder="Fecha de Aplicacion">
             </div>
-            <div class="input-conteiner">
-                <label for="idAnimal">IdAnimal</label><br>
-                <input type="text" id="idAnimal" name="idAnimal" placeholder="Id animal" required>
+            <div class="col-md-6">
+                <label for="idAnimal" class="form-label">ID Animal</label>
+                <select class="form-select" id="idAnimal" name="idAnimal" required>
+                    {% for animal in animales %}
+                        <option value="{{ animal.idAnimal }}">{{ animal.idAnimal }}</option>
+                    {% endfor %}
+                </select>
             </div>
 
-            <div class="input-conteiner">
-                <label for="idVacunaciòn">Id Vacunaciòn</label><br>
-                <input type="text" id="idVacunacion" name="idVacunacion" placeholder="Id Vacunaciòn" required>
+            <div class="col-md-6">
+                <label for="idVacuna" class="form-label">ID de la vacuna</label>
+                <select class="form-select" id="idVacuna" name="idVacuna" required>
+                    {% for vacuna in vacunas %}
+                        <option value="{{ vacuna.idVacuna }}">{{ vacuna.idVacuna }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label for="idInstructor" class="form-label">ID del Instructor</label>
+                <select class="form-select" id="idInstructor" name="idInstructor" required>
+                    {% for instructor in instructores %}
+                        <option value="{{ instructor.idInstructor }}">{{ instructor.nombreInstructor}}</option>
+                    {% endfor %}
+                </select>
             </div>
 
             <div class="button">
-                <button  type="submit"> <a href=""></a>Guardar Datos</button>
+                <button  type="submit">Guardar Datos</button>
             </div>
         </div>
     </form>

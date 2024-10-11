@@ -11,19 +11,7 @@
     
 </head>
 <body>
-    
-        <header>
-            <div class="logo">
-                <img src="/img/logo-sena-verde-png-sin-fondo.webp" alt="logo">
-                <h1 class="nombre">Finca Villa Luz</h1>
-            </div>
-            <nav>
-                
-                <a href="/aplicacionVacuna/add.html">Aplicar Vacuna</a>
-                <a href="">Volver</a>
-                <a href="/inicio/loginVacuna.html">Salir</a>
-            </nav>
-        </header>
+
     <form class="formulario" action="{{url_for('medicamento.add')}}" method="post">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <h2 class="name">Medicamento</h2>
@@ -54,8 +42,8 @@
                 
             </div>
             <div class="button">
-                <button  type="submit"> <a href=""></a>Guardar Datos</button>
-
+                <button  type="submit"></a>Guardar Datos</button>
+                <a href="{{url_for('auth.administrador')}}"> volver a la vista principal</a>
             </div>
 
         </div>

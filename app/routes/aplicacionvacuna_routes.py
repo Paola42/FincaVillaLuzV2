@@ -24,22 +24,22 @@ def index():
 @bp.route('/AplicacionVacunas/add', methods=['GET', 'POST'])
 def add():
     if request.method == 'POST':
-        fechaAplicacionVacuna = request.form['fechaAplicacionVacuna']
+        fechaAplicacion = request.form['fechaAplicacion']
         idAnimal = request.form['idAnimal']
-        idVacunacion = request.form['idVacunacion']
+        idVacuna = request.form['idVacuna']
         idInstructor = request.form['idInstructor']
 
-        newAplicacionVacuna = AplicacionVacunas(fechaAplicacionVacuna=fechaAplicacionVacuna, idAnimal=idAnimal, idVacunacion=idVacunacion, idInstructor=idInstructor)
+        newAplicacionVacuna = AplicacionVacunas(fechaAplicacion=fechaAplicacion, idAnimal=idAnimal, idVacuna=idVacuna, idInstructor=idInstructor)
         db.session.add(newAplicacionVacuna)
         db.session.commit()
 
-        return redirect(url_for('aplicacionvacuna.index'))
+        return redirect(url_for('aplicacionVacuna.index'))
     
-    dataAnimales = Animales.query.all()
-    dataInstructores = Instructores.query.all()
-    dataVacunas = Vacunas.query.all()
-
-    return render_template('aplicacionvacunas/index.html', dataAnimales=dataAnimales, dataInstructores=dataInstructores, dataVacunas=dataVacunas)
+    animal = Animales.query.all()
+    vacuna = Vacunas.query.all()
+    instructor = Instructores.query.all()
+    
+    return render_template('aplicacionVacuna/add.html',animales=animal,vacunas=vacuna,instructores=instructor)
 
 
 #   Edit
@@ -48,7 +48,7 @@ def edit(id):
     aplicacionVacuna = AplicacionVacunas.query.get_or_404(id)
 
     if request.method == 'POST':
-        aplicacionVacuna.fechaAplicacionVacuna = request.form['fechaAplicacionVacuna']
+        aplicacionVacuna.fechaAplicacion = request.form['fechaAplicacionVacuna']
         aplicacionVacuna.idAnimal = request.form['idAnimal']
         aplicacionVacuna.idVacunacion = request.form['idVacunacion']
         aplicacionVacuna.idInstructor = request.form['idInstructor']

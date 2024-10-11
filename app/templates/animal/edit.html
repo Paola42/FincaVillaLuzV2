@@ -55,27 +55,23 @@
                     <h1>Editar Animal</h1>
                     <form action="{{ url_for('animal.edit', idAnimal=animal.idAnimal) }}" method="post">
                         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-
-                        <div class="mb-3">
-                            <label for="idAnimal" class="form-label">ID Animal</label>
-                            <input type="text" class="form-control" id="idAnimal" name="idAnimal" value="{{ animal.id }}" readonly required>
-                        </div>
-
                         <div class="mb-3">
                             <label for="especieAnimal" class="form-label">Especie Animal</label>
                             <input type="text" class="form-control" id="especieAnimal" name="especieAnimal" value="{{ animal.especieAnimal }}" required>
                         </div>
-
+                        
                         <div class="mb-3">
                             <label for="razaAnimal" class="form-label">Raza Animal</label>
                             <input type="text" class="form-control" id="razaAnimal" name="razaAnimal" value="{{ animal.razaAnimal }}" required>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="col-md-6 mb-3">
                             <label for="sexoAnimal" class="form-label">Sexo Animal</label>
-                            <input type="text" class="form-control" id="sexoAnimal" name="sexoAnimal" value="{{ animal.sexoAnimal }}" required>
+                            <select class="form-select" id="sexoAnimal" name="sexoAnimal" required>
+                                <option value="Macho">Macho</option>
+                                <option value="Hembra">Hembra</option>
+                            </select>
                         </div>
-
                         <div class="mb-3">
                             <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
                             <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" value="{{ animal.fechaNacimiento }}" required>
@@ -104,6 +100,10 @@
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary">Actualizar Animal</button>
                         </div>
+                        <div>
+                            <a class="btn btn-primary" href="{{url_for('animal.index')}}">volver</a>
+                        </div>
+                        
                     </form>
                 </div>
             </div>
