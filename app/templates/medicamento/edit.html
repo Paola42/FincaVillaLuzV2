@@ -4,70 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Vacunaciòn</title>
+    <title>Vacunación</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-
-    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    
-        <header>
-            <div class="logo">
-                <img src="/img/logo-sena-verde-png-sin-fondo.webp" alt="logo">
-                <h1 class="nombre">Finca Villa Luz</h1>
-            </div>
-            <nav>
-                
-                <a href="/aplicacionVacuna/add.html">Aplicar Vacuna</a>
-                <a href="">Volver</a>
-                <a href="/inicio/loginVacuna.html">Salir</a>
-            </nav>
-        </header>
-    <form class="formulario">
-        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-        <h2 class="name">Medicamento</h2>
-        <div class="input-group">
-            <div class="input-conteiner">
-                <label for="Nombre">Nombre de medicamento</label><br>
-                <input type="text"  placeholder="Nombre de medicamento">
-            </div>
-            <div class="input-conteiner">
-                <label for="Dosis">Dosis</label><br>
-                <input type="text" id="dosis" name="dosis" placeholder="Dosis" 
-                value="{{medicamento.dosis}}" required>
+    <div class="container mt-5">
+        <form class="formulario" action="{{ url_for('medicamento.edit', id=medicamento.idMedicamento) }}" method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <h2 class="text-center mb-4">Editar Medicamento</h2>
+
+            <div class="form-group">
+                <label for="nombreMedicamento">Nombre de Medicamento</label>
+                <input type="text" class="form-control" id="nombreMedicamento" name="nombreMedicamento" placeholder="Nombre de medicamento" value="{{ medicamento.nombreMedicamento }}" required>
             </div>
 
-            <div class="input-conteiner">
-                <label for="viaAdministracion">Via de administraciòn</label><br>
-                <input type="text" id="viaAdministracion" name="viaAdministracion" placeholder="Via de administraciòn"
-                value="{{medicamento.viaAdministracion}}" required>
+            <div class="form-group">
+                <label for="dosis">Dosis</label>
+                <input type="text" class="form-control" id="dosis" name="dosis" placeholder="Dosis" value="{{ medicamento.dosis }}" required>
             </div>
 
-            <div class="input-conteiner">
-                <label for="indicaciones">Indicaciones</label><br>
-                <input type="text" id="indicaciones" name="indicaciones" placeholder="Indicaciones"
-                value="{{medicamento.indicaciones}}" required>
+            <div class="form-group">
+                <label for="viaAdministracion">Vía de Administración</label>
+                <input type="text" class="form-control" id="viaAdministracion" name="viaAdministracion" placeholder="Vía de administración" value="{{ medicamento.viaAdministracion }}" required>
             </div>
 
-            <div class="input-conteiner">
-                <label for="contraindicaciones">contraindicaciones</label><br>
-                <input type="text" id="contraindicaciones" name="contraindicaciones" placeholder="contraindicaciones"
-                value="{{medicamento.contraindicaciones}}" required>
+            <div class="form-group">
+                <label for="indicaciones">Indicaciones</label>
+                <input type="text" class="form-control" id="indicaciones" name="indicaciones" placeholder="Indicaciones" value="{{ medicamento.indicaciones }}" required>
             </div>
-                
+
+            <div class="form-group">
+                <label for="contraindicaciones">Contraindicaciones</label>
+                <input type="text" class="form-control" id="contraindicaciones" name="contraindicaciones" placeholder="Contraindicaciones" value="{{ medicamento.contraindicaciones }}" required>
             </div>
-            <div class="button">
-                <button  type="submit"> <a href=""></a>Editar Datos</button>
 
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Editar Datos</button>
+                <a href="{{ url_for('auth.administrador') }}" class="btn btn-outline-dark">Volver a la Vista Principal</a>
             </div>
-            
+        </form>
+    </div>
 
-        
-
-
-        </div>
-    </form>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,61 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Eventos</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
 
-    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
-    
-        <header>
-            <div class="logo">
-                <img src="/img/logo-sena-verde-png-sin-fondo.webp" alt="logo">
-                <h1 class="nombre">Finca Villa Luz</h1>
-            </div>
-            <nav>
-                <a href="">Volver</a>
-                <a href="/inicio/logineventos.html">Salir</a>
-            </nav>
-        </header>
-    <form class="formulario" action="{{url_for('eventos.add')}}" method="post">
-        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-        <h2 class="name">Eventos</h2>
-        <div class="input-group">
-            <div class="input-conteiner">
-                <label for="ideventos">ID eventos</label><br>
-                <input type="text" id="ideventos" name="ideventos" placeholder="ID eventos"
-                value="{{eventos.ideventos}}" required>
-            </div>
-            <div class="input-conteiner">
-                <label for="idanimal">ID animal</label><br>
-                <input type="text" id="idanimal" name="idanimal" placeholder="ID animal"
-                value="{{eventos.idanimal}}" required>
-            </div>
 
-            <div class="input-conteiner">
-                <label for="idenfermedad">ID enfermedad</label><br>
-                <input type="text" id="idenfermedad" name="idenfermedad" placeholder="ID enfermedad"
-                value="{{eventos.idenfermedad}}" required>
-            </div>
-
-            <div class="input-conteiner">
-                <label for="idinstructor">ID instructor</label><br>
-                <input type="text" id="idinstructor" name="idinstructor" placeholder="ID instructor"
-                value="{{eventos.idinstructor}}" required>
-            </div>
-
-            <div class="button">
-                <button  type="submit"> <a href=""></a>Guardar Datos</button>
-
-            </div>
-            
-
+<body class="bg-light">
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Registrar Evento</h2>
         
+        <form class="border p-4 shadow-sm bg-white rounded" action="{{ url_for('evento.add') }}" method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
+            <div class="mb-3">
+                <label for="idAnimal" class="form-label">ID Animal</label>
+                <select class="form-select" id="idAnimal" name="idAnimal" required>
+                    {% for animal in animales %}
+                        <option value="{{ animal.idAnimal }}">{{ animal.especieAnimal }}</option>
+                    {% endfor %}
+                </select>
+            </div>
 
-        </div>
-    </form>
+            <div class="mb-3">
+                <label for="idEnfermedad" class="form-label">ID Enfermedad</label>
+                <select class="form-select" id="idEnfermedad" name="idEnfermedad" required>
+                    {% for enfermedad in enfermedades %}
+                        <option value="{{ enfermedad.idEnfermedad }}">{{ enfermedad.nombreEnfermedad }}</option>
+                    {% endfor %}
+                </select>
+            </div>
 
+            <div class="mb-3">
+                <label for="idInstructor" class="form-label">ID Instructor</label>
+                <select class="form-select" id="idInstructor" name="idInstructor" required>
+                    {% for instructor in instructores %}
+                        <option value="{{ instructor.idInstructor }}">{{ instructor.nombreInstructor }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary w-100">
+                    <i class="fas fa-save me-2"></i>Guardar Datos
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

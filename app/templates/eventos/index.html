@@ -22,33 +22,30 @@
                 <th>ID animal</th>
                 <th>ID enfemerdad</th>
                 <th>ID instructor</th>
+                <th>acciones</th>
+
             </tr>
         </div>
-        {%for vacuna in dataEventos%}
-
-    <div class="contenido">
+        {%for evento in eventos %}
         <tr>
-            <td>{{eventos.idEventos}}</td>
-            <td>{{eventos.idAnimal}}</td>
-            <td>{{eventos.idEnfermedad}}</td>
-            <td>{{eventos.idInstructor}}</td>
-                <a href="{{ url_for('eventos.add', id=eventos.idEventos) }}"><i class="bi bi-pencil-square"></i></a>
-                <a href="{{ url_for('evento.edit', id=eventos.idEventos) }}"><i class="bi bi-pencil-square"></i></a>
-                <a href="{{ url_for('evento.delete', id=eventos.idEventos) }}"><i class="bi bi-archive"></i></a>
-
-                <!-- Agrega aquí el enlace para eliminar -->
+            <td>{{evento.idEvento}}</td>
+            <td>{{evento.idAnimal}}</td>
+            <td>{{evento.idEnfermedad}}</td>
+            <td>{{evento.idInstructor}}</td>
+            <td>
+        <a href="{{ url_for('evento.edit', id=evento.idEvento) }}">Editar</a>
+        <a href="{{ url_for('evento.delete', id=evento.idEvento) }}">eliminar</a>
             </td>
         </tr>
-{% endfor %}
+        {% endfor %}
 
-        </tr>
-    </div>   
+       
     </table>
 
     <a href="{{ url_for('evento.add')}}">Ingresar evento</a>
     <a href="{{ url_for('auth.administrador') }}" class="btn btn-outline-dark">
         <i class="bi bi-arrow-left"></i> Regresar a la Página Principal
-    </a><br
+    </a>
    
 
 </body>

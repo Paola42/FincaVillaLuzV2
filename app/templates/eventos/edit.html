@@ -10,54 +10,41 @@
 
     
 </head>
+<h2 class="name">Editar Eventos</h2>
 <body>
-    
-        <header>
-            <div class="logo">
-                <img src="/img/logo-sena-verde-png-sin-fondo.webp" alt="logo">
-                <h1 class="nombre">Finca Villa Luz</h1>
-            </div>
-            <nav>
-                <a href="">Volver</a>
-                <a href="/inicio/logineventos.html">Salir</a>
-            </nav>
-        </header>
-    <form class="formulario">
+    <form action="{{ url_for('evento.edit', id=evento.idEvento) }}" method="post">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-        <h2 class="name">Editar Eventos</h2>
-        <div class="input-group">
             <div class="input-conteiner">
-                <label for="ideventos">ID eventos</label><br>
-                <input type="text" id="ideventos" name="ideventos" placeholder="ID eventos"
-                value="{{eventos.ideventos}}" required>
-            </div>
-            <div class="input-conteiner">
-                <label for="idanimal">ID animal</label><br>
-                <input type="text" id="idanimal" name="idanimal" placeholder="ID animal"
-                value="{{eventos.idanimal}}" required>
-            </div>
+                <div class="mb-3">
+                    <label for="idAnimal" class="form-label">ID Animal</label>
+                    <select class="form-select" id="idAnimal" name="idAnimal" required>
+                        {% for animal in animales %}
+                            <option value="{{ animal.idAnimal }}">{{ animal.especieAnimal }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
 
-            <div class="input-conteiner">
-                <label for="idenfermedad">ID enfermedad</label><br>
-                <input type="text" id="idenfermedad" name="idenfermedad" placeholder="ID enfermedad"
-                value="{{eventos.idenfermedad}}" required>
-            </div>
+                <div class="mb-3">
+                    <label for="idEnfermedad" class="form-label">ID Enfermedad</label>
+                    <select class="form-select" id="idEnfermedad" name="idEnfermedad" required>
+                        {% for enfermedad in enfermedades %}
+                            <option value="{{ enfermedad.idEnfermedad }}">{{ enfermedad.nombreEnfermedad }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
 
-            <div class="input-conteiner">
-                <label for="idinstructor">ID instructor</label><br>
-                <input type="text" id="idinstructor" name="idinstructor" placeholder="ID instructor"
-                value="{{eventos.idinstructor}}" required>
-            </div>
+                <div class="mb-3">
+                    <label for="idInstructor" class="form-label">ID Instructor</label>
+                    <select class="form-select" id="idInstructor" name="idInstructor" required>
+                        {% for instructor in instructores %}
+                            <option value="{{ instructor.idInstructor }}">{{ instructor.nombreInstructor }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
 
             <div class="button">
-                <button  type="submit"> <a href=""></a>Editar Datos</button>
-
+                <button  type="submit">Editar Datos</button>
             </div>
-            
-
-        
-
-
         </div>
     </form>
 

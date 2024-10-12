@@ -4,55 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>medicamentos</title>
+    <title>Medicamentos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    
 </head>
 <body>
     <div class="container mt-5">
         <h1 class="text-center mb-4">Lista de Medicamentos</h1>
-    </div>  
-    
-    <table>
-        <div class="table">
-            <tr>
-                <th>ID</th>
-                <th>Nombre de Medicamento</th>
-                <th>Dosis </th>
-                <th>Via de administrativa</th>
-                <th>Indicaciones</th>
-                <th>Contradicciones</th>
-            </tr>
+
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre de Medicamento</th>
+                    <th>Dosis</th>
+                    <th>Vía de Administración</th>
+                    <th>Indicaciones</th>
+                    <th>Contradicciones</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for medicamento in medicamentos %}
+                <tr>
+                    <td>{{ medicamento.idMedicamento }}</td>
+                    <td>{{ medicamento.nombreMedicamento }}</td>
+                    <td>{{ medicamento.dosis }}</td>
+                    <td>{{ medicamento.viaAdministracion}}</td>
+                    <td>{{ medicamento.indicaciones }}</td>
+                    <td>{{ medicamento.contraindicaciones }}</td>
+                    <td>
+                        <a href="{{ url_for('medicamento.edit', id=medicamento.idMedicamento ) }}" class="btn btn-warning btn-sm">
+                            <i class="bi bi-pencil-square"></i> Editar
+                        </a>
+                        <a href="{{ url_for('medicamento.delete', id=medicamento.idMedicamento) }}" class="btn btn-danger btn-sm">
+                            <i class="bi bi-archive"></i> Eliminar
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="text-center">
+            <a href="{{ url_for('medicamento.add') }}" class="btn btn-success">Ingresar Medicamento</a>
+            <a href="{{ url_for('auth.administrador') }}" class="btn btn-outline-dark">
+                <i class="bi bi-arrow-left"></i> Regresar a la Página Principal
+            </a>
         </div>
-        {%for medicamento in data%}
+    </div>
 
-    <div class="contenido">
-        <tr>
-            <td>{{medicamento.idMedicamento}}</td>
-            <td>{{medicamento.nombreMedicamento}}</td>
-            <td>{{medicamento.dosis}}</td>
-            <td>{{medicamento.indicaciones}}</td>
-            <td>{{medicamento.contradicciones}}</td>
-
-            <a href="{{ url_for('medicamentos.edit', id = medicamento.idMedicamento) }}"><i class="bi bi-pencil-square"></i></a>
-            <a href="{{ url_for('medicamentos.delete', id = medicamento.idMedicamento) }}"><i class="bi bi-archive"></i></a>
-            <!-- Agrega aquí el enlace para eliminar -->
-        </td>
-    </tr>
-{% endfor %}
-
-        </tr>
-    </div>   
-    </table>
-
-    <a href="{{ url_for('medicamento.add')}}">Ingresar Medicamento</a>
-    <br>
-    <a href="{{ url_for('auth.administrador') }}" class="btn btn-outline-dark">
-        <i class="bi bi-arrow-left"></i> Regresar a la Página Principal
-    </a>
-
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

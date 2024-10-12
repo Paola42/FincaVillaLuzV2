@@ -9,9 +9,9 @@ bp = Blueprint('medicamento', __name__)
 #   Index
 @bp.route('/Medicamentos')
 def index():
-    dataMedicamentos = Medicamentos.query.all()
+    medicamento = Medicamentos.query.all()
 
-    return render_template('medicamento/index.html', dataMedicamentos=dataMedicamentos)
+    return render_template('medicamento/index.html', medicamentos=medicamento)
 
 
 #   Add
@@ -19,12 +19,12 @@ def index():
 def add():
     if request.method == 'POST':
         nombreMedicamento = request.form['nombreMedicamento']
-        dosisMedicamento = request.form['dosisMedicamento']
-        viaAdministracionMedicamento = request.form['viaAdministracionMedicamento']
-        indicacionesMedicamento = request.form['indicacionesMedicamento']
-        contradiccionesMedicamento = request.form['contradiccionesMedicamento']
+        dosisMedicamento = request.form['dosis']
+        viaAdministracionMedicamento = request.form['viaAdministracion']
+        indicacionesMedicamento = request.form['indicaciones']
+        contraindicacionesMedicamento = request.form['contraIndicaciones']
 
-        newMedicamento = Medicamentos(nombreMedicamento=nombreMedicamento, dosisMedicamento=dosisMedicamento, viaAdministracionMedicamento=viaAdministracionMedicamento, indicacionesMedicamento=indicacionesMedicamento, contradiccionesMedicamento=contradiccionesMedicamento)
+        newMedicamento = Medicamentos(nombreMedicamento=nombreMedicamento, dosis=dosisMedicamento, viaAdministracion=viaAdministracionMedicamento, indicaciones=indicacionesMedicamento, contraindicaciones=contraindicacionesMedicamento)
         db.session.add(newMedicamento)
         db.session.commit()
 
@@ -40,16 +40,15 @@ def edit(id):
 
     if request.method == 'POST':
         medicamento.nombreMedicamento = request.form['nombreMedicamento']
-        medicamento.dosisMedicamento = request.form['dosisMedicamento']
-        medicamento.viaAdministracionMedicamento = request.form['viaAdministracionMedicamento']
-        medicamento.indicacionesMedicamento = request.form['indicacionesMedicamento']
-        medicamento.contradiccionesMedicamento = request.form['contradiccionesMedicamento']
-
+        medicamento.dosis = request.form['dosis']
+        medicamento.viaAdministracion = request.form['viaAdministracion']
+        medicamento.indicaciones = request.form['indicaciones']
+        medicamento.contraindicaciones = request.form['contraindicaciones']
         db.session.commit()
         
         return redirect(url_for('medicamento.index'))
     
-    return render_template('medicamentos/edit.html', medicamento=medicamento)
+    return render_template('medicamento/edit.html', medicamento=medicamento)
 
 
 #   Delete

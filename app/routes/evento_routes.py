@@ -12,12 +12,9 @@ bp = Blueprint('evento', __name__)
 #   Index
 @bp.route('/Eventos')
 def index():
-    dataEventos = Eventos.query.all()
-    dataAnimales = Animales.query.all()
-    dataEnfermedades = Enfermedades.query.all()
-    dataInstructores = Instructores.query.all()
+   evento = Eventos.query.all()
 
-    return render_template('eventos/index.html', dataEventos=dataEventos, dataAnimales=dataAnimales, dataEnfermedades=dataEnfermedades, dataInstructores=dataInstructores)
+   return render_template('eventos/index.html', eventos=evento)
 
 
 #   Add
@@ -34,31 +31,29 @@ def add():
 
         return redirect(url_for('evento.index'))
     
-    dataAnimales = Animales.query.all()
-    dataEnfermedades = Enfermedades.query.all()
-    dataInstructores = Instructores.query.all()
+    animal = Animales.query.all()
+    enfermedad = Enfermedades.query.all()
+    instructor = Instructores.query.all()
 
-    return render_template('eventos/index.html', dataAnimales=dataAnimales, dataEnfermedades=dataEnfermedades, dataInstructores=dataInstructores)
+    return render_template('eventos/add.html', animales=animal, enfermedades=enfermedad, instructores=instructor)
 
 #   Edit
 @bp.route('/Eventos/edit/<int:id>', methods=['GET', 'POST'])
 def edit(id):
     evento = Eventos.query.get_or_404(id)
-
     if request.method == 'POST':
         evento.idAnimal = request.form['idAnimal']
         evento.idEnfermedad = request.form['idEnfermedad']
         evento.idInstructor = request.form['idInstructor']
-
         db.session.commit()
         
         return redirect(url_for('evento.index'))
     
-    dataAnimales = Animales.query.all()
-    dataEnfermedades = Enfermedades.query.all()
-    dataInstructores = Instructores.query.all()
+    animal = Animales.query.all()
+    enfermedad = Enfermedades.query.all()
+    instructor = Instructores.query.all()
 
-    return render_template('eventos/index.html', evento=evento,dataAnimales=dataAnimales, dataEnfermedades=dataEnfermedades, dataInstructores=dataInstructores)
+    return render_template('eventos/edit.html', animales=animal, enfermedades=enfermedad, instructores=instructor,evento=evento)
 
 #   Delete
 @bp.route('/Eventos/delete/<int:id>')
