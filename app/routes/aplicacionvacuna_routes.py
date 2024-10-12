@@ -12,12 +12,8 @@ bp = Blueprint('aplicacionvacuna', __name__)
 #   Index
 @bp.route('/AplicacionVacunas')
 def index():
-    dataAplicacionVacunas = AplicacionVacunas.query.all()
-    dataAnimales = Animales.query.all()
-    dataInstructores = Instructores.query.all()
-    dataVacunas = Vacunas.query.all()
-
-    return render_template('aplicacionVacuna/index.html', dataAplicacionVacunas=dataAplicacionVacunas, dataAnimales=dataAnimales, dataInstructores=dataInstructores, dataVacunas=dataVacunas)
+    vacuna = AplicacionVacunas.query.all()
+    return render_template('aplicacionVacuna/index.html', vacunas = vacuna)
 
 
 #   Add
@@ -33,7 +29,7 @@ def add():
         db.session.add(newAplicacionVacuna)
         db.session.commit()
 
-        return redirect(url_for('aplicacionVacuna.index'))
+        return redirect(url_for('aplicacionvacuna.index'))
     
     animal = Animales.query.all()
     vacuna = Vacunas.query.all()
@@ -46,11 +42,10 @@ def add():
 @bp.route('/AplicacionVacunas/edit/<int:id>', methods=['GET', 'POST'])
 def edit(id):
     aplicacionVacuna = AplicacionVacunas.query.get_or_404(id)
-
     if request.method == 'POST':
-        aplicacionVacuna.fechaAplicacion = request.form['fechaAplicacionVacuna']
+        aplicacionVacuna.fechaAplicacion = request.form['fechaAplicacion']
         aplicacionVacuna.idAnimal = request.form['idAnimal']
-        aplicacionVacuna.idVacunacion = request.form['idVacunacion']
+        aplicacionVacuna.idVacuna = request.form['idVacuna']
         aplicacionVacuna.idInstructor = request.form['idInstructor']
 
         db.session.commit()
@@ -61,7 +56,7 @@ def edit(id):
     dataInstructores = Instructores.query.all()
     dataVacunas = Vacunas.query.all()
 
-    return render_template('aplicacionvacunas/index.html', aplicacionVacuna=aplicacionVacuna, dataAnimales=dataAnimales, dataInstructores=dataInstructores, dataVacunas=dataVacunas)
+    return render_template('aplicacionVacuna/edit.html', aplicacionVacuna=aplicacionVacuna, dataAnimales=dataAnimales, dataInstructores=dataInstructores, dataVacunas=dataVacunas)
 
 
 #   Delete
@@ -72,4 +67,4 @@ def delete(id):
     db.session.delete(aplicacionVacuna)
     db.session.commit()
 
-    return redirect(url_for('aplicacionvacunas.index'))
+    return redirect(url_for('aplicacionvacuna.index'))

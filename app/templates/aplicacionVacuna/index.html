@@ -3,55 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vacunaciòn</title>
+    <title>Vacunación</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/style.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    
 </head>
 <body>
-    
+    <div class="container mt-5">
+        <h1 class="text-center">Aplicación De Vacunas</h1>
+        
+        <table class="table table-striped mt-4">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID Vacunación</th>
+                    <th>Fecha De Aplicación</th>
+                    <th>ID Animal</th>
+                    <th>ID Vacuna</th>
+                    <th>ID Instructor</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for vacuna in vacunas %}
+                <tr>
+                    <td>{{ vacuna.idAplicacionVacuna }}</td>
+                    <td>{{ vacuna.fechaAplicacion }}</td>
+                    <td>{{ vacuna.idAnimal }}</td>
+                    <td>{{ vacuna.idVacuna }}</td>
+                    <td>{{ vacuna.idInstructor }}</td>
+                    <td>
+                        <a href="{{ url_for('aplicacionvacuna.edit', id=vacuna.idAplicacionVacuna) }}" class="btn btn-primary btn-sm">Editar</a>
+                        <a href="{{ url_for('aplicacionvacuna.delete', id=vacuna.idAplicacionVacuna) }}" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
-    <div>
-        <h1>Aplicacion De Vacunas</h1>
-    </div>
-    
-    <table>
-        <div class="table">
-            <tr>
-                <th>ID</th>
-                <th>Fecha De aplicaciòn</th>
-                <th>Id Animal</th>
-                <th>Id Vacunaciòn</th>
-                
-            </tr>
+        <div class="text-center">
+            <a href="{{ url_for('aplicacionvacuna.add') }}" class="btn btn-success">Ingresar Vacunación</a>
+            <a href="{{ url_for('auth.administrador') }}" class="btn btn-outline-dark">
+                <i class="bi bi-arrow-left"></i> Regresar a la Página Principal
+            </a>
         </div>
-        {%for vacuna in data%}
+    </div>
 
-    <div class="contenido">
-        <tr>
-            <td>{{aplicacionVacuna.idAplicacionVacuna}}</td>
-            <td>{{aplicacionVacuna.fechaAplicacion}}</td>
-            <td>{{aplicacionVacuna.idAnimal}}</td>
-            <td>{{aplicacionVacuna.idVacunacion}}</td>
-            
-
-            <a href="{{ url_for('aplicacionVacuna.edit', id=aplicacionVacuna.idAlicacionVacuna) }}"><i class="bi bi-pencil-square"></i></a>
-            <a href="{{ url_for('aplicacionVacuna.delete', id=aplicacionVacuna.idAplicacionVacuna) }}"><i class="bi bi-archive"></i></a>
-            <!-- Agrega aquí el enlace para eliminar -->
-        </td>
-    </tr>
-{% endfor %}
-
-        </tr>
-    </div>   
-    </table>
-
-    <a href="{{ url_for('aplicacionvacuna.add')}}">Ingresar Vacunaciòn</a>
-    <a href="{{ url_for('auth.administrador') }}" class="btn btn-outline-dark">
-        <i class="bi bi-arrow-left"></i> Regresar a la Página Principal
-    </a>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

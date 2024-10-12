@@ -8,19 +8,9 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-        <header>
-            <div class="logo">
-                <img src="/img/logo-sena-verde-png-sin-fondo.webp" alt="logo">
-                <h1 class="nombre">Finca Villa Luz</h1>
-            </div>
-            <nav>           
-                <a href="/vacuna/add.html">Vacuna</a>
-                <a href="/inicio/loginVacuna.html">Salir</a>
-            </nav>
-        </header>
-    <form class="formulario">
+    <form action"{{ url_for('aplicacionvacuna.edit', id=aplicacionVacuna.idAplicacionVacuna) }}" method='POST'>
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-        <h2 class="name"> Aplicar Vacuna</h2>
+        <h2 class="name"> Editar Vacuna aplicada</h2>
         <div class="input-group">
             <div class="input-conteiner">
                 <label for="fechaAplicacion">Fecha de aplicaciòn</label><br>
@@ -34,9 +24,15 @@
             </div>
 
             <div class="input-conteiner">
-                <label for="idVacunaciòn">Id Vacunaciòn</label><br>
-                <input type="text" id="idvacunacion" name="idVacunacion" placeholder="Id Vacunaciòn"
-                value="{{aplicacionVacuna.idVacunacion}}" required>
+                <label for="idVacuna">Id Vacunaciòn</label><br>
+                <input type="text" id="idvacuna" name="idVacuna" placeholder="Id Vacunaciòn"
+                value="{{aplicacionVacuna.idVacuna}}" required>
+            </div>
+
+            <div class="input-conteiner">
+                <label for="idInstructor">Id instructor</label><br>
+                <input type="text" id="idInstructor" name="idInstructor" placeholder="Id Vacunaciòn"
+                value="{{aplicacionVacuna.idInstructor}}" required>
             </div>
 
             <div class="button">
