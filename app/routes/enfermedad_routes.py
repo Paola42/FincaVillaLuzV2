@@ -9,9 +9,8 @@ bp = Blueprint('enfermedad', __name__)
 #   Index
 @bp.route('/Enfermedades')
 def index():
-    dataEnfermedades = Enfermedades.query.all()
-
-    return render_template('enfermedad/index.html', dataEnfermedades=dataEnfermedades)
+    enfermedad = Enfermedades.query.all()
+    return render_template('enfermedad/index.html', enfermedades=enfermedad)
 
 
 #   Add
@@ -28,24 +27,21 @@ def add():
 
         return redirect(url_for('enfermedad.index'))
     
-    return render_template('enfermedades/add.html')
+    return render_template('enfermedad/add.html')
 
 
 #   Edit
 @bp.route('/Enfermedades/edit/<int:id>', methods=['GET', 'POST'])
 def edit(id):
     enfermedad = Enfermedades.query.get_or_404(id)
-
     if request.method == 'POST':
         enfermedad.nombreEnfermedad = request.form['nombreEnfermedad']
         enfermedad.sintomasEnfermedad = request.form['sintomasEnfermedad']
-        enfermedad.detallesAdicionalesEnfermedad = request.form['detallesAdicionalesEnfermedad']
-
+        enfermedad.detallesAdicionalesEnfermedad  = request.form['detallesAdicionalesEnfermedad ']
         db.session.commit()
-        
         return redirect(url_for('enfermedad.index'))
     
-    return render_template('enfermedades/edit.html', enfermedad=enfermedad)
+    return render_template('enfermedad/edit.html', enfermedad=enfermedad)
 
 
 #   Delete

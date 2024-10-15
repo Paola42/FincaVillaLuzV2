@@ -12,68 +12,68 @@ bp = Blueprint('tratamiento', __name__)
 #   Index
 @bp.route('/Tratamientos')
 def index():
-    dataTratamientos = Tratamientos.query.all()
-    dataMedicamentos = Medicamentos.query.all()
-    dataVacunas = Vacunas.query.all()
-    dataEventos = Eventos.query.all()
-
-    return render_template('tratamiento/index.html', dataTratamientos=dataTratamientos, dataMedicamentos=dataMedicamentos, dataVacunas=dataVacunas, dataEventos=dataEventos)
+    tratamiento = Tratamientos.query.all()
+    return render_template('tratamiento/index.html', tratamientos=tratamiento)
 
 
 #   Add
 @bp.route('/Tratamientos/add', methods=['GET', 'POST'])
 def add():
     if request.method == 'POST':
-        fechaInicioTratamiento = request.form['fechaInicioTratamiento']
+        fechaInicioTratamiento= request.form['fechaInicioTratamiento']
         fechaFinTratamiento = request.form['fechaFinTratamiento']
         descripcionTratamiento = request.form['descripcionTratamiento']
-        dosisTratamiento = request.form['dosisTratamiento']
-        viaAdministracionTratamiento = request.form['viaAdministracionTratamiento']
-        observacionesTratamiento = request.form['observacionesTratamiento']
-        frecuenciaTratamiento = request.form['frecuenciaTratamiento']
+        dosis = request.form['dosis']
+        viaAdministracion = request.form['viaAdministracion']
+        observaciones = request.form['observaciones']
+        frecuencia = request.form['frecuencia']
         idMedicamento = request.form['idMedicamento']
         idVacuna = request.form['idVacuna']
         idEvento = request.form['idEvento']
-
-        newTratamiento = Tratamientos(fechaInicioTratamiento=fechaInicioTratamiento, fechaFinTratamiento=fechaFinTratamiento, descripcionTratamiento=descripcionTratamiento,dosisTratamiento=dosisTratamiento, viaAdministracionTratamiento=viaAdministracionTratamiento, observacionesTratamiento=observacionesTratamiento, frecuenciaTratamiento=frecuenciaTratamiento, idMedicamento=idMedicamento, idVacuna=idVacuna, idEvento=idEvento)
+        newTratamiento = Tratamientos(fechaInicioTratamiento=fechaInicioTratamiento, 
+                                      fechaFinTratamiento=fechaFinTratamiento, 
+                                      descripcionTratamiento=descripcionTratamiento,
+                                      dosis=dosis, 
+                                      viaAdministracion=viaAdministracion, 
+                                      observaciones=observaciones, 
+                                      frecuencia=frecuencia, 
+                                      idMedicamento=idMedicamento, idVacuna=idVacuna, 
+                                      idEvento=idEvento)
         db.session.add(newTratamiento)
         db.session.commit()
 
         return redirect(url_for('tratamiento.index'))
     
-    dataMedicamentos = Medicamentos.query.all()
-    dataVacunas = Vacunas.query.all()
-    dataEventos = Eventos.query.all()
-
-    return render_template('tratamientos/add.html', dataMedicamentos=dataMedicamentos, dataVacunas=dataVacunas, dataEventos=dataEventos)
+    vacuna = Vacunas.query.all()
+    medicamento= Medicamentos.query.all()
+    evento= Eventos.query.all()
+    
+    return render_template('tratamiento/add.html',vacunas=vacuna,medicamentos=medicamento,eventos=evento)
 
 
 #   Edit
 @bp.route('/Tratamientos/edit/<int:id>', methods=['GET', 'POST'])
 def edit(id):
     tratamiento = Tratamientos.query.get_or_404(id)
-
     if request.method == 'POST':
         tratamiento.fechaInicioTratamiento = request.form['fechaInicioTratamiento']
         tratamiento.fechaFinTratamiento = request.form['fechaFinTratamiento']
         tratamiento.descripcionTratamiento = request.form['descripcionTratamiento']
-        tratamiento.dosisTratamiento = request.form['dosisTratamiento']
-        tratamiento.viaAdministracionTratamiento = request.form['viaAdministracionTratamiento']
-        tratamiento.observacionesTratamiento = request.form['observacionesTratamiento']
-        tratamiento.frecuenciaTratamiento = request.form['frecuenciaTratamiento']
+        tratamiento.dosis = request.form['dosis']
+        tratamiento.viaAdministracion = request.form['viaAdministracion']
+        tratamiento.observaciones = request.form['observaciones']
+        tratamiento.frecuencia = request.form['frecuencia']
         tratamiento.idMedicamento = request.form['idMedicamento']
         tratamiento.idVacuna = request.form['idVacuna']
         tratamiento.idEvento = request.form['idEvento']
-
         db.session.commit()
-        
         return redirect(url_for('tratamiento.index'))
     
-    dataMedicamentos = Medicamentos.query.all()
-    dataVacunas = Vacunas.query.all()
-    dataEventos = Eventos.query.all()
+    vacuna = Vacunas.query.all()
+    medicamento= Medicamentos.query.all()
+    evento= Eventos.query.all()
 
-    return render_template('tratamientos/edit.html', tratamiento=tratamiento, dataMedicamentos=dataMedicamentos, dataVacunas=dataVacunas, dataEventos=dataEventos)
+    return render_template('tratamiento/edit.html', vacunas=vacuna,medicamentos=medicamento,eventos=evento,tratamiento=tratamiento)
 
 
 #   Delete

@@ -25,22 +25,22 @@
                 <th>Nombre enfermedad</th>
                 <th>Sintomas</th>
                 <th>Detalles adicionales</th>
+                <th>acciones</th>
             </tr>
         </div>
-        {%for enfemerdad in dataEnfermedades%}
+        {%for enfermedad in enfermedades%}
 
-    <div class="contenido">
         <tr>
             <td>{{enfermedad.idEnfermedad}}</td>
             <td>{{enfermedad.nombreEnfermedad}}</td>
             <td>{{enfermedad.sintomasEnfermedad}}</td>
             <td>{{enfermedad.detallesAdicionalesEnfermedad}}</td>
-
-            <a href="{{ url_for('enfemredad.edit', id=enfermedad.idEnfermedad) }}"><i class="bi bi-pencil-square"></i></a>
-            <a href="{{ url_for('enfermedad.delete', id=enfermedad.idEnfermedad) }}"><i class="bi bi-archive"></i></a>
-            <!-- Agrega aquí el enlace para eliminar -->
-        </td>
-    </tr>
+            <td>
+            <a href="{{ url_for('enfermedad.edit', id=enfermedad.idEnfermedad) }}">editar</a>
+            <a href="{{ url_for('enfermedad.delete', id=enfermedad.idEnfermedad) }}">eliminar</a>
+            
+            </td>
+        </tr>
 {% endfor %}
 
         </tr>

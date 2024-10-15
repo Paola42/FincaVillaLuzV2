@@ -11,15 +11,10 @@
     
 </head>
 <body>
-    <form class="formulario">
+    <form action= "{{ url_for('enfermedad.edit', id=enfermedad.idEnfermedad) }}" method ="post">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <h2 class="name">Editar enfermedad</h2>
         <div class="input-group">
-            <div class="input-conteiner">
-                <label for="idEnfermedad">ID enfermedad</label><br>
-                <input type="text" id="idEnfermedad" name="idEnfermedad" placeholder="idEnfermedad"
-                value="{{enfemredad.idEnfermedad}}" required>
-            </div>
             <div class="input-conteiner">
                 <label for="nombreEnfermedad">Nombre enfemerdad</label><br>
                 <input type="text" id="nombreEnfermedad" name="nombreEnfermedad" placeholder="nombreEnfermedad"
@@ -29,13 +24,13 @@
             <div class="input-conteiner">
                 <label for="sintomasEnfermedad">Sintomas</label><br>
                 <input type="text" id="sintomasEnfermedad" name="sintomasEnfermedad" placeholder="sintomasEnfermedad"
-                value="{{Enfermedad.sintomasEnfermedad}}" required>
+                value="{{enfermedad.sintomasEnfermedad}}" required>
             </div>
 
             <div class="input-conteiner">
-                <label for="detallesAdicionalesEnfermedad">Detalles adicionales</label><br>
-                <input type="text" id="detallesAdicionalesEnfermedad" name="detallesAdicionalesEnfermedad" placeholder="detallesAdicionalesEnfermedad"
-                value="{{enfemerdad.detallesAdicionalesEnfermedad}}" required>
+                <label for="detallesAdicionalesEnfermedad ">Detalles adicionales</label><br>
+                <input type="text" id="detallesAdicionalesEnfermedad " name="detallesAdicionalesEnfermedad " placeholder="detallesAdicionalesEnfermedad"
+                value="{{enfermedad.detallesAdicionalesEnfermedad }}" required>
             </div>
 
             <div class="button">

@@ -5,88 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Tratamiento</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    
 </head>
-<body>
-    
-       <form class="formulario">
-        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-        <h2 class="name">Tratamiento</h2>
-        <div class="input-group">
-            <div class="input-conteiner">
-                <label for="IDtratamiento">ID tratamiento</label><br>
-                <input type="text"  placeholder="ID tratamiento">
+<body class="bg-light">
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Tratamiento</h2>
+
+        <form class="row g-3" method="post" action="#">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+            <div class="col-md-6">
+                <label for="fechaInicioTratamiento" class="form-label">Fecha de Inicio</label>
+                <input type="date" class="form-control" name="fechaInicioTratamiento" id="fechaInicioTratamiento" required>
             </div>
 
-            <div class="input-conteiner">
-                <label for="Fechainiciotratamiento">Fecha de inicio del tratamiento</label><br>
-                <input type="text"  placeholder="Fecha de inicio del tratamiento">
+            <div class="col-md-12">
+                <label for="descripcionTratamiento" class="form-label">Descripción</label>
+                <input type="text" class="form-control" name="descripcionTratamiento" id="descripcionTratamiento" placeholder="Descripción del tratamiento" required>
             </div>
 
-            <div class="input-conteiner">
-                <label for="Descripciontratamiento">Descripción tratamiento</label><br>
-                <input type="text"  placeholder="Descripción tratamiento">
+            <div class="mb-3">
+                <label for="idMedicamento" class="form-label">ID medicamento</label>
+                <select class="form-select" id="idMedicamento" name="idMedicamento" required>
+                    {% for medicamento in medicamentos %}
+                        <option value="{{ medicamento.idMedicamento }}">{{ medicamento.nombreMedicamento }}</option>
+                    {% endfor %}
+                </select>
             </div>
 
-            <div class="input-conteiner">
-                <label for="ID medicamento">ID medicamento</label><br>
-                <input type="text"  placeholder="ID medicamento">
+            <div class="mb-3">
+                <label for="idVacuna" class="form-label">ID Vacuna</label>
+                <select class="form-select" id="idVacuna" name="idVacuna" required>
+                    {% for vacuna in vacunas %}
+                        <option value="{{ vacuna.idVacuna }}">{{ vacuna.nombreVacuna }}</option>
+                    {% endfor %}
+                </select>
             </div>
 
-            <div class="input-conteiner">
-                <label for="IDvacunacion">ID vacunacion</label><br>
-                <input type="text"  placeholder="ID vacunacion">
+            <div class="mb-3">
+                <label for="idEvento" class="form-label">ID evento</label>
+                <select class="form-select" id="idEvento" name="idEvento" required>
+                    {% for evento in eventos %}
+                        <option value="{{ evento.idEvento }}">{{ evento.idEvento }}</option>
+                    {% endfor %}
+                </select>
             </div>
 
-            <div class="input-conteiner">
-                <label for="ID eventos">ID eventos</label><br>
-                <input type="text"  placeholder="ID eventos">
-            </div>
-
-            <div class="input-conteiner">
-                <label for="Fechafinaltratamiento">Fecha final del tratamiento</label><br>
-                <input type="text"  placeholder="Fecha final del tratamiento">
-            </div>
-
-            <div class="input-conteiner">
-                <label for="Dosis">Dosis</label><br>
-                <input type="text" placeholder="Dosis">
-                
-            </div>
-
-            <div class="input-conteiner">
-                <label for="viaadmnistracion">Via de administraciòn</label><br>
-                <input type="text" placeholder="Via de administraciòn">
-                
-            </div>
-            
-            <div class="input-conteiner">
-                <label for="Observacion">Observacion</label><br>
-                <input type="text" placeholder="Observacion">
-                
-            </div>
-            
-            <div class="input-conteiner">
-                <label for="Frecuencia">Frecuencia</label><br>
-                <input type="text" placeholder="Frecuencia">
-                
-            </div>
-
-            <div class="button">
-                <button  type="submit"> <a href=""></a>Guardar Datos</button>
-
+            <div class="col-md-6">
+                <label for="fechaFinTratamiento" class="form-label">Fecha Final del tratamiento</label>
+                <input type="date" class="form-control" name="fechaFinTratamiento" id="fechaFinTratamiento" required>
             </div>
             
 
-        
+            <div class="col-md-4">
+                <label for="dosis" class="form-label">Dosis</label>
+                <input type="text" class="form-control" name="dosis" id="dosis" placeholder="Dosis" required>
+            </div>
 
+            <div class="col-md-4">
+                <label for="viaAdministracion" class="form-label">Vía de Administración</label>
+                <input type="text" class="form-control" name="viaAdministracion" id="viaAdministracion" placeholder="Vía de administración" required>
+            </div>
 
-        </div>
-    </form>
+            <div class="col-md-4">
+                <label for="frecuencia" class="form-label">Frecuencia</label>
+                <input type="text" class="form-control" name="recuencia" id="frecuencia" placeholder="frecuencia" required>
+            </div>
 
-    
+            <div class="col-md-12">
+                <label for="observaciones" class="form-label">Observaciónes</label>
+                <textarea class="form-control" name="observaciones"id="observaciones" rows="3" placeholder="Observaciones"></textarea>
+            </div>
+
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-primary">Guardar Datos</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

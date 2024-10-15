@@ -4,69 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Tratamiento</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    
+    <title>Tratamiento</title>
 </head>
 <body>
-    
-    
+    <div class="container mt-5">
+        <h1 class="mb-4">Tratamientos</h1>
+        
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID Tratamiento</th>
+                    <th>Fecha de Inicio</th>
+                    <th>Descripción</th>
+                    <th>ID Medicamento</th>
+                    <th>ID Vacunación</th>
+                    <th>ID Eventos</th>
+                    <th>Fecha de Finalización</th>
+                    <th>Dosis</th>
+                    <th>Vía de Administración</th>
+                    <th>Observaciones</th>
+                    <th>Frecuencia</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tratamiento in tratamientos %}
+                <tr>
+                    <td>{{ tratamiento.idTratamiento }}</td>
+                    <td>{{ tratamiento.fechaInicioTratamiento }}</td>
+                    <td>{{ tratamiento.descripcionTratamiento }}</td>
+                    <td>{{ tratamiento.idMedicamento }}</td>
+                    <td>{{ tratamiento.idVacuna }}</td>
+                    <td>{{ tratamiento.idEvento }}</td>
+                    <td>{{ tratamiento.fechaFinTratamiento }}</td>
+                    <td>{{ tratamiento.dosis }}</td>
+                    <td>{{ tratamiento.viaAdministracion }}</td>
+                    <td>{{ tratamiento.observaciones }}</td>
+                    <td>{{ tratamiento.frecuencia }}</td>
+                    <td>
+                        <a href="{{ url_for('tratamiento.edit', id=tratamiento.idTratamiento) }}" class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt"></i> Editar</a>
+                        <a href="{{ url_for('tratamiento.delete', id=tratamiento.idTratamiento) }}" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
-    <div>
-        <h1>Tratamiento</h1>
+        <a href="{{ url_for('tratamiento.add') }}" class="btn btn-primary">Ingresar Tratamiento</a>
+        <br>
+        <a href="{{ url_for('auth.administrador') }}" class="btn btn-outline-dark">
+            <i class="fas fa-arrow-left"></i> Regresar a la Página Principal
+        </a>
     </div>
-    
-    <table>
-        <div class="table">
-            <tr>
-                <th>ID Tratamiento</th>
-                <th>Fecha de inicio del Tratamiento</th>
-                <th>Descripcion del tratamien+</th>
-                <th>ID Medicamento</th>
-                <th>ID Vacunaciòn</th>
-                <th>ID eventos</th>
-                <th>Fecha final del Tratamiento</th>
-                <th>Dosis</th>
-                <th>Via de administraciòn</th>
-                <th>Observacion</th>
-                <th>Frecuencia</th>
-            </tr>
-        </div>
-        {%for vacuna in data%}
 
-    <div class="contenido">
-        <tr>
-            <td>{{tratamiento.idtratamiento}}</td>
-            <td>{{tratamientos.fechadeiniciodeltratamiento}}</td>
-            <td>{{tratamientos.descrpiondektratamiento}}</td>
-            <td>{{tratamientos.idmedicamentos}}</td>
-            <td>{{tratamientos.idvacunacion}}</td>
-            <td>{{tratamientos.ideventos}}</td>
-            <td>{{tratamientos.fehcafinaldeltratamiento}}</td>
-            <td>{{tratamientos.dosis}}</td>
-            <td>{{tratamientos.viadeadministracion}}</td>
-            <td>{{tratamientos.Observacion}}</td>
-            <td>{{tratamientos.frecuencia}}</td>
-
-            <a href="{{ url_for('tratamiento.edit', id=tratameinto.idAprendiz) }}"><i class="bi bi-pencil-square"></i></a>
-            <a href="{{ url_for('tratamiento.delete', id=tratamiento.idAprendiz) }}"><i class="bi bi-archive"></i></a>
-            <!-- Agrega aquí el enlace para eliminar -->
-        </td>
-    </tr>
-{% endfor %}
-
-        </tr>
-    </div>   
-    </table>
-
-    <a href="{{ url_for('tratamiento.add')}}">Ingresar Tratamiento</a>
-    <br>
-    <a href="{{ url_for('auth.administrador') }}" class="btn btn-outline-dark">
-        <i class="bi bi-arrow-left"></i> Regresar a la Página Principal
-    </a>
-   
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
