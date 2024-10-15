@@ -107,47 +107,40 @@ def login():
         
         if administrador:
             login_user(administrador)
-            flash("Login successful!", "success")
-            
-
             return render_template('inicio/index.html')
+        if not administrador:
+            flash("Usuario no registrado. Por favor regístrate.")
+            return redirect(url_for('auth.login'))
     
-        
-        
+    
         aprendiz = Aprendices.query.filter_by(correoAprendiz=correo, passwordAprendiz=password).first()
         
         if aprendiz:
             login_user(aprendiz)
-            flash("Login successful!", "success")
-
             return render_template('inicio/index1.html')
-
+        if not administrador:
+            flash("Usuario no registrado. Por favor regístrate.")
+            return redirect(url_for('auth.login'))
         
-        flash('Invalid credentials. Please try again.', 'danger')
         
         operario = Operarios.query.filter_by( correoOperario=correo, passwordOperario=password).first()
         
         if operario:
             login_user(operario)
-            flash("Login successful!", "success")
-
             return render_template('inicio/index3.html')
+        if not administrador:
+            flash("Usuario no registrado. Por favor regístrate.")
+            return redirect(url_for('auth.login'))
 
-        
-        flash('Invalid credentials. Please try again.', 'danger')
     
-        
-        instructor= Instructores.query.filter_by(correoInstructor=correo, PasswordInstructor=password).first()
+        instructor= Instructores.query.filter_by(correoInstructor=correo,passwordInstructor=password).first()
         
         if instructor:
             login_user(instructor)
-            flash("Login successful!", "success")
-
             return render_template('inicio/index2.html')
-        
-        flash('Invalid credentials. Please try again.', 'danger')
-    
-    
+        if not administrador:
+            flash("Usuario no registrado. Por favor regístrate.")
+            return redirect(url_for('auth.login'))
     return render_template("login/login.html")
 
 @auth_bp.route('/operario', methods=['GET', 'POST'])
