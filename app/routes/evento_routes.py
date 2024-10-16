@@ -4,6 +4,7 @@ from app.models.animales import Animales
 from app.models.enfermedades import Enfermedades
 from app.models.instructores import Instructores
 from app import db
+from datetime import datetime
 
 #   Rutas - Eventos
 bp = Blueprint('evento', __name__)

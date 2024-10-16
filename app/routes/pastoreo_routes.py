@@ -3,6 +3,7 @@ from app.models.pastoreos import Pastoreos
 from app.models.praderas import Praderas
 from app.models.animales import Animales
 from app import db
+from datetime import datetime
 
 #   Rutas - Pastoreos
 bp = Blueprint('pastoreo', __name__)
@@ -23,9 +24,11 @@ def index():
 def add():
     if request.method == 'POST':
         fechaInicioPastoreo = request.form['fechaInicioPastoreo']
-        fechaFinPastoreo = request.form['fechaFinPastoreo']  # Asegúrate de que este campo existe en el formulario
+        fechaInicioPastoreo = datetime.strptime(fechaInicioPastoreo, '%Y-%m-%d').date()
+        fechaFinPastoreo = request.form['fechaFinPastoreo'] 
+        fechaInicioPastoreo = datetime.strptime(fechaInicioPastoreo, '%Y-%m-%d').date()
         duracionPastoreo = request.form['duracionPastoreo']
-        CargaAnimal = request.form['CargaAnimal']  # Asegúrate de que este campo es correcto
+        CargaAnimal = request.form['CargaAnimal']  
         horasDePastoreo = request.form['horasDePastoreo']
         idPradera = request.form['idPradera']
 
@@ -53,7 +56,9 @@ def edit(id):
 
     if request.method == 'POST':
         pastoreo.fechaInicioPastoreo = request.form['fechaInicioPastoreo']
+        pastoreo.fechaInicioPastoreo = datetime.strptime(pastoreo.fechaInicioPastoreo, '%Y-%m-%d').date()
         pastoreo.fechaFinPastoreo = request.form['fechaFinPastoreo']
+        pastoreo.fechaInicioPastoreo = datetime.strptime(pastoreo.fechaInicioPastoreo, '%Y-%m-%d').date()
         pastoreo.duracionPastoreo = request.form['duracionPastoreo']
         pastoreo.CargaAnimal = request.form['CargaAnimal']
         pastoreo.horasDePastoreo = request.form['horasDePastoreo']

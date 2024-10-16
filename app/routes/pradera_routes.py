@@ -3,6 +3,7 @@ from app.models.praderas import Praderas
 from app.models.forrajes import Forrajes
 from app import db
 
+
 #   Rutas - Praderas
 bp = Blueprint('pradera', __name__)
 

@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, redirect, url_for, jsonif
 from app.models.mejoramientosGeneticos import MejoramientosGeneticos
 from app.models.animalesMejorados import AnimalesMejorados
 from app import db
-
+from datetime import datetime
 #   Rutas - Mejoramientos Genéticos
 bp = Blueprint('mejoramientogenetico', __name__)
 
@@ -22,6 +22,7 @@ def add():
     if request.method == 'POST':
         tecnicaEventoGenetico = request.form['tecnicaEventoGenetico']
         fechaEvento = request.form['fechaEvento']
+        fechaEvento = datetime.strptime(fechaEvento, '%Y-%m-%d').date()
         resultados = request.form['resultados']
         detalles = request.form['detalles']
         animalMejorado = request.form['animalMejorado']
@@ -45,6 +46,7 @@ def edit(idMejoramientoGenetico):
         
         mejoramientoGenetico.tecnicaEventoGenetico = request.form['tecnicaEventoGenetico']
         mejoramientoGenetico.fechaEvento = request.form['fechaEvento']
+        mejoramientoGenetico.fechaEvento = datetime.strptime(mejoramientoGenetico.fechaEvento, '%Y-%m-%d').date()
         mejoramientoGenetico.resultados = request.form['resultados']
         mejoramientoGenetico.detalles = request.form['detalles']
         mejoramientoGenetico.animalMejorado = request.form['animalMejorado']

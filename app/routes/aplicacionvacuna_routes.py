@@ -4,6 +4,7 @@ from app.models.animales import Animales
 from app.models.instructores import Instructores
 from app.models.vacunas import Vacunas
 from app import db
+from datetime import datetime
 
 #   Rutas - Aplicacion Vacunas
 bp = Blueprint('aplicacionvacuna', __name__)
@@ -24,6 +25,7 @@ def add():
         idAnimal = request.form['idAnimal']
         idVacuna = request.form['idVacuna']
         idInstructor = request.form['idInstructor']
+        fechaAplicacion = datetime.strptime(fechaAplicacion, '%Y-%m-%d').date()
 
         newAplicacionVacuna = AplicacionVacunas(fechaAplicacion=fechaAplicacion, idAnimal=idAnimal, idVacuna=idVacuna, idInstructor=idInstructor)
         db.session.add(newAplicacionVacuna)
@@ -43,7 +45,9 @@ def add():
 def edit(id):
     aplicacionVacuna = AplicacionVacunas.query.get_or_404(id)
     if request.method == 'POST':
+        
         aplicacionVacuna.fechaAplicacion = request.form['fechaAplicacion']
+        aplicacionVacuna.fechaAplicacion = datetime.strptime(aplicacionVacuna.fechaAplicacion, '%Y-%m-%d').date()
         aplicacionVacuna.idAnimal = request.form['idAnimal']
         aplicacionVacuna.idVacuna = request.form['idVacuna']
         aplicacionVacuna.idInstructor = request.form['idInstructor']

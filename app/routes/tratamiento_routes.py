@@ -4,6 +4,7 @@ from app.models.medicamentos import Medicamentos
 from app.models.vacunas import Vacunas
 from app.models.eventos import Eventos
 from app import db
+from datetime import datetime
 
 #   Rutas - Tratamientos
 bp = Blueprint('tratamiento', __name__)
@@ -21,7 +22,9 @@ def index():
 def add():
     if request.method == 'POST':
         fechaInicioTratamiento= request.form['fechaInicioTratamiento']
+        fechaInicioTratamiento = datetime.strptime(fechaInicioTratamiento, '%Y-%m-%d').date()
         fechaFinTratamiento = request.form['fechaFinTratamiento']
+        fechaInicioTratamiento = datetime.strptime(fechaInicioTratamiento, '%Y-%m-%d').date()
         descripcionTratamiento = request.form['descripcionTratamiento']
         dosis = request.form['dosis']
         viaAdministracion = request.form['viaAdministracion']
@@ -57,7 +60,9 @@ def edit(id):
     tratamiento = Tratamientos.query.get_or_404(id)
     if request.method == 'POST':
         tratamiento.fechaInicioTratamiento = request.form['fechaInicioTratamiento']
+        tratamiento.fechaInicioTratamiento = datetime.strptime(tratamiento.fechaInicioTratamiento, '%Y-%m-%d').date()
         tratamiento.fechaFinTratamiento = request.form['fechaFinTratamiento']
+        tratamiento.fechaInicioTratamiento = datetime.strptime(tratamiento.fechaInicioTratamiento, '%Y-%m-%d').date()
         tratamiento.descripcionTratamiento = request.form['descripcionTratamiento']
         tratamiento.dosis = request.form['dosis']
         tratamiento.viaAdministracion = request.form['viaAdministracion']

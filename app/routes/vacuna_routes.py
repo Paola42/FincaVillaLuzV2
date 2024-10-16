@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, redirect, url_for, jsonif
 from app.models.vacunas import Vacunas
 from app import db
 
+
 #   Rutas - Vacuna
 bp = Blueprint('vacuna', __name__)
 

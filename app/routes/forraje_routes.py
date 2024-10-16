@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, jsonify
 from app.models.forrajes import Forrajes
 from app import db
+from datetime import datetime
 
 #   Rutas - Forraje
 bp = Blueprint('forraje', __name__)
@@ -20,7 +21,9 @@ def add():
     if request.method == 'POST':
         especieForraje = request.form['especieForraje']
         fechaDeSiembraForraje = request.form['fechaDeSiembraForraje']
+        fechaDeSiembraForraje = datetime.strptime(fechaDeSiembraForraje, '%Y-%m-%d').date()
         fechaDeCosechaForraje = request.form['fechaDeCosechaForraje']
+        fechaDeSiembraForraje = datetime.strptime(fechaDeSiembraForraje, '%Y-%m-%d').date()
         areaForraje = request.form['areaForraje']
         manejosForraje = request.form['manejosForraje']
         aforoForraje = request.form['aforoForraje']
@@ -42,7 +45,9 @@ def edit(id):
     if request.method == 'POST':
         forraje.areaForraje = request.form['areaForraje']
         forraje.fechaDeSiembraForraje = request.form['fechaDeSiembraForraje']
+        forraje.fechaDeSiembraForraje = datetime.strptime(forraje.fechaDeSiembraForraje, '%Y-%m-%d').date()
         forraje.fechaDeCosechaForraje = request.form['fechaDeCosechaForraje']
+        forraje.fechaDeSiembraForraje = datetime.strptime(forraje.fechaDeSiembraForraje, '%Y-%m-%d').date()
         forraje.especieForraje = request.form['especieForraje']
         forraje.manejosForraje = request.form['manejosForraje']
         forraje.aforoForraje = request.form['aforoForraje']

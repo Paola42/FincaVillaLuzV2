@@ -18,6 +18,7 @@ def add():
         telefonoInstructor   = request.form['telefonoInstructor']
         correoInstructor     = request.form['correoInstructor']
         PasswordInstructor   = request.form['passwordInstructor']
+        
         new_instructor= Instructores(nombreInstructor=nombreInstructor,  
                                      documentoInstructor= documentoInstructor, 
                                      direccionInstructor=direccionInstructor, 

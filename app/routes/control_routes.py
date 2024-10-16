@@ -2,6 +2,8 @@ from flask import Blueprint, render_template, request, redirect, url_for, jsonif
 from app.models.controles import Controles
 from app.models.animalesMejorados import AnimalesMejorados
 from app import db
+from datetime import datetime
+
 
 #   Rutas - Controles
 bp = Blueprint('control', __name__)
@@ -24,6 +26,7 @@ def add():
         fecha = request.form['fecha']
         estado = request.form['estado']
         idAnimalMejorado = request.form['idAnimalMejorado']
+        fecha = datetime.strptime(fecha, '%Y-%m-%d').date()
 
         newControl = Controles(descripcion=descripcion, fecha=fecha, estado=estado, animalMejorado=idAnimalMejorado)
         db.session.add(newControl)
@@ -44,6 +47,7 @@ def edit(idControl):
     if request.method == 'POST':
         control.descripcion = request.form['descripcion']
         control.fecha = request.form['fecha']
+        control.fecha = datetime.strptime(control.fecha, '%Y-%m-%d').date()
         control.estado = request.form['estado']
         control.idAnimalMejorado = request.form['idAnimalMejorado']
 
