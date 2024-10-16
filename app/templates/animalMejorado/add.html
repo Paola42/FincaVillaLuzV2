@@ -14,23 +14,22 @@
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
             <div class="form-group">
-                <label for="nombrePadreAportante">ID del macho Aportante</label>
+                <label for="nombrePadreAportante">nombre macho aportante</label>
                 <select id="nombrePadreAportante" name="nombrePadreAportante" required>
                     {% for animal in animales %}
-                        <option value="{{ animal.idAnimal }}">
+                        <option value="{{ animal.especieAnimal }}">
                             {{ animal.idAnimal }} - {{ animal.especieAnimal }}
                         </option>
                     {% endfor %}
-                    
                 </select>
-
             </div>
+            
 
             <div class="form-group">
-                <label for="idPadreAportante">Nombre del macho Aportante</label>
+                <label for="idPadreAportante">id Padre Aportante</label>
                 <select id="idPadreAportante" name="idPadreAportante" required>
                     {% for animal in animales %}
-                        <option value="{{ animal.especieAnimal }}">
+                        <option value="{{ animal.idAnimal }}">
                             {{ animal.idAnimal }} - {{ animal.especieAnimal }}
                         </option>
                     {% endfor %}
@@ -49,10 +48,10 @@
             </div>
 
             <div class="form-group">
-                <label for="idMadreAportante">Nombre de la hembra Aportante</label>
+                <label for="idMadreAportante">id Madre Aportante</label>
                 <select id="idMadreAportante" name="idMadreAportante" required>
                     {% for animal in animales %}
-                        <option value="{{ animal.especieAnimal }}">
+                        <option value="{{ animal.idAnimal }}">
                             {{ animal.idAnimal }} - {{ animal.especieAnimal }}
                         </option>
                     {% endfor %}
@@ -60,10 +59,10 @@
             </div>
 
             <div class="form-group">
-                <label for="nombreMadreAportante">ID Madre Aportante</label>
+                <label for="nombreMadreAportante">nombre de la hembra aportante</label>
                 <select id="nombreMadreAportante" name="nombreMadreAportante" required>
                     {% for animal in animales %}
-                        <option value="{{ animal.idAnimal }}">
+                        <option value="{{ animal.especieAnimal }}">
                             {{ animal.idAnimal }} - {{ animal.especieAnimal }}
                         </option>
                     {% endfor %}

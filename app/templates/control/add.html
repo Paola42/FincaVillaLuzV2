@@ -28,10 +28,15 @@
             </div>
             <div class="form-group">
                 <label for="idAnimalMejorado">idAnimalMejorado</label>
-                <input type="text" id="idAnimalMejorado" name="idAnimalMejorado"  required>
+                <select name="idAnimalMejorado" id="idAnimalMejorado" required>
+                    {% for animal in animales %}
+                    <option value="{{animal.idAnimalMejorado}}">
+                        {{animal.idAnimalMejorado}}</option>
+                    {% endfor %}
+                </select>
             </div>
 
-            <button action="{{ url_for('control.add') }}" >Agregar Control</button>
+            <button action="{{ url_for('control.add')}}">Agregar Control</button>
             <a href="{{url_for('control.index')}}">Volver a la vista Principal</a>
 
         </form>

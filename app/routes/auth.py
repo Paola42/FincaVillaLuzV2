@@ -129,7 +129,7 @@ def login():
             login_user(operario)
             return render_template('inicio/index3.html')
         if not administrador:
-            flash("Usuario no registrado. Por favor regístrate.")
+            flash("Usuario no registrado. Por favor regístrate.","info")
             return redirect(url_for('auth.login'))
 
     
@@ -139,7 +139,7 @@ def login():
             login_user(instructor)
             return render_template('inicio/index2.html')
         if not administrador:
-            flash("Usuario no registrado. Por favor regístrate.")
+            flash("Usuario no registrado. Por favor regístrate.","info")
             return redirect(url_for('auth.login'))
     return render_template("login/login.html")
 
@@ -154,7 +154,6 @@ def operario():
 @login_required
 def logout():
     logout_user()
-    flash('You have been logged out.', 'info')
     return redirect(url_for('auth.login'))
 
 @auth_bp.route('/evento')

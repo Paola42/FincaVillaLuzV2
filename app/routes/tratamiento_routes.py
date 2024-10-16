@@ -24,7 +24,7 @@ def add():
         fechaInicioTratamiento= request.form['fechaInicioTratamiento']
         fechaInicioTratamiento = datetime.strptime(fechaInicioTratamiento, '%Y-%m-%d').date()
         fechaFinTratamiento = request.form['fechaFinTratamiento']
-        fechaInicioTratamiento = datetime.strptime(fechaInicioTratamiento, '%Y-%m-%d').date()
+        fechaFinTratamiento = datetime.strptime(fechaFinTratamiento, '%Y-%m-%d').date()
         descripcionTratamiento = request.form['descripcionTratamiento']
         dosis = request.form['dosis']
         viaAdministracion = request.form['viaAdministracion']
@@ -62,7 +62,7 @@ def edit(id):
         tratamiento.fechaInicioTratamiento = request.form['fechaInicioTratamiento']
         tratamiento.fechaInicioTratamiento = datetime.strptime(tratamiento.fechaInicioTratamiento, '%Y-%m-%d').date()
         tratamiento.fechaFinTratamiento = request.form['fechaFinTratamiento']
-        tratamiento.fechaInicioTratamiento = datetime.strptime(tratamiento.fechaInicioTratamiento, '%Y-%m-%d').date()
+        tratamiento.fechaFinTratamiento = datetime.strptime(tratamiento.fechaFinTratamiento, '%Y-%m-%d').date()
         tratamiento.descripcionTratamiento = request.form['descripcionTratamiento']
         tratamiento.dosis = request.form['dosis']
         tratamiento.viaAdministracion = request.form['viaAdministracion']

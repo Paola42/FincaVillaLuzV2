@@ -34,9 +34,9 @@ def add():
 
         return redirect(url_for('control.index'))
     
-    dataAnimalesMejorados = AnimalesMejorados.query.all()
+    animal = AnimalesMejorados.query.all()
 
-    return render_template('control/add.html', dataAnimalesMejorados=dataAnimalesMejorados)
+    return render_template('control/add.html', animales=animal)
 
 
 #   Edit
@@ -55,9 +55,9 @@ def edit(idControl):
         
         return redirect(url_for('control.index'))
     
-    dataAnimalesMejorados = AnimalesMejorados.query.all()
+    animal = AnimalesMejorados.query.all()
 
-    return render_template('control/edit.html', control=control, dataAnimalesMejorados=dataAnimalesMejorados)
+    return render_template('control/edit.html', control=control, animales=animal)
 
 
 #   Delete

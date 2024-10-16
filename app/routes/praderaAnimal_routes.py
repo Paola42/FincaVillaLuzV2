@@ -41,6 +41,7 @@ def edit(idPraderaAnimal):
     
     animales = Animales.query.all()
     praderas = Praderas.query.all()
+    
     return render_template('praderaAnimal/edit.html', praderaAnimal=praderaAnimal, animales=animales, praderas=praderas)
 
 @bp.route('/praderaAnimal/delete/<int:idPraderaAnimal>', methods=['GET', 'POST'])

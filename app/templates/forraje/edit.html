@@ -12,15 +12,10 @@
 </head>
 <body>
 
-    <form class="formulario">
+    <form action= "{{url_for('forraje.edit', id=forraje.idForraje)}}" method="post">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <h2 class="name">Editar Forraje</h2>
         <div class="input-group">
-            <div class="input-conteiner">
-                <label for="idForraje">ID forraje</label><br>
-                <input type="text" id="idForraje" name="idForraje" placeholder="idForraje"
-                value="{{forraje.idForraje}}" required>
-            </div>
             <div class="input-conteiner">
                 <label for="especieForraje">Especie</label><br>
                 <input type="text" id="especieForraje" name="especieForraje" placeholder="especieForraje"
@@ -29,13 +24,13 @@
 
             <div class="input-conteiner">
                 <label for="fechaDeSiembraForraje">Fecha de siembra</label><br>
-                <input type="text" id="fechaDeSiembraForraje" name="fechaDeSiembraForraje" placeholder="fechaDeSiembraForraje"
+                <input type="date" id="fechaDeSiembraForraje" name="fechaDeSiembraForraje" placeholder="fechaDeSiembraForraje"
                 value="{{forraje.fechaDeSiembraForraje}}" required>
             </div>
 
             <div class="input-conteiner">
                 <label for="fechaDeCosechaForraje">Fecha de cosecha</label><br>
-                <input type="text" id="fechaDeCosechaForraje" name="fechaDeCosechaForraje" placeholder="fechaDeCosechaForraje"
+                <input type="date" id="fechaDeCosechaForraje" name="fechaDeCosechaForraje" placeholder="fechaDeCosechaForraje"
                 value="{{forraje.fechaDeCosechaForraje}}" required>
             </div>
 
@@ -52,18 +47,15 @@
             </div>
 
             <div class="input-conteiner">
-                <label for="aforosForraje">Aforos</label><br>
-                <input type="text" id="aforosForraje" name="aforosForraje" placeholder="aforosForraje"
+                <label for="aforoForraje">Aforos</label><br>
+                <input type="text" id="aforoForraje" name="aforoForraje" placeholder="aforoForraje"
                 value="{{forraje.aforosForraje}}" required>
                 
             </div>
             <div class="button">
-                <button  type="submit"> <a href=""></a>Editar Datos</button>
+                <button  type="submit"></a>Editar Datos</button>
                 <a href="{{url_for('forraje.index')}}">Volver a la vista Principal</a>
-
             </div>
-            
-
         </div>
     </form>
 

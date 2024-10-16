@@ -16,31 +16,27 @@
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <h2 class="name">Enfermedad</h2>
         <div class="input-group">
-            <div class="input-conteiner">
-                <label for="idEnfermedad">ID enfermedad</label><br>
-                <input type="text" id="idEnfermedad" name="idEnfermedad" placeholder="idEnfermedad"
-                value="{{enfermedad.idEnfermedad}}" required>
-            </div>
+            
             <div class="input-conteiner">
                 <label for="nombreEnfermedad">Nombre enfemerdad</label><br>
-                <input type="text" id="nombreEnfermedad" name="nombreEnfermedad" placeholder="nombreEnfermedad"
-                value="{{enfermedad.nombreEnfermedad}}" required>
+                <input type="text" id="nombreEnfermedad" name="nombreEnfermedad" placeholder="nombreEnfermedad">
+        
             </div>
 
             <div class="input-conteiner">
                 <label for="sintomas">Sintomas</label><br>
-                <input type="text" id="sintomasEnfermedad" name="sintomasEnfermedad" placeholder="sintomasEnfermedad"
-                value="{{Enfermedad.sintomasEnfermedad}}" required>
+                <input type="text" id="sintomasEnfermedad" name="sintomasEnfermedad" placeholder="sintomasEnfermedad">
+               
             </div>
 
             <div class="input-conteiner">
-                <label for="detallesAdicionalesEnferemdad">Detalles adicionales</label><br>
-                <input type="text" id="detallesAdicionalesEnfermedad" name="detallesAdicionalesEnfermedades" placeholder="detallesAdicionalesEnfermedad"
-                value="{{enfemerdad.detallesAdicionalesEnfermedad}}" required>
+                <label for="detallesAdicionalesEnfermedad">Detalles adicionales</label><br>
+                <input type="text" id="detallesAdicionalesEnfermedad" name="detallesAdicionalesEnfermedad" placeholder="detallesAdicionalesEnfermedad">
+              
             </div>
 
             <div class="button">
-                <button  type="submit"> <a href=""></a>Guardar Datos</button>
+                <button  type="submit"></a>Guardar Datos</button>
                 <a href="{{url_for('enfermedad.index')}}">Volver a la vista Principal</a>
 
             </div>

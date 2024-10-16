@@ -20,7 +20,7 @@
         
             <div class="form-group">
                 <label for="fechaEvento">Fecha del evento </label>
-                <input type="text" id="fechaEvento" name="fechaEvento" value="{{ mejoramientoGenetico.fechaEvento }}" required>
+                <input type="date" id="fechaEvento" name="fechaEvento" value="{{ mejoramientoGenetico.fechaEvento }}" required>
             </div>  
     
             <div class="form-group">
@@ -35,8 +35,13 @@
 
             <div class="form-group">
                 <label for="animalMejorado">N° Animal mejorado</label>
-                <input type="text" id="animalMejorado" name="animalMejorado" value="{{ mejoramientoGenetico.animalMejorado }}" required>
-            </div>  
+                <select id="animalMejorado" name="animalMejorado" required>
+                    {% for animal in animales %}
+                    <option value="{{animal.idAnimalMejorado}}">
+                        {{animal. idAnimalMejorado}}</option>
+                    {% endfor %}
+                </select>
+            </div> 
             
             <button type="submit">Actualizar Mejoramiento Genetico</button>
             <a href="{{url_for('mejoramientogenetico.index')}}">Volver a la vista Principal</a>

@@ -53,10 +53,11 @@ def edit(idAnimalMejorado):
         
         return redirect(url_for('animalmejorado.index'))
     
-    dataAnimales = Animales.query.all()
+    
+    animal = Animales.query.all()
     
      
-    return render_template('animalMejorado/edit.html', animalMejorado=animalMejorado, dataAnimales=dataAnimales)
+    return render_template('animalMejorado/edit.html',  animales=animal, animalMejorado=animalMejorado)
 
 
 #   Delete

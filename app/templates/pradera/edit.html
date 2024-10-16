@@ -58,9 +58,12 @@
             </div>
 
             <div class="input-conteiner">
-                <label for="idForraje">Id Forrajes</label><br>
-                <input type="text" id="idForraje" name="idForraje" placeholder="Id Forraje"
-                value="{{pradera.forrajes}}" required>
+                <label for="idForraje"> ID forraje:</label>
+                <select id="idForraje" name="idForraje">
+                 {% for forraje in dataForrajes %}
+                 <option value="{{forraje.idForraje}}">{{forraje.idForraje}}</option>
+                {% endfor %}
+                </select>
                 
             </div>
 

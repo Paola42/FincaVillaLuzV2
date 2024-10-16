@@ -32,9 +32,9 @@ def add():
         db.session.commit()
         return redirect(url_for('mejoramientogenetico.index'))
     
-    dataAnimalesMejorados = AnimalesMejorados.query.all()
+    animal = AnimalesMejorados.query.all()
 
-    return render_template('mejoramientogenetico/add.html', dataAnimalesMejorados=dataAnimalesMejorados)
+    return render_template('mejoramientogenetico/add.html', animales=animal)
 
 
 #   Edit
@@ -55,9 +55,9 @@ def edit(idMejoramientoGenetico):
         
         return redirect(url_for('mejoramientogenetico.index'))
     
-    dataAnimalesMejorados = AnimalesMejorados.query.all()
+    animal = AnimalesMejorados.query.all()
 
-    return render_template('mejoramientogenetico/edit.html', mejoramientoGenetico=mejoramientoGenetico, dataAnimalesMejorados=dataAnimalesMejorados)
+    return render_template('mejoramientogenetico/edit.html', mejoramientoGenetico=mejoramientoGenetico, animales=animal)
 
 
 #   Delete

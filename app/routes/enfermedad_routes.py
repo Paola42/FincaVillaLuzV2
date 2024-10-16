@@ -26,8 +26,9 @@ def add():
         db.session.commit()
 
         return redirect(url_for('enfermedad.index'))
+    enfermedad= Enfermedades.query.all()
     
-    return render_template('enfermedad/add.html')
+    return render_template('enfermedad/add.html',enfermedades=enfermedad)
 
 
 #   Edit

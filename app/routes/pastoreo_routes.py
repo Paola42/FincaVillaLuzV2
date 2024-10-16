@@ -26,7 +26,7 @@ def add():
         fechaInicioPastoreo = request.form['fechaInicioPastoreo']
         fechaInicioPastoreo = datetime.strptime(fechaInicioPastoreo, '%Y-%m-%d').date()
         fechaFinPastoreo = request.form['fechaFinPastoreo'] 
-        fechaInicioPastoreo = datetime.strptime(fechaInicioPastoreo, '%Y-%m-%d').date()
+        fechaFinPastoreo = datetime.strptime(fechaFinPastoreo, '%Y-%m-%d').date()
         duracionPastoreo = request.form['duracionPastoreo']
         CargaAnimal = request.form['CargaAnimal']  
         horasDePastoreo = request.form['horasDePastoreo']
@@ -58,7 +58,7 @@ def edit(id):
         pastoreo.fechaInicioPastoreo = request.form['fechaInicioPastoreo']
         pastoreo.fechaInicioPastoreo = datetime.strptime(pastoreo.fechaInicioPastoreo, '%Y-%m-%d').date()
         pastoreo.fechaFinPastoreo = request.form['fechaFinPastoreo']
-        pastoreo.fechaInicioPastoreo = datetime.strptime(pastoreo.fechaInicioPastoreo, '%Y-%m-%d').date()
+        pastoreo.fechaFinPastoreo = datetime.strptime(pastoreo.fechaFinPastoreo, '%Y-%m-%d').date()
         pastoreo.duracionPastoreo = request.form['duracionPastoreo']
         pastoreo.CargaAnimal = request.form['CargaAnimal']
         pastoreo.horasDePastoreo = request.form['horasDePastoreo']
@@ -66,8 +66,9 @@ def edit(id):
         db.session.commit()
         
         return redirect(url_for('pastoreo.index'))
+    pradera = Praderas.query.all()
     
-    return render_template('pastoreo/edit.html', pastoreo=pastoreo)
+    return render_template('pastoreo/edit.html', pastoreo=pastoreo,praderas=pradera)
 
 #   Delete
 @bp.route('/Pastoreos/delete/<int:id>')

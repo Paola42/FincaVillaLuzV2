@@ -23,7 +23,7 @@ def add():
         fechaDeSiembraForraje = request.form['fechaDeSiembraForraje']
         fechaDeSiembraForraje = datetime.strptime(fechaDeSiembraForraje, '%Y-%m-%d').date()
         fechaDeCosechaForraje = request.form['fechaDeCosechaForraje']
-        fechaDeSiembraForraje = datetime.strptime(fechaDeSiembraForraje, '%Y-%m-%d').date()
+        fechaDeCosechaForraje = datetime.strptime(fechaDeCosechaForraje, '%Y-%m-%d').date()
         areaForraje = request.form['areaForraje']
         manejosForraje = request.form['manejosForraje']
         aforoForraje = request.form['aforoForraje']
@@ -47,7 +47,7 @@ def edit(id):
         forraje.fechaDeSiembraForraje = request.form['fechaDeSiembraForraje']
         forraje.fechaDeSiembraForraje = datetime.strptime(forraje.fechaDeSiembraForraje, '%Y-%m-%d').date()
         forraje.fechaDeCosechaForraje = request.form['fechaDeCosechaForraje']
-        forraje.fechaDeSiembraForraje = datetime.strptime(forraje.fechaDeSiembraForraje, '%Y-%m-%d').date()
+        forraje.fechaDeCosechaForraje = datetime.strptime(forraje.fechaDeCosechaForraje, '%Y-%m-%d').date()
         forraje.especieForraje = request.form['especieForraje']
         forraje.manejosForraje = request.form['manejosForraje']
         forraje.aforoForraje = request.form['aforoForraje']
