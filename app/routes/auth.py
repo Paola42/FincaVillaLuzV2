@@ -109,7 +109,7 @@ def login():
             login_user(administrador)
             return render_template('inicio/index.html')
         if not administrador:
-            flash("Usuario no registrado. Por favor regístrate.")
+            flash("Usuario no registrado. Por favor regístrate.", "warning")
             return redirect(url_for('auth.login'))
     
     
@@ -119,7 +119,7 @@ def login():
             login_user(aprendiz)
             return render_template('inicio/index1.html')
         if not administrador:
-            flash("Usuario no registrado. Por favor regístrate.")
+            flash("Usuario no registrado. Por favor regístrate.","info")
             return redirect(url_for('auth.login'))
         
         
@@ -142,6 +142,7 @@ def login():
             flash("Usuario no registrado. Por favor regístrate.")
             return redirect(url_for('auth.login'))
     return render_template("login/login.html")
+
 
 @auth_bp.route('/operario', methods=['GET', 'POST'])
 def operario():
