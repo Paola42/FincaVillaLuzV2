@@ -7,7 +7,7 @@ class Animales(db.Model):
     especieAnimal = db.Column(db.String(255), nullable=False)
     razaAnimal = db.Column(db.String(255), nullable=False)
     sexoAnimal = db.Column(db.String(255), nullable=False)
-    fechaNacimiento = db.Column(db.Date, nullable=True)
+    fechaNacimiento = db.Column(db.Date, nullable=False)
     pesoAnimal = db.Column(db.String(255), nullable=True)
     padres = db.Column(db.String(255), nullable=True)
     idAnimalPadre = db.Column(db.Integer, nullable=False)
