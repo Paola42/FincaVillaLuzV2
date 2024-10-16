@@ -10,10 +10,8 @@ bp = Blueprint('animalmejorado', __name__)
 #   Index
 @bp.route('/animalmejorado')
 def index():
-    dataAnimalesMejorados = AnimalesMejorados.query.all()
-    dataAnimales = Animales.query.all()
-
-    return render_template('animalMejorado/index.html', dataAnimalesMejorados=dataAnimalesMejorados, dataAnimales=dataAnimales)
+    animalMejorado = AnimalesMejorados.query.all()
+    return render_template('animalMejorado/index.html', animales=animalMejorado)
 
 #   Add
 @bp.route('/animalmejorado/add', methods=['GET', 'POST'])
@@ -33,9 +31,9 @@ def add():
 
         return redirect(url_for('animalmejorado.index'))
     
-    dataAnimales = Animales.query.all()
+    animal = Animales.query.all()
      
-    return render_template('animalMejorado/add.html', dataAnimales=dataAnimales)
+    return render_template('animalMejorado/add.html', animales=animal)
 
 
 #   Edit

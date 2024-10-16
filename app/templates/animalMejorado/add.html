@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,44 +12,87 @@
         <h1>Agregar Animal Mejorado</h1>
         <form action="{{ url_for('animalmejorado.add') }}" method="post">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
             <div class="form-group">
-                <label for="idPadreAportante">ID Padre Aportante</label>
-                <input type="in" id="idPadreAportante" name="idPadreAportante" required>
+                <label for="nombrePadreAportante">ID del macho Aportante</label>
+                <select id="nombrePadreAportante" name="nombrePadreAportante" required>
+                    {% for animal in animales %}
+                        <option value="{{ animal.idAnimal }}">
+                            {{ animal.idAnimal }} - {{ animal.especieAnimal }}
+                        </option>
+                    {% endfor %}
+                </select>
             </div>
 
             <div class="form-group">
-                <label for="nombrePadreAportante">Nombre del Padre</label>
-                <input type="text" id="nombrePadreAportante" name="nombrePadreAportante" required>
+                <label for="idPadreAportante">Nombre del macho Aportante</label>
+                <select id="idPadreAportante" name="idPadreAportante" required>
+                    {% for animal in animales %}
+                        <option value="{{ animal.especieAnimal }}">
+                            {{ animal.idAnimal }} - {{ animal.especieAnimal }}
+                        </option>
+                    {% endfor %}
+                </select>
             </div>
 
             <div class="form-group">
-                <label for="razaPadreAportante">Raza del padre</label>
-                <input type="text" id="razaPadreAportante" name="razaPadreAportante" required>
+                <label for="razaPadreAportante">Raza del macho</label>
+                <select id="razaPadreAportante" name="razaPadreAportante" required>
+                    {% for animal in animales %}
+                        <option value="{{ animal.razaAnimal }}">
+                            {{ animal.idAnimal }} - {{ animal.razaAnimal }}
+                        </option>
+                    {% endfor %}
+                </select>
             </div>
 
             <div class="form-group">
-                <label for="idMadreAportante">ID Madre Aportante</label>
-                <input type="int" id="idMadreAportante" name="idMadreAportante" required>
+                <label for="idMadreAportante">Nombre de la hembra Aportante</label>
+                <select id="idMadreAportante" name="idMadreAportante" required>
+                    {% for animal in animales %}
+                        <option value="{{ animal.especieAnimal }}">
+                            {{ animal.idAnimal }} - {{ animal.especieAnimal }}
+                        </option>
+                    {% endfor %}
+                </select>
             </div>
 
             <div class="form-group">
-                <label for="nombreMadreAportante">Nombre de la Madre</label>
-                <input type="text" id="nombreMadreAportante" name="nombreMadreAportante" required>
+                <label for="nombreMadreAportante">ID Madre Aportante</label>
+                <select id="nombreMadreAportante" name="nombreMadreAportante" required>
+                    {% for animal in animales %}
+                        <option value="{{ animal.idAnimal }}">
+                            {{ animal.idAnimal }} - {{ animal.especieAnimal }}
+                        </option>
+                    {% endfor %}
+                </select>
             </div>
 
             <div class="form-group">
-                <label for="razaMadreAportante">Raza de la Madre</label>
-                <input type="text" id="razaMadreAportante" name="razaMadreAportante" required>
+                <label for="razaMadreAportante">Raza de la hembra</label>
+                <select id="razaMadreAportante" name="razaMadreAportante" required>
+                    {% for animal in animales %}
+                        <option value="{{ animal.razaAnimal }}">
+                            {{ animal.idAnimal }} - {{ animal.razaAnimal }}
+                        </option>
+                    {% endfor %}
+                </select>
             </div>
 
             <div class="form-group">
-                <label for="idAnimal">ID Animales</label>
-                <input type="int" id="idAnimal" name="idAnimal" required> <!-- Corregido -->
+                <label for="idAnimal">Animales Registrados</label>
+                <select name="idAnimal" id="idAnimal" required>
+                    {% for animal in animales %}
+                        <option value="{{ animal.idAnimal }}">
+                            {{ animal.idAnimal }} - {{ animal.especieAnimal }}
+                        </option>
+                    {% endfor %}
+                </select>
             </div>
 
             <button type="submit">Agregar Animal Mejorado</button>
+            <a href="{{ url_for('animalmejorado.index') }}">Volver a la vista Principal</a>
         </form>
     </div>
 </body>
-
 </html>
