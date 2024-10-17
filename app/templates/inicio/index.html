@@ -9,44 +9,56 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Administrador</title>
     <style>
+        /* Fondo general y tipografía */
         body {
-            background-color: #fff; /* Fondo blanco */
+            background-color: #f8f9fa; /* Un gris claro para un fondo suave */
             color: #333; /* Texto oscuro para el contraste */
+            font-family: 'Roboto', sans-serif; /* Fuente moderna */
         }
 
         h1, h2 {
             color: #333; /* Color oscuro para los encabezados */
         }
 
+        /* Estilo del encabezado */
         .header-bg {
             background-color: #fff; /* Fondo blanco para el encabezado */
-            border-bottom: 3px solid #28a745; /* Línea verde en la parte inferior */
+            border-bottom: 4px solid #28a745; /* Línea verde más gruesa */
+            padding: 20px 0; /* Espaciado extra */
         }
 
-        .logo {
-            margin-right: 15px; /* Espacio a la derecha del logo */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para resaltar el logo */
-            border-radius: 5px; /* Bordes redondeados */
+        .logo img {
+            max-height: 60px; /* Tamaño del logo un poco más grande */
         }
 
+        /* Estilo de las tarjetas */
         .card {
             border: 2px solid #28a745; /* Borde verde para las tarjetas */
-            border-radius: 15px; /* Bordes redondeados para las tarjetas */
+            border-radius: 10px; /* Bordes ligeramente redondeados */
             background-color: #fff; /* Fondo blanco para las tarjetas */
             color: #333; /* Texto oscuro dentro de las tarjetas */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra más suave y discreta */
+            margin-bottom: 20px; /* Margen adicional entre tarjetas */
         }
 
+        /* Estilo de los botones */
         .btn-primary {
             background-color: #28a745; /* Color verde para los botones */
             border-color: #28a745; /* Color del borde del botón */
+            transition: background-color 0.3s ease; /* Transición suave al hacer hover */
         }
 
         .btn-primary:hover {
             background-color: #218838; /* Color del botón al pasar el cursor */
         }
 
-        .logo img {
-            max-height: 50px; /* Altura máxima del logo */
+        .btn {
+            margin-bottom: 10px; /* Espacio adicional entre botones */
+        }
+
+        /* Otros estilos */
+        .text-dark {
+            color: #333 !important;
         }
     </style>
 </head>
@@ -79,9 +91,8 @@
                         <a href="{{ url_for('animal.index') }}" class="btn btn-primary w-100 mb-2">Ver Animales</a>
                         <a href="{{ url_for('pastoreo.index') }}" class="btn btn-primary w-100 mb-2">Ver Pastoreos</a>
                         <a href="{{ url_for('forraje.index') }}" class="btn btn-primary w-100">Ver Forrajes</a>
-                        <a href="{{ url_for('pradera.index') }}" class="btn btn-primary w-100">Ver praderas</a> </br><<
+                        <a href="{{ url_for('pradera.index') }}" class="btn btn-primary w-100">Ver praderas</a>
                         <a href="{{ url_for('praderaAnimal.index') }}" class="btn btn-primary w-100">Ver los animales en las praderas</a>
-
                     </div>
                 </div>
             </div>
@@ -105,6 +116,7 @@
                         <a href="{{ url_for('vacuna.index') }}" class="btn btn-primary w-100 mb-2">Ver Vacunas Registradas</a>
                         <a href="{{ url_for('aplicacionvacuna.index') }}" class="btn btn-primary w-100 mb-2">Ver Vacunas Aplicadas</a>
                         <a href="{{ url_for('medicamento.index') }}" class="btn btn-primary w-100">Ver Medicamentos Registrados</a>
+                        <a href="{{ url_for('auth.planNacional') }}" class="btn btn-primary w-100">Plan Nacional</a>
                     </div>
                 </div>
             </div>

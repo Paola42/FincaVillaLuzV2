@@ -265,7 +265,9 @@ def instructor():
 def salida_operario():
     return render_template('inicio/index3.html')
 
-
+@auth_bp.route('/planNacional')
+def planNacional():
+    return render_template('aplicacionVacuna/planNacional.html')
  
 
 
