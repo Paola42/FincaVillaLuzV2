@@ -15,7 +15,7 @@
                 <label for="idAnimal">Animal:</label>
                 <select class="form-control" id="idAnimal" name="idAnimal" required>
                     {% for animal in animales %}
-                        <option value="{{ animal.idAnimal }}">{{ animal. especieAnimal }}</option>
+                        <option value="{{ animal.especieAnimal }}">{{ animal. especieAnimal }}</option>
                     {% endfor %}
                 </select>
             </div>
@@ -23,7 +23,7 @@
                 <label for="idPradera">Pradera:</label>
                 <select class="form-control" id="idPradera" name="idPradera" required>
                     {% for pradera in praderas %}
-                        <option value="{{ pradera.idPradera }}">{{ pradera.nombrePradera }}</option>
+                        <option value="{{ pradera.nombrePradera }}">{{ pradera.nombrePradera }}</option>
                     {% endfor %}
                 </select>
             </div>

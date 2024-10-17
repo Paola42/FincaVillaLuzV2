@@ -2,8 +2,8 @@
 import secrets
 
 class Config:
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///finca_villaluz.db'
-    #SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:@127.0.0.1:3306/fincaVillaLuzsena'
+    #SQLALCHEMY_DATABASE_URI = 'sqlite:///finca_villaluz.db'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:@127.0.0.1:3306/fincaVillaLuzsena'
     #SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:2hefbFfDEc-HFd1fhc2DhBCCgh-HCB65@monorail.proxy.rlwy.net:20020/Libreria1'
     #SQLALCHEMY_DATABASE_URI = 'mysql+mysqlclient://root:2hefbFfDEc-HFd1fhc2DhBCCgh-HCB65@monorail.proxy.rlwy.net:20020/Libreria1'
     SQLALCHEMY_TRACK_MODIFICATIONS = False

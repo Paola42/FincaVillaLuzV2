@@ -53,7 +53,7 @@
                             <label for="idPradera" class="form-label">ID de la Pradera</label>
                             <select class="form-select" id="idPradera" name="idPradera" required>
                                 {% for pradera in praderas %}
-                                    <option value="{{ pradera.idPradera }}">{{ pradera.idPradera }}</option>
+                                    <option value="{{ pradera.nombrePradera }}">{{ pradera.nombrePradera }}</option>
                                 {% endfor %}
                             </select>
                         </div>
