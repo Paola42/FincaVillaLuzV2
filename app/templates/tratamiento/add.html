@@ -31,25 +31,25 @@
             </div>
 
             <div class="mb-3">
-                <label for="idMedicamento" class="form-label">ID medicamento</label>
+                <label for="idMedicamento" class="form-label">Nombre medicamento</label>
                 <select class="form-select" id="idMedicamento" name="idMedicamento" required>
                     {% for medicamento in medicamentos %}
-                        <option value="{{ medicamento.idMedicamento }}">{{ medicamento.nombreMedicamento }}</option>
+                        <option value="{{ medicamento.nombreMedicamento }}">{{ medicamento.nombreMedicamento }}</option>
                     {% endfor %}
                 </select>
             </div>
 
             <div class="mb-3">
-                <label for="idVacuna" class="form-label">ID Vacuna</label>
+                <label for="idVacuna" class="form-label">Nombre Vacuna</label>
                 <select class="form-select" id="idVacuna" name="idVacuna" required>
                     {% for vacuna in vacunas %}
-                        <option value="{{ vacuna.idVacuna }}">{{ vacuna.nombreVacuna }}</option>
+                        <option value="{{ vacuna.nombreVacuna }}">{{ vacuna.nombreVacuna }}</option>
                     {% endfor %}
                 </select>
             </div>
 
             <div class="mb-3">
-                <label for="idEvento" class="form-label">ID evento</label>
+                <label for="idEvento" class="form-label">Nombre evento</label>
                 <select class="form-select" id="idEvento" name="idEvento" required>
                     {% for evento in eventos %}
                         <option value="{{ evento.idEvento }}">{{ evento.idEvento }}</option>

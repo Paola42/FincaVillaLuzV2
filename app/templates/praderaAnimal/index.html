@@ -5,43 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Praderas y Animales</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
-    <div class="container mt-5">
-        <h2 class="mb-4">Lista de Praderas y Animales</h2>    
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Animal</th>
-                    <th>Pradera</th>
-                    <th>Cantidad</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for item in dataPraderaAnimal %}
-                <tr>
-                    <td>{{ item.idPraderaAnimal }}</td>
-                    <td>{{ item.idAnimal }}</td>
-                    <td>{{ item.idPradera }}</td>
-                    <td>{{ item.cantidad }}</td>
-                    <td>
-                        <a href="{{ url_for('praderaAnimal.edit', idPraderaAnimal=item.idPraderaAnimal) }}" class="btn btn-sm btn-warning">Editar</a>
-                        <a href="{{ url_for('praderaAnimal.delete', idPraderaAnimal=item.idPraderaAnimal) }}" class="btn btn-sm btn-warning">eliminar</a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        <a href="{{ url_for('praderaAnimal.add') }}" class="btn btn-primary mb-3">Agregar Nueva Relación Pradera-Animal</a>
-        <a href="{{ url_for('auth.administrador') }}" class="btn btn-primary mb-3">volver a la vista principal</a>
 
+    <!-- Encabezado -->
+    <header class="bg-light p-3 mb-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo d-flex align-items-center">
+                <img src="{{ url_for('static', filename='img/logo_sena.webp') }}" alt="imagen sena" class="img-fluid me-3" style="max-height: 50px;">
+                <h1 class="fs-3 mb-0">Finca Villa Luz</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Lista de Praderas y Animales</h2>    
+
+        <div class="card shadow">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Animal</th>
+                                <th>Pradera</th>
+                                <th>Cantidad</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in dataPraderaAnimal %}
+                            <tr>
+                                <td>{{ item.idPraderaAnimal }}</td>
+                                <td>{{ item.idAnimal }}</td>
+                                <td>{{ item.idPradera }}</td>
+                                <td>{{ item.cantidad }}</td>
+                                <td>
+                                    <a href="{{ url_for('praderaAnimal.edit', idPraderaAnimal=item.idPraderaAnimal) }}" class="btn btn-warning btn-sm">
+                                        <i class="bi bi-pencil-square"></i> Editar
+                                    </a>
+                                    <a href="{{ url_for('praderaAnimal.delete', idPraderaAnimal=item.idPraderaAnimal) }}" class="btn btn-danger btn-sm">
+                                        <i class="bi bi-archive"></i> Eliminar
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between mt-4">
+            <a href="{{ url_for('praderaAnimal.add') }}" class="btn btn-success">
+                <i class="bi bi-plus-circle"></i> Agregar Nueva Relación Pradera-Animal
+            </a>
+            <a href="{{ url_for('auth.administrador') }}" class="btn btn-outline-dark">
+                <i class="bi bi-arrow-left"></i> Volver a la vista principal
+            </a>
+        </div>
     </div>
 
+    <!-- Bootstrap JS, Popper.js y jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,104 +8,134 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #28a745; /* Fondo verde para la página */
+            background-color: #28a745;
+            /* Fondo verde para la página */
         }
+
         h2 {
-            color: black; /* Color negro para el título */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra del texto */
-            text-align: center; /* Centra el título */
-            margin-bottom: 30px; /* Espaciado inferior */
+            color: black;
+            /* Color negro para el título */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            /* Sombra del texto */
+            text-align: center;
+            /* Centra el título */
+            margin-bottom: 30px;
+            /* Espaciado inferior */
         }
+
         .table {
-            background-color: white; /* Fondo blanco para la tabla */
-            border: 2px solid #28a745; /* Borde verde para la tabla */
+            background-color: white;
+            /* Fondo blanco para la tabla */
+            border: 2px solid #28a745;
+            /* Borde verde para la tabla */
         }
-        .table th, .table td {
-            color: black; /* Color negro para el texto de la tabla */
+
+        .table th,
+        .table td {
+            color: black;
+            /* Color negro para el texto de la tabla */
         }
+
         .table th {
-            background-color: #e9ecef; /* Fondo gris claro para el encabezado */
+            background-color: #e9ecef;
+            /* Fondo gris claro para el encabezado */
         }
-        .table-bordered td, .table-bordered th {
-            border-color: #28a745; /* Borde verde */
+
+        .table-bordered td,
+        .table-bordered th {
+            border-color: #28a745;
+            /* Borde verde */
         }
     </style>
 </head>
+
 <body>
+    <header class="bg-light p-3 mb-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo d-flex align-items-center">
+                <img src="{{ url_for('static', filename='img/logo_sena.webp') }}" alt="imagen sena" class="img-fluid me-3" style="max-height: 50px;">
+                <h1 class="fs-3 mb-0">Finca Villa Luz</h1>
+            </div>
+            <a href="{{ url_for('auth.administrador') }}" class="btn btn-outline-dark">
+                <i class="bi bi-arrow-left"></i> Regresar a la Página Principal
+            </a>
+        </div>
+    </header>
 
-<div class="container my-5">
-    <h2>Plan de Vacunación</h2>
-    <table class="table table-bordered table-striped table-hover">
-        <thead>
-            <tr>
-                <th>Vacuna</th>
-                <th>Edad de Vacunación</th>
-                <th>Revacunación</th>
-                <th>Dosis y Vía de Aplicación</th>
-                <th>Observaciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Fiebre Aftosa</td>
-                <td>Todas las edades</td>
-                <td>Cada seis meses</td>
-                <td>2 ml vía subcutánea en la paleta o tabla del cuello</td>
-                <td>Según calendario oficial</td>
-            </tr>
-            <tr>
-                <td>Brucelosis</td>
-                <td>Terneras entre tres y ocho meses</td>
-                <td>Dosis única a terneras</td>
-                <td>2 ml vía subcutánea</td>
-                <td>De acuerdo al programa oficial</td>
-            </tr>
-            <tr>
-                <td>Triple (Carbón sintomático, septicemia, otras clostridiosis)</td>
-                <td>Machos y hembras desde los tres meses</td>
-                <td>15 días después de la primera dosis; luego anualmente</td>
-                <td>2 y 5 ml subcutánea según marca comercial</td>
-                <td>La revacunación a los 15 días después de la primera dosis es indispensable para la efectividad del biológico</td>
-            </tr>
-            <tr>
-                <td>Carbón Bacteridiano</td>
-                <td>De tres meses en adelante</td>
-                <td>21 – 30 días después de la primera, luego anual</td>
-                <td>2 ml vía subcutánea</td>
-                <td>En áreas de presentación</td>
-            </tr>
-            <tr>
-                <td>Rabia Bovina</td>
-                <td>De cuatro meses en adelante</td>
-                <td>Anual</td>
-                <td>2 ml vía intramuscular</td>
-                <td>Según la presentación de la enfermedad en la zona</td>
-            </tr>
-            <tr>
-                <td>IBR – DVB – Leptospirosis (algunas incluyen PI3, Campylobacter)</td>
-                <td>De tres meses en adelante en hembras y machos para reproducción</td>
-                <td>Un mes después de la primera dosis; luego anualmente</td>
-                <td>5 ml intramuscular</td>
-                <td>Aplicación con asesoría del médico veterinario, previo diagnóstico de la enfermedad en el predio</td>
-            </tr>
-            <tr>
-                <td>IBR – DVB – Leptospirosis</td>
-                <td>Hembras de seis meses antes del servicio</td>
-                <td>Al mes, un mes posparto, luego anual</td>
-                <td>5 ml intramuscular</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Anaplasmosis y Babesiosis</td>
-                <td>3 y 12 meses de edad</td>
-                <td>3 y 12 meses de edad</td>
-                <td>2 ml intramuscular (cada vial independiente)</td>
-                <td>Su aplicación requiere asesoría de un médico veterinario</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+    <div class="container my-5">
+        <h2>Plan de Vacunación</h2>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Vacuna</th>
+                    <th>Edad de Vacunación</th>
+                    <th>Revacunación</th>
+                    <th>Dosis y Vía de Aplicación</th>
+                    <th>Observaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Fiebre Aftosa</td>
+                    <td>Todas las edades</td>
+                    <td>Cada seis meses</td>
+                    <td>2 ml vía subcutánea en la paleta o tabla del cuello</td>
+                    <td>Según calendario oficial</td>
+                </tr>
+                <tr>
+                    <td>Brucelosis</td>
+                    <td>Terneras entre tres y ocho meses</td>
+                    <td>Dosis única a terneras</td>
+                    <td>2 ml vía subcutánea</td>
+                    <td>De acuerdo al programa oficial</td>
+                </tr>
+                <tr>
+                    <td>Triple (Carbón sintomático, septicemia, otras clostridiosis)</td>
+                    <td>Machos y hembras desde los tres meses</td>
+                    <td>15 días después de la primera dosis; luego anualmente</td>
+                    <td>2 y 5 ml subcutánea según marca comercial</td>
+                    <td>La revacunación a los 15 días después de la primera dosis es indispensable para la efectividad del biológico</td>
+                </tr>
+                <tr>
+                    <td>Carbón Bacteridiano</td>
+                    <td>De tres meses en adelante</td>
+                    <td>21 – 30 días después de la primera, luego anual</td>
+                    <td>2 ml vía subcutánea</td>
+                    <td>En áreas de presentación</td>
+                </tr>
+                <tr>
+                    <td>Rabia Bovina</td>
+                    <td>De cuatro meses en adelante</td>
+                    <td>Anual</td>
+                    <td>2 ml vía intramuscular</td>
+                    <td>Según la presentación de la enfermedad en la zona</td>
+                </tr>
+                <tr>
+                    <td>IBR – DVB – Leptospirosis (algunas incluyen PI3, Campylobacter)</td>
+                    <td>De tres meses en adelante en hembras y machos para reproducción</td>
+                    <td>Un mes después de la primera dosis; luego anualmente</td>
+                    <td>5 ml intramuscular</td>
+                    <td>Aplicación con asesoría del médico veterinario, previo diagnóstico de la enfermedad en el predio</td>
+                </tr>
+                <tr>
+                    <td>IBR – DVB – Leptospirosis</td>
+                    <td>Hembras de seis meses antes del servicio</td>
+                    <td>Al mes, un mes posparto, luego anual</td>
+                    <td>5 ml intramuscular</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Anaplasmosis y Babesiosis</td>
+                    <td>3 y 12 meses de edad</td>
+                    <td>3 y 12 meses de edad</td>
+                    <td>2 ml intramuscular (cada vial independiente)</td>
+                    <td>Su aplicación requiere asesoría de un médico veterinario</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

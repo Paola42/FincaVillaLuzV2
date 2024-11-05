@@ -1,5 +1,5 @@
-from flask import Blueprint, render_template, redirect, url_for, request, flash, Flask  
-from flask_login import login_user, logout_user, login_required 
+from flask import Blueprint, render_template,session, redirect, url_for, request, flash, Flask  
+from flask_login import login_user, logout_user, login_required
 from flask_mail import Mail, Message
 from itsdangerous import URLSafeTimedSerializer
 from app.models.administradores import Administrador
@@ -58,7 +58,7 @@ def registro():
                 direccionInstructor=direccion, 
                 telefonoInstructor=telefono, 
                 correoInstructor =correo, 
-                PasswordInstructor=password
+                passwordInstructor=password
             )
         
         elif tipo == 'operario':
@@ -100,47 +100,41 @@ def registro():
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        correo= request.form['correo']
+        correo = request.form['correo']
         password = request.form['password']
-       # busca el administrador con las credenciales proporcionadas
-        administrador = Administrador.query.filter_by(correoAdministrador=correo, passwordAdministrador =password).first()
-        
+
+        # Verificar si es un Administrador
+        administrador = Administrador.query.filter_by(correoAdministrador=correo, passwordAdministrador=password).first()
         if administrador:
             login_user(administrador)
-            return render_template('inicio/index.html')
-        if not administrador:
-            flash("Usuario no registrado. Por favor regístrate.", "warning")
-            return redirect(url_for('auth.login'))
-    
-    
+            session['role'] = 'Administrador'  # Almacena el rol en la sesión
+            return redirect(url_for('auth.administrador'))  # Redirige al dashboard del administrador
+
+        # Verificar si es un Aprendiz
         aprendiz = Aprendices.query.filter_by(correoAprendiz=correo, passwordAprendiz=password).first()
-        
         if aprendiz:
             login_user(aprendiz)
-            return render_template('inicio/index1.html')
-        if not administrador:
-            flash("Usuario no registrado. Por favor regístrate.","info")
-            return redirect(url_for('auth.login'))
-        
-        
-        operario = Operarios.query.filter_by( correoOperario=correo, passwordOperario=password).first()
-        
+            session['role'] = 'Aprendiz'  # Almacena el rol en la sesión
+            return redirect(url_for('auth.aprendiz'))  # Redirige al dashboard del aprendiz
+
+        # Verificar si es un Operario
+        operario = Operarios.query.filter_by(correoOperario=correo, passwordOperario=password).first()
         if operario:
             login_user(operario)
-            return render_template('inicio/index3.html')
-        if not administrador:
-            flash("Usuario no registrado. Por favor regístrate.","info")
-            return redirect(url_for('auth.login'))
+            session['role'] = 'Operario'  # Almacena el rol en la sesión
+            return redirect(url_for('auth.operario'))  # Redirige al dashboard del operario
 
-    
-        instructor= Instructores.query.filter_by(correoInstructor=correo,passwordInstructor=password).first()
-        
+        # Verificar si es un Instructor
+        instructor = Instructores.query.filter_by(correoInstructor=correo, passwordInstructor=password).first()
         if instructor:
             login_user(instructor)
-            return render_template('inicio/index2.html')
-        if not administrador:
-            flash("Usuario no registrado. Por favor regístrate.","info")
-            return redirect(url_for('auth.login'))
+            session['role'] = 'Instructor'  # Almacena el rol en la sesión
+            return redirect(url_for('auth.instructor'))  # Redirige al dashboard del instructor
+
+        # Si no se encuentra ningún usuario, mostrar mensaje de error
+        flash("Usuario no registrado. Por favor regístrate.", "info")
+        return redirect(url_for('auth.login'))
+
     return render_template("login/login.html")
 
 

@@ -3,50 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Eventos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    
 </head>
 <body>
-    <div>
-        <h1>Eventos</h1>
-    </div>
-    
-    <table>
-        <div class="table">
-            <tr>
-                <th>ID eventos</th>
-                <th>ID animal</th>
-                <th>ID enfemerdad</th>
-                <th>ID instructor</th>
-                <th>acciones</th>
-
-            </tr>
+    <header class="bg-light p-3 mb-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo d-flex align-items-center">
+                <img src="{{ url_for('static', filename='img/logo_sena.webp') }}" alt="imagen sena" class="img-fluid me-3" style="max-height: 50px;">
+                <h1 class="fs-3 mb-0">Finca Villa Luz</h1>
+            </div>
         </div>
-        {%for evento in eventos %}
-        <tr>
-            <td>{{evento.idEvento}}</td>
-            <td>{{evento.idAnimal}}</td>
-            <td>{{evento.idEnfermedad}}</td>
-            <td>{{evento.idInstructor}}</td>
-            <td>
-        <a href="{{ url_for('evento.edit', id=evento.idEvento) }}">Editar</a>
-        <a href="{{ url_for('evento.delete', id=evento.idEvento) }}">eliminar</a>
-            </td>
-        </tr>
-        {% endfor %}
+    </header>
 
-       
-    </table>
+    <div class="container mt-5">
+        <h1 class="text-center">Eventos</h1>
+        
+        <table class="table table-striped mt-4">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID Eventos</th>
+                    <th>Nombre Animal</th>
+                    <th>Nombre Enfermedad</th>
+                    <th>nombre Instructor</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for evento in eventos %}
+                <tr>
+                    <td>{{ evento.idEvento }}</td>
+                    <td>{{ evento.idAnimal }}</td>
+                    <td>{{ evento.idEnfermedad }}</td>
+                    <td>{{ evento.idInstructor }}</td>
+                    <td>
+                        <a href="{{ url_for('evento.edit', id=evento.idEvento) }}" class="btn btn-primary btn-sm">Editar</a>
+                        <a href="{{ url_for('evento.delete', id=evento.idEvento) }}" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
-    <a href="{{ url_for('evento.add')}}">Ingresar evento</a>
-    <a href="{{ url_for('auth.administrador') }}" class="btn btn-outline-dark">
-        <i class="bi bi-arrow-left"></i> Regresar a la Página Principal
-    </a>
-   
+        <div class="text-center">
+            <a href="{{ url_for('evento.add') }}" class="btn btn-success">Ingresar Evento</a>
+            <a href="{{ url_for('auth.administrador') }}" class="btn btn-outline-dark">
+                <i class="bi bi-arrow-left"></i> Regresar a la Página Principal
+            </a>
+        </div>
+    </div>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

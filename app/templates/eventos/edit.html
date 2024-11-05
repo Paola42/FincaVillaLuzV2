@@ -19,7 +19,7 @@
                     <label for="idAnimal" class="form-label">ID Animal</label>
                     <select class="form-select" id="idAnimal" name="idAnimal" required>
                         {% for animal in animales %}
-                            <option value="{{ animal.idAnimal }}">{{ animal.especieAnimal }}</option>
+                            <option value="{{ animal.especieAnimal }}">{{ animal.especieAnimal }}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -28,7 +28,7 @@
                     <label for="idEnfermedad" class="form-label">ID Enfermedad</label>
                     <select class="form-select" id="idEnfermedad" name="idEnfermedad" required>
                         {% for enfermedad in enfermedades %}
-                            <option value="{{ enfermedad.idEnfermedad }}">{{ enfermedad.nombreEnfermedad }}</option>
+                            <option value="{{ enfermedad.nombreEnfermedad }}">{{ enfermedad.nombreEnfermedad }}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -37,7 +37,7 @@
                     <label for="idInstructor" class="form-label">ID Instructor</label>
                     <select class="form-select" id="idInstructor" name="idInstructor" required>
                         {% for instructor in instructores %}
-                            <option value="{{ instructor.idInstructor }}">{{ instructor.nombreInstructor }}</option>
+                            <option value="{{ instructor.nombreInstructor }}">{{ instructor.nombreInstructor }}</option>
                         {% endfor %}
                     </select>
                 </div>

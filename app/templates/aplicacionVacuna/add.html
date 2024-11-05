@@ -2,82 +2,134 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplicación de Vacuna</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css"> <!-- Si tienes algún estilo personalizado -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Aplicación de Vacuna</title>
+    <style>
+        body {
+            background-color: #f8f9fa; /* Fondo claro */
+            color: #343a40; /* Color de texto principal */
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .overlay {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+        }
+
+        .card-body {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        h2 {
+            color: #28a745; /* Color verde llamativo */
+            text-transform: uppercase;
+            font-weight: 900; /* Mayor peso */
+            font-size: 2rem; /* Tamaño más grande */
+            text-align: center; /* Centrar texto */
+            margin-bottom: 30px; /* Espaciado inferior */
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .btn-primary {
+            background-color: #28a745;
+            border-color: #28a745;
+            border-radius: 30px;
+            padding: 10px 20px;
+            transition: background 0.3s ease;
+            margin-top: 20px; /* Espaciado superior */
+        }
+
+        .btn-primary:hover {
+            background-color: #218838;
+        }
+
+        .btn-secondary {
+            border-radius: 50px;
+            padding: 10px 20px;
+            margin-top: 20px; /* Espaciado superior */
+        }
+    </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <h2 class="text-center mb-4">Aplicar Vacuna</h2>
+    <div class="container">
+        <div class="overlay">
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <div class="text-center mb-4">
+                        <img src="{{ url_for('static', filename='img/logo_sena.webp') }}" alt="Logo SENA" class="img-fluid mb-3" width="150">
+                        <h2>Aplicar Vacuna</h2>
+                    </div>
+                    <form action="{{ url_for('aplicacionvacuna.add') }}" method="POST" class="needs-validation" novalidate>
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
-        <form action="{{ url_for('aplicacionvacuna.add') }}" method="POST" class="needs-validation" novalidate>
-            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <!-- Fecha de Aplicación -->
+                        <div class="mb-3">
+                            <label for="fechaAplicacion" class="form-label">Fecha de Aplicación</label>
+                            <input type="date" class="form-control" id="fechaAplicacion" name="fechaAplicacion" required>
+                            <div class="invalid-feedback">Por favor ingresa una fecha válida.</div>
+                        </div>
 
-            <!-- Fecha de Aplicación -->
-            <div class="mb-3">
-                <label for="fechaAplicacion" class="form-label">Fecha de Aplicación</label>
-                <input type="date" class="form-control" id="fechaAplicacion" name="fechaAplicacion" required>
-                <div class="invalid-feedback">Por favor ingresa una fecha válida.</div>
+                        <!-- ID Animal -->
+                        <div class="mb-3">
+                            <label for="idAnimal" class="form-label">ID Animal</label>
+                            <select class="form-select" id="idAnimal" name="idAnimal" required>
+                                {% for animal in animales %}
+                                    <option value="{{ animal.especieAnimal }}">{{ animal.especieAnimal }}</option>
+                                {% endfor %}
+                            </select>
+                            <div class="invalid-feedback">Selecciona un animal válido.</div>
+                        </div>
+
+                        <!-- ID Vacuna -->
+                        <div class="mb-3">
+                            <label for="idVacuna" class="form-label">ID de la Vacuna</label>
+                            <select class="form-select" id="idVacuna" name="idVacuna" required>
+                                {% for vacuna in vacunas %}
+                                    <option value="{{ vacuna.nombreVacuna }}">{{ vacuna.nombreVacuna }}</option>
+                                {% endfor %}
+                            </select>
+                            <div class="invalid-feedback">Selecciona una vacuna válida.</div>
+                        </div>
+
+                        <!-- ID Instructor -->
+                        <div class="mb-3">
+                            <label for="idInstructor" class="form-label">ID del Instructor</label>
+                            <select class="form-select" id="idInstructor" name="idInstructor" required>
+                                {% for instructor in instructores %}
+                                    <option value="{{ instructor.nombreInstructor }}">{{ instructor.nombreInstructor }}</option>
+                                {% endfor %}
+                            </select>
+                            <div class="invalid-feedback">Selecciona un instructor válido.</div>
+                        </div>
+
+                        <!-- Botón de Enviar -->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Agregar Vacuna</button>
+                            <a class="btn btn-secondary" href="{{ url_for('aplicacionvacuna.index') }}">Volver a la vista Principal</a>
+                        </div>
+                    </form>
+                </div>
             </div>
-
-            <!-- ID Animal -->
-            <div class="mb-3">
-                <label for="idAnimal" class="form-label">ID Animal</label>
-                <select class="form-select" id="idAnimal" name="idAnimal" required>
-                    {% for animal in animales %}
-                        <option value="{{ animal.idAnimal }}">{{ animal.especieAnimal }}</option>
-                    {% endfor %}
-                </select>
-                <div class="invalid-feedback">Selecciona un animal válido.</div>
-            </div>
-
-            <!-- ID Vacuna -->
-            <div class="mb-3">
-                <label for="idVacuna" class="form-label">ID de la Vacuna</label>
-                <select class="form-select" id="idVacuna" name="idVacuna" required>
-                    {% for vacuna in vacunas %}
-                        <option value="{{ vacuna.idVacuna }}">{{ vacuna.nombreVacuna }}</option>
-                    {% endfor %}
-                </select>
-                <div class="invalid-feedback">Selecciona una vacuna válida.</div>
-            </div>
-
-            <!-- ID Instructor -->
-            <div class="mb-3">
-                <label for="idInstructor" class="form-label">ID del Instructor</label>
-                <select class="form-select" id="idInstructor" name="idInstructor" required>
-                    {% for instructor in instructores %}
-                        <option value="{{ instructor.idInstructor }}">{{ instructor.nombreInstructor }}</option>
-                    {% endfor %}
-                </select>
-                <div class="invalid-feedback">Selecciona un instructor válido.</div>
-            </div>
-
-            <!-- Botón de Enviar -->
-            <button type="submit" class="btn btn-primary w-100">Agregar Vacuna</button>
-            <a href="{{url_for('aplicacionvacuna.index')}}">Volver a la vista Principal</a>
-        </form>
+        </div>
     </div>
 
-    <!-- Bootstrap JS (opcional para algunos componentes interactivos) -->
+    <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-        // JavaScript para validación personalizada de Bootstrap
-        (function () {
-            'use strict'
-            const forms = document.querySelectorAll('.needs-validation')
-            Array.prototype.slice.call(forms).forEach(function (form) {
-                form.addEventListener('submit', function (event) {
-                    if (!form.checkValidity()) {
-                        event.preventDefault()
-                        event.stopPropagation()
-                    }
-                    form.classList.add('was-validated')
-                }, false)
-            })
-        })()
-    </script>
 </body>
 </html>

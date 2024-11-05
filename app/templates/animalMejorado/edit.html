@@ -1,110 +1,171 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Editar Animal Mejorado</title>
+    <style>
+        body {
+            background-color: #f8f9fa; /* Fondo claro */
+            color: #343a40; /* Color de texto principal */
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .overlay {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+        }
+
+        .card-body {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #28a745; /* Color verde llamativo */
+            text-transform: uppercase;
+            font-weight: 900; /* Mayor peso */
+            font-size: 2rem; /* Tamaño más grande */
+            text-align: center; /* Centrar texto */
+            margin-bottom: 30px; /* Espaciado inferior */
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .btn-primary {
+            background-color: #28a745;
+            border-color: #28a745;
+            border-radius: 30px;
+            padding: 10px 20px;
+            transition: background 0.3s ease;
+            margin-top: 20px; /* Espaciado superior */
+        }
+
+        .btn-primary:hover {
+            background-color: #218838;
+        }
+
+        .btn-secondary {
+            border-radius: 50px;
+            padding: 10px 20px;
+            margin-top: 20px; /* Espaciado superior */
+        }
+    </style>
 </head>
 <body>
-    <div class="overlay">
-        <h1>Editar Animal Mejorado</h1>
-        <form action="{{ url_for('animalmejorado.edit', idAnimalMejorado=animalMejorado.idAnimalMejorado) }}" method="post">
-            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-            <div class="form-group">
-                <div class="form-group">
-                    <label for="idPadreAportante">id Padre Aportante</label>
-                    <select id="idPadreAportante" name="idPadreAportante" value="{{ animalMejorado.idPadreAportante }}" required>
-                        {% for animal in animales %}
-                            <option value="{{ animal.idAnimal }}">
-                                {{ animal.idAnimal }} - {{ animal.especieAnimal }}
-                            </option>
-                        {% endfor %}
-                    </select>
+    <div class="container">
+        <div class="overlay">
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <div class="text-center mb-4">
+                        <img src="{{ url_for('static', filename='img/logo_sena.webp') }}" alt="Logo SENA" class="img-fluid mb-3" width="150">
+                        <h1>Agregar Animal Mejorado</h1>
+                    </div>
+                    <form action="{{ url_for('animalmejorado.edit', idAnimalMejorado=animalMejorado.idAnimalMejorado) }}" method="post">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+                        <div class="form-group mb-3">
+                            <label for="idPadreAportante">ID Padre Aportante</label>
+                            <select id="idPadreAportante" name="idPadreAportante" class="form-select" required>
+                                {% for animal in animales %}
+                                    <option value="{{ animal.idAnimal }}" {% if animal.idAnimal == animalMejorado.idPadreAportante %}selected{% endif %}>
+                                        {{ animal.idAnimal }} - {{ animal.especieAnimal }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="nombrePadreAportante">Nombre macho aportante</label>
+                            <select id="nombrePadreAportante" name="nombrePadreAportante" class="form-select" required>
+                                {% for animal in animales %}
+                                    <option value="{{ animal.especieAnimal }}" {% if animal.especieAnimal == animalMejorado.nombrePadreAportante %}selected{% endif %}>
+                                        {{ animal.idAnimal }} - {{ animal.especieAnimal }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="razaPadreAportante">Raza del macho</label>
+                            <select id="razaPadreAportante" name="razaPadreAportante" class="form-select" required>
+                                {% for animal in animales %}
+                                    <option value="{{ animal.razaAnimal }}" {% if animal.razaAnimal == animalMejorado.razaPadreAportante %}selected{% endif %}>
+                                        {{ animal.idAnimal }} - {{ animal.razaAnimal }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="idMadreAportante">ID Madre Aportante</label>
+                            <select id="idMadreAportante" name="idMadreAportante" class="form-select" required>
+                                {% for animal in animales %}
+                                    <option value="{{ animal.idAnimal }}" {% if animal.idAnimal == animalMejorado.idMadreAportante %}selected{% endif %}>
+                                        {{ animal.idAnimal }} - {{ animal.especieAnimal }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="nombreMadreAportante">Nombre de la hembra aportante</label>
+                            <select id="nombreMadreAportante" name="nombreMadreAportante" class="form-select" required>
+                                {% for animal in animales %}
+                                    <option value="{{ animal.especieAnimal }}" {% if animal.especieAnimal == animalMejorado.nombreMadreAportante %}selected{% endif %}>
+                                        {{ animal.idAnimal }} - {{ animal.especieAnimal }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="razaMadreAportante">Raza de la hembra</label>
+                            <select id="razaMadreAportante" name="razaMadreAportante" class="form-select" required>
+                                {% for animal in animales %}
+                                    <option value="{{ animal.razaAnimal }}" {% if animal.razaAnimal == animalMejorado.razaMadreAportante %}selected{% endif %}>
+                                        {{ animal.idAnimal }} - {{ animal.razaAnimal }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="idAnimal">Animales Registrados</label>
+                            <select name="idAnimal" id="idAnimal" class="form-select" required>
+                                {% for animal in animales %}
+                                    <option value="{{ animal.idAnimal }}" {% if animal.idAnimal == animalMejorado.idAnimal %}selected{% endif %}>
+                                        {{ animal.idAnimal }} - {{ animal.especieAnimal }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Actualizar Animal Mejorado</button>
+                            <a class="btn btn-secondary" href="{{ url_for('animalmejorado.index') }}">Volver a la vista Principal</a>
+                        </div>
+                    </form>
                 </div>
-                
             </div>
-
-            <div class="form-group">
-                <div class="form-group">
-                    <label for="nombrePadreAportante">nombre macho aportante</label>
-                    <select id="nombrePadreAportante" name="nombrePadreAportante"  value="{{ animalMejorado.nombrePadreAportante }}" required>
-                        {% for animal in animales %}
-                            <option value="{{ animal.especieAnimal }}">
-                                {{ animal.idAnimal }} - {{ animal.especieAnimal }}
-                            </option>
-                        {% endfor %}
-                    </select>
-                </div>
-
-            
-
-            <div class="form-group">
-                <label for="razaPadreAportante">Raza del macho</label>
-                <select id="razaPadreAportante" name="razaPadreAportante"  value="{{ animalMejorado.razaPadreAportante }}" required>
-                    {% for animal in animales %}
-                        <option value="{{ animal.razaAnimal }}">
-                            {{ animal.idAnimal }} - {{ animal.razaAnimal }}
-                        </option>
-                    {% endfor %}
-                </select>
-  
-            </div>
-
-            <div class="form-group">
-                <div class="form-group">
-                    <label for="idMadreAportante">id Madre Aportante</label>
-                    <select id="idMadreAportante" name="idMadreAportante"value="{{ animalMejorado.idMadreAportante }}" required>
-                        {% for animal in animales %}
-                            <option value="{{ animal.idAnimal }}">
-                                {{ animal.idAnimal }} - {{ animal.especieAnimal }}
-                            </option>
-                        {% endfor %}
-                    </select>
-                </div>
-
-            </div>
-            
-            <div class="form-group">
-                <label for="nombreMadreAportante">nombre de la hembra aportante</label>
-                <select id="nombreMadreAportante" name="nombreMadreAportante" value="{{animalMejorado.nombreMadreAportante}}" required>
-                    {% for animal in animales %}
-                        <option value="{{ animal.especieAnimal }}">
-                            {{ animal.idAnimal }} - {{ animal.especieAnimal }}
-                        </option>
-                    {% endfor %}
-                </select>
-                
-            </div>
-
-            <div class="form-group">
-                <label for="razaMadreAportante">Raza de la hembra</label>
-                <select id="razaMadreAportante" name="razaMadreAportante"                  value="{{ animalMejorado.razaMadreAportante}}" required>
-                    {% for animal in animales %}
-                        <option value="{{ animal.razaAnimal }}">
-                            {{ animal.idAnimal }} - {{ animal.razaAnimal }}
-                        </option>
-                    {% endfor %}
-                </select>
-
-            </div>
-
-            <div class="form-group">
-                <label for="idAnimal">Animales Registrados</label>
-                <select name="idAnimal" id="idAnimal" value="{{animalMejorado.idAnimal}}" required>
-                    {% for animal in animales %}
-                        <option value="{{ animal.idAnimal }}">
-                            {{ animal.idAnimal }} - {{ animal.especieAnimal }}
-                        </option>
-                    {% endfor %}
-                </select>
-
-            </div>
-
-            <button type="submit">Actualizar Animal Mejorado</button>
-            <a href="{{url_for('animalmejorado.index')}}">Volver a la vista Principal</a>
-        </form>
+        </div>
     </div>
-</body>
 
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
