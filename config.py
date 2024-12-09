@@ -11,9 +11,10 @@ class Config:
     WTF_CSRF_ENABLED = True  # Activar CSRF
     
     # Configuración de correo
-    MAIL_SERVER = 'smtp.gmail.com'
-    MAIL_PORT = 587
-    MAIL_USE_TLS = True
-    MAIL_USERNAME = 'juanespitia538@gmail.com'
-    MAIL_PASSWORD = 'nyig ysxt rlid shth'  # Esta debe ser tu contraseña de aplicación
-    MAIL_DEFAULT_SENDER = 'juanespitia538@gmail.com'  # Corrige el typo aquí
+MAIL_SERVER = 'smtp.gmail.com'
+MAIL_PORT = 587  # Usa el puerto 587 para TLS
+MAIL_USE_TLS = True # Habilita TLS
+MAIL_USERNAME = 'juanespitia538@gmail.com'
+MAIL_PASSWORD = 'ezad nxka btiy gjsx'  # Esta debe ser tu contraseña de aplicación
+MAIL_DEFAULT_SENDER = 'juanespitia538@gmail.com'  # Corrige el typo aquí
+    

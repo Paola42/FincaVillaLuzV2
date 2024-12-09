@@ -1,23 +1,78 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Instructor</title>
+    <title>Operarios</title>
+    <style>
+        /* Fondo general y tipografía */
+        body {
+            background-color: #f8f9fa; /* Un gris claro para un fondo suave */
+            color: #333; /* Texto oscuro para el contraste */
+            font-family: 'Roboto', sans-serif; /* Fuente moderna */
+        }
+
+        h1, h2 {
+            color: #333; /* Color oscuro para los encabezados */
+        }
+
+        /* Estilo del encabezado */
+        .header-bg {
+            background-color: #fff; /* Fondo blanco para el encabezado */
+            border-bottom: 4px solid #28a745; /* Línea verde más gruesa */
+            padding: 20px 0; /* Espaciado extra */
+        }
+
+        .logo img {
+            max-height: 60px; /* Tamaño del logo un poco más grande */
+        }
+
+        /* Estilo de las tarjetas */
+        .card {
+            border: 2px solid #28a745; /* Borde verde para las tarjetas */
+            border-radius: 10px; /* Bordes ligeramente redondeados */
+            background-color: #fff; /* Fondo blanco para las tarjetas */
+            color: #333; /* Texto oscuro dentro de las tarjetas */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra más suave y discreta */
+            margin-bottom: 20px; /* Margen adicional entre tarjetas */
+        }
+
+        /* Estilo de los botones */
+        .btn-primary {
+            background-color: #28a745; /* Color verde para los botones */
+            border-color: #28a745; /* Color del borde del botón */
+            transition: background-color 0.3s ease; /* Transición suave al hacer hover */
+        }
+
+        .btn-primary:hover {
+            background-color: #218838; /* Color del botón al pasar el cursor */
+        }
+
+        .btn {
+            margin-bottom: 10px; /* Espacio adicional entre botones */
+        }
+
+        /* Otros estilos */
+        .text-dark {
+            color: #333 !important;
+        }
+    </style>
 </head>
+
 <body>
     <!-- Header -->
-    <header class="bg-light p-3 mb-4">
+    <header class="header-bg p-3 mb-4">
         <div class="container d-flex justify-content-between align-items-center">
             <div class="logo d-flex align-items-center">
-                <img src="{{ url_for('static', filename='img/logo_sena.webp') }}" alt="imagen sena" class="img-fluid me-3" style="max-height: 50px;">
-                <h1 class="fs-3 mb-0">Finca Villa Luz</h1>
+                <img src="{{ url_for('static', filename='img/logo_sena.webp') }}" alt="imagen sena" class="img-fluid logo">
+                <h1 class="fs-3 mb-0 text-dark">Finca Villa Luz</h1> <!-- Cambiado a texto oscuro -->
             </div>
             <nav>
-                <a href="{{ url_for('auth.logout') }}" class="btn btn-outline-danger">Cerrar sesión</a>
+                <a href="{{ url_for('auth.logout') }}" class="btn btn-outline-success">Cerrar sesión</a> <!-- Botón de cierre de sesión verde -->
             </nav>
         </div>
     </header>
@@ -26,24 +81,78 @@
     <div class="container text-center">
         <h2 class="fs-3 mb-0">CENTRO AGROEMPRESARIAL DEL ORIENTE</h2>
         <h1 class="mb-4">Bienvenido Operario</h1>
-        
-        <!-- links de la pagina -->
-        
 
-            
-        </div>
-        
-        <!-- Imagen centrada en la página -->
-        <div class="mb-5">
-            <img src="{{ url_for('static', filename='img/logo_sena.webp') }}" alt="Imagen Centrada" class="img-fluid" style="max-width: 70%; height: auto;">
+        <!-- Botones agrupados en tarjetas -->
+        <div class="row mb-5">
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h2 class="fs-5 mb-4">Animales</h2>
+                        <a href="{{ url_for('animal.index') }}" class="btn btn-primary w-100 mb-2">Ver Animales</a>
+                        <a href="{{ url_for('pastoreo.index') }}" class="btn btn-primary w-100 mb-2">Ver Pastoreos</a>
+                        <a href="{{ url_for('forraje.index') }}" class="btn btn-primary w-100">Ver Forrajes</a>
+                        <a href="{{ url_for('pradera.index') }}" class="btn btn-primary w-100">Ver praderas</a>
+                        <a href="{{ url_for('praderaAnimal.index') }}" class="btn btn-primary w-100">Ver los animales en las praderas</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h2 class="fs-5 mb-4">Usuarios</h2>
+                        <a href="{{ url_for('instructor.index') }}" class="btn btn-primary w-100 mb-2">Ver Instructores</a>
+                        <a href="{{ url_for('aprendiz.index') }}" class="btn btn-primary w-100 mb-2">Ver Aprendices</a>
+                        <a href="{{ url_for('operario.index') }}" class="btn btn-primary w-100 mb-2">Ver Operarios</a>
+                        <a href="{{ url_for('administrador.index') }}" class="btn btn-primary w-100">Ver Administradores</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h2 class="fs-5 mb-4">Sanidad</h2>
+                        <a href="{{ url_for('vacuna.index') }}" class="btn btn-primary w-100 mb-2">Ver Vacunas Registradas</a>
+                        <a href="{{ url_for('aplicacionvacuna.index') }}" class="btn btn-primary w-100 mb-2">Ver Vacunas Aplicadas</a>
+                        <a href="{{ url_for('medicamento.index') }}" class="btn btn-primary w-100">Ver Medicamentos Registrados</a>
+                        <a href="{{ url_for('auth.planNacional') }}" class="btn btn-primary w-100">Plan Nacional</a>
+                    </div>
+                </div>
+            </div>
         </div>
 
-       
-       
+        <!-- Sección de reproducción y mejoramiento genético -->
+        <div class="row mb-5">
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h2 class="fs-5 mb-4">Reproducción</h2>
+                        <a href="{{ url_for('animalmejorado.index') }}" class="btn btn-primary w-100 mb-2">Ver Animales Mejorados</a>
+                        <a href="{{ url_for('control.index') }}" class="btn btn-primary w-100 mb-2">Ver Lista de Controles</a>
+                        <a href="{{ url_for('mejoramientogenetico.index') }}" class="btn btn-primary w-100">Ver Mejoramiento Genético</a>
+                        <a href="{{ url_for('control.index') }}" class="btn btn-primary w-100">Ver controles</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h2 class="fs-5 mb-4">Eventos y Enfermedades</h2>
+                        <a href="{{ url_for('evento.index') }}" class="btn btn-primary w-100 mb-2">Ver Eventos Registrados</a>
+                        <a href="{{ url_for('enfermedad.index') }}" class="btn btn-primary w-100 mb-2">Ver Enfermedades Registradas</a>
+                        <a href="{{ url_for('tratamiento.index') }}" class="btn btn-primary w-100">Ver Tratamientos Registrados</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Bootstrap 5 JS (opcional si necesitas componentes interactivos) -->
+    <!-- Scripts de Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
+

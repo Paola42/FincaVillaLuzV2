@@ -36,11 +36,11 @@
             </div>  
 
             <div class="form-group">
-                <label for="animalMejorado">N° Animal mejorado</label>
+                <label for="animalMejorado">Nombre Animal Mejorado</label>
                 <select id="animalMejorado" name="animalMejorado" required>
                     {% for animal in animales %}
-                    <option value="{{animal.idAnimalMejorado}}">
-                        {{animal. idAnimalMejorado}}</option>
+                    <option value="{{animal.especieAnimal}}">
+                        {{animal.especieAnimal}}</option>
                     {% endfor %}
                 </select>
             </div>  

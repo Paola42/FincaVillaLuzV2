@@ -26,6 +26,7 @@ def add():
 
     return render_template('aprendiz/add.html')
 
+
 @bp.route('/aprendiz/edit/<int:id>', methods=['GET', 'POST'])
 def edit(id):
     aprendiz = Aprendices.query.get_or_404(id)

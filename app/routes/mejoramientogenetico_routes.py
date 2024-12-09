@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, jsonify
 from app.models.mejoramientosGeneticos import MejoramientosGeneticos
 from app.models.animalesMejorados import AnimalesMejorados
+from app.models.animales import Animales
 from app import db
 from datetime import datetime
 #   Rutas - Mejoramientos Genéticos
@@ -33,6 +34,7 @@ def add():
         return redirect(url_for('mejoramientogenetico.index'))
     
     animal = AnimalesMejorados.query.all()
+   
 
     return render_template('mejoramientogenetico/add.html', animales=animal)
 

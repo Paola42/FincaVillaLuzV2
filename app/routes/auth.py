@@ -122,7 +122,7 @@ def login():
         if operario:
             login_user(operario)
             session['role'] = 'Operario'  # Almacena el rol en la sesión
-            return redirect(url_for('auth.operario'))  # Redirige al dashboard del operario
+            return redirect(url_for('auth.salida_operario'))  # Redirige al dashboard del operario
 
         # Verificar si es un Instructor
         instructor = Instructores.query.filter_by(correoInstructor=correo, passwordInstructor=password).first()
@@ -132,7 +132,7 @@ def login():
             return redirect(url_for('auth.instructor'))  # Redirige al dashboard del instructor
 
         # Si no se encuentra ningún usuario, mostrar mensaje de error
-        flash("Usuario no registrado. Por favor regístrate.", "info")
+        flash("error de inicio de seccion", "info")
         return redirect(url_for('auth.login'))
 
     return render_template("login/login.html")
@@ -168,6 +168,10 @@ def principal2():
 
 #-----------------------------------------------------recuperacion de contraseña por gmail---------------------------------------------------
 
+@auth_bp.route('/aprendiz')
+def aprendiz():
+    
+    return render_template('inicio/index1.html')
 
 
 @auth_bp.route('/restablecer_contraseña')
@@ -185,10 +189,22 @@ def recuperacion():
 @auth_bp.route('/solicitar_restablecimiento', methods=['POST'])
 def solicitar_restablecimiento():
     email = request.form['email']
+    
+    # Validar que el correo exista en la base de datos
+    from app.models.administradores import Administrador
+    usuario = Administrador.query.filter_by(correoAdministrador=email).first()
+    if not usuario:
+        flash('El correo no está registrado.', 'error')
+        return redirect(url_for('auth.restablecer_contraseña'))
+
+    # Generar el token
     token = s.dumps(email, salt='email-reset-salt')
     link = url_for('auth.recuperacion', token=token, _external=True)
 
-    msg = Message('usted ha solicitado la recuperación de su contraseña', sender='juanespitia538@gmail.com', recipients=['email'])
+    # Crear el mensaje de correo
+    msg = Message('Usted ha solicitado la recuperación de su contraseña',
+                  sender='juanespitia538@gmail.com',
+                  recipients=[email])  # Usa el email dinámico
     msg.body = f'Para restablecer tu contraseña, haz clic en el siguiente enlace: {link}'
     
     try:
@@ -200,7 +216,8 @@ def solicitar_restablecimiento():
     return redirect(url_for('auth.restablecer_contraseña'))
 
 
-@auth_bp.route('/restablecer_contraseña/<token>', methods=['GET', 'POST'])
+
+@auth_bp.route('/restablecer_contraseña/<token>', methods=['POST'])
 def restablecer_contrasena(token):
     if request.method == 'POST':
             password = request.form['password']
@@ -263,7 +280,6 @@ def salida_operario():
 def planNacional():
     return render_template('aplicacionVacuna/planNacional.html')
  
-
 
 
 
